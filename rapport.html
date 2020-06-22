@@ -2,24 +2,23 @@
     <title>IFT2255 DM1 Equipe 16</title>
     <style type="text/css">
 		body
-		{	
-			max-width:75%;
-			margin:auto;
+		{	width : 80%;
+			margin : auto;
+			margin-top : 25px;
+			margin-bottom : 25px;
+			padding : 25px;
+			background-color : #fff;
+			border : 2px solid rgba(0,0,0,0);
+			border-radius : 5px;
 		}
 		}
-        table
-        {
-            border: outset 2px black;
-            border-collapse: collapse;
-        }
-        th,td
-        {
-            border-bottom: double 2px black;
-        }
-        .first_col
-        {
-            border-right: double 2px black;
-        }
+        table {
+			border : outset 2px black;
+			border-collapse : collapse;
+		}
+		th { border-bottom : double 2px black; }
+		td { border-bottom : solid 1px black; }
+		.first_col { border-right : double 2px black; }
     </style>
 </head>
 <body>
@@ -32,7 +31,7 @@
         <br>
         <span style="font-weight: bold;">Matricule: </span>
         <br>
-        <span style="font-weight: bold;">Courriel: </span>
+        <span style="font-weight: bold;">Courriel: </span>maxime.lechasseur@umontreal.ca
         <br>
         <span style="font-weight: bold;">temps mis: </span>
     </p>
@@ -50,19 +49,82 @@
         <br>
         <span style="font-weight: bold;">Matricule: </span>
         <br>
-        <span style="font-weight: bold;">Courriel: </span>
+        <span style="font-weight: bold;">Courriel: </span>han.zhang@umontreal.ca
         <br>
         <span style="font-weight: bold;">temps mis: </span>
     </p>
-    <h2>
-        Distribution des tâches</h2>
-    <p>
-        <span style="font-weight: bold;">Soumetteur: </span>
-    </p>
-    <table cellpadding="7px">
-        
-    </table>
-    
+    <h2>Distribution des tâches</h2>
+			<p><span class="motGras">Soumissionaire :</span> Qiao Wang</p>
+
+			<table cellpadding="7px">
+				<thead>
+					<tr>
+						<th class="first_col">Tâche</th>
+						<th>Maxime</th>
+						<th>Qiao</th>
+						<th>Han</th>
+					</tr>
+				</thead>
+
+				<tbody>
+					<tr>
+						<td class="first_col">Glossaire</td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td class="first_col">Diagramme de cas d'utilisation</td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td class="first_col">Cas d'utilisation</td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td class="first_col">Risques</td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td class="first_col">Exigences non-fonctionnelles</td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td class="first_col">Analyse</td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td class="first_col">Diagramme d'activité UML</td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+				</tbody>
+			</table>
+	<h2>Hypothèses</h2>
+	<p>Services offert par #GYM:
+				<ul>
+					<li>Adhérer client ou professionnel au #GYM</li>
+					<li>Enregistrer numéro de membre unique dans le Centre de Donnés</li>
+					<li>Validation du numéro de membre: « Numéro invalide » ou « Membre suspendu »</li>
+					<li>Créer une séance</li>
+					<li>Rechercher une séance dans le Répertoire des Services</li>
+					<li>Confirmer l'inscription du membre à une séance par une requête</li>
+					<li>Vérifier l'inscription à une séance</li>
+					<li>Consulter les inscriptions dans une séance</li>
+					<li>Confirmer la présence à une séance.</li>
+				</ul>
+	</p>
     <h2>
         Tâche 1:Glossaire</h2>
     <p>
@@ -76,27 +138,10 @@
     <p>
         Identifiez les différents cas d'utilisation du système à construire. Vous devez les représenter sous forme d'un diagramme de cas d'utilisation UML en utilisant l'outil Visual Paradigm (VPP). Vous serez également évalué sur l'utilisation appropriée des éléments UML. Un ordre de grandeur d'une dizaine de cas d'utilisations est attendu.
 
-Tâche 3 : Cas d'utilisation
     </p>
 	<h2>
         Tâche 3: Cas d'utilisation</h2>
-	<p>
-     </p><pre style="font-family: &#39;Open Sans&#39;, sans-serif;">    <span style="font-weight: bold;">Cas d'utilisation :</span> nom du CU en expression verbale.
-    <span style="font-weight: bold;">But :</span> mise en contexte, description brève, préconditions nécessaires.
-    <span style="font-weight: bold;">Préconditions :</span> préconditions nécessaires avant d'entammer le scéanrio principal.
-    <span style="font-weight: bold;">Acteurs :</span> Acteur 1 (principal), Acteur 2 (secondaire).
-    <span style="font-weight: bold;">Scénario principal :</span> description étape par étape, ordonnée numériquement
-    1. Étape 1
-      1.1. Étape 1.1
-    2. Étape 2
-    3. Étape 3
-    <span style="font-weight: bold;">Scénarios alternatifs :</span> ramifications du déroulement principal, alternatives possible à certaines étapes
-    1a.1. remplace étape 1 du scenario principal
-    1b.1. autre remplacement de la même étape
-    1b.2. suit 1b.1 indépendamment du scenario principal
-    <span style="font-weight: bold;">Postconditions :</span> État du système lorsque le scénario principal achève avec succès.</pre>
-<p></p>   
-    </p>
+	
 	<h2>
         Tâche 4: Risques</h2>
 	<p>
