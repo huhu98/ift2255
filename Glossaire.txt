@@ -17,3 +17,27 @@ octroyée
 tests d'acceptation
 interactions avec l'ordinateur
 console Java
+
+Client: Une personne qui pourrait être un Potentiel membre qui n'est pas encore inscrit à l'établissement.
+
+Membre: Une personne inscrite à l'établissement et qui a accès aux produits offerts par la compagnie.
+
+Professionnel (Pro): Une personne qui offre des services, dans l'établissement, aux nombreux membres inscris à l'établissement.
+
+Agent: Le personnel qui travail au sein de l'établissement et qui s'assure de l'authentification des membres et des professionnels à l'entrée.
+
+Service: Les différentes activités physiques offertent aux memebres incluant des cours et etc.
+
+Cours: Activités physique offertent par des professionnels et, dont les membres ont accès lors de la finalisation de leur inscription.
+
+Centre de donnée: Une base de donnée qui recouvre toutes les informations personnelles des membres ainsi que les professionnels de l'établissement et qui génère un chiffre unique comme identifiant leur de l'inscription de ceux-ci au #GYM.
+
+Numéro du professionnel: Un numéro unique généré automatiquement par le centre de donnée de l'établissement fourni aux professionnels suite à leur inscription afin qu'ils puissent offrirent des services.  
+
+Numéro du membre:  Un numéro unique généré automatiquement par le centre de donnée de l'établissement fourni aux membres suite à leur inscription afin qu'ils puissent fréquenter le gymnase. 
+ 
+Code du service: Un numéro attribué à un type de cours ou d'autres services.
+
+Entrée/Accès: Processus par lequel le membre est identifié par l'agent présent.
+
+#GYM: L'entreprise à qui l'établissement appartient.
