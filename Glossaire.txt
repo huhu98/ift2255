@@ -1,0 +1,19 @@
+#GYM
+nutritionniste
+physiothérapeute
+massothérapeute
+agent
+système central
+Centre de Données #GYM
+membre
+accès
+logiciel
+tourniquet
+enregistrement sur le disque
+professionnel
+requête
+Répertoire des Services
+octroyée
+tests d'acceptation
+interactions avec l'ordinateur
+console Java
