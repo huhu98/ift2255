@@ -11,7 +11,8 @@
 			border : 2px solid rgba(0,0,0,0);
 			border-radius : 5px;
 		}
-		}
+		li{
+		padding:5 0 0 0;}
         table {
 			border : outset 2px black;
 			border-collapse : collapse;
@@ -19,6 +20,9 @@
 		th { border-bottom : double 2px black; }
 		td { border-bottom : solid 1px black; }
 		.first_col { border-right : double 2px black; }
+		.bold{
+			font-weight : bold;
+		}
     </style>
 </head>
 <body>
@@ -27,7 +31,7 @@
     <h2>
         Information générale</h2>
     <p>
-        <span style="font-weight: bold;">Nom: </span>Maxime lechasseur
+        <span style="font-weight: bold;">Nom: </span>Maxime Lechasseur
         <br>
         <span style="font-weight: bold;">Matricule: </span>
         <br>
@@ -47,7 +51,7 @@
 	<p>
         <span style="font-weight: bold;">Nom: </span>Han Zhang
         <br>
-        <span style="font-weight: bold;">Matricule: </span>
+        <span style="font-weight: bold;">Matricule: </span> 20144330
         <br>
         <span style="font-weight: bold;">Courriel: </span>han.zhang@umontreal.ca
         <br>
@@ -127,13 +131,33 @@
 	</p>
     <h2>
         Tâche 1:Glossaire</h2>
-    <p>
-        <!-- ------------------------->
+    <ul style="list-style-type: none;padding:0;">
+        <li><span class="bold">Client:</span> Une personne qui pourrait être un Potentiel membre qui n'est pas encore inscrit à l'établissement.</li>
+
+		<li><span class="bold">Membre:</span> Une personne inscrite à l'établissement et qui a accès aux produits offerts par la compagnie.</li>
+
+		<li><span class="bold">Professionnel (Pro):</span> Une personne qui offre des services, dans l'établissement, aux nombreux membres inscris à l'établissement.</li>
+
+		<li><span class="bold">Agent:</span> Le personnel qui travail au sein de l'établissement et qui s'assure de l'authentification des membres et des professionnels à l'entrée.</li>
+
+		<li><span class="bold">Service: </span>Les différentes activités physiques offertent aux memebres incluant des cours et etc.</li>
+
+		<li><span class="bold">Cours: </span>Activités physique offertent par des professionnels et, dont les membres ont accès lors de la finalisation de leur inscription.</li>
+
+		<li><span class="bold">Centre de donnée:</span> Une base de donnée qui recouvre toutes les informations personnelles des membres ainsi que les professionnels de l'établissement et qui génère un chiffre unique comme identifiant leur de l'inscription de ceux-ci au #GYM.</li>
+
+		<li><span class="bold">Numéro du professionnel:</span> Un numéro unique généré automatiquement par le centre de donnée de l'établissement fourni aux professionnels suite à leur inscription afin qu'ils puissent offrirent des services.  </li>
+
+		<li><span class="bold">Numéro du membre:</span>  Un numéro unique généré automatiquement par le centre de donnée de l'établissement fourni aux membres suite à leur inscription afin qu'ils puissent fréquenter le gymnase. </li>
+ 
+		<li><span class="bold">Code du service: </span>Un numéro attribué à un type de cours ou d'autres services.</li>
+
+		<li><span class="bold">Entrée/Accès: </span>Processus par lequel le membre est identifié par l'agent présent.</li>
+
+		<li><span class="bold">#GYM: </span>L'entreprise à qui l'établissement appartient.</li>
     
-    <ul>
         
     </ul>
-	</p>
     <h2>
         Tâche 2:Diagramme de cas d'utilisation UML</h2>
     <p>
@@ -152,6 +176,21 @@
         Tâche 5: Exigences non-fonctionnelles</h2>
 	<p>
 		Identifiez 5 besoins ou contraintes non-fonctionnelles du système.
+		<ul>
+		<li><b>Performance</b><br>
+		Le système doit répondre aux demandes assez rapidement pour servir simultanément les clients.</li>
+		<li><b>Stockage du serveur</b><br>
+		Le stockage du serveur doit avoir un capacité qui satisfait la
+		quantité des données enregistrées</li>
+		<li><b>Utilisabilité</b><br>
+		L'interface du système doit être assez facile à manipuler pour les agents.
+		</li>
+		<li><b>Fiabilité</b><br>
+		Le système ne tombe pas en panne si une erreur se produit. L'erreur et
+		l'exception doivent être bien gérées. Le système doit connecter de manière stable au Centre de donnée.</li>
+		<li><b>Langage de programmation</b><br>
+		Java</li>
+		</ul>
     </p>
 	<h2>
         Tâche 6: Analyse</h2>
