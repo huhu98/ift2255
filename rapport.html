@@ -37,26 +37,26 @@
 			font-weight: bold;
 
 		}
-		
+
 		#divCU {
-			display : flex;
-			flex-direction : row;
-			flex-wrap : wrap;
+			display: flex;
+			flex-direction: row;
+			flex-wrap: wrap;
 		}
 
 		#divCU div {
-			width : 30%;
-			border : 1px black solid;
-			padding : 10px;
-			margin : 4px;
+			width: 30%;
+			border: 1px black solid;
+			padding: 10px;
+			margin: 4px;
 		}
-		img{
-			
-			  display: block;
-			  margin-left: auto;
-			  margin-right: auto;
-			  width: 50%;
-		}
+
+		img {
+
+			display: block;
+			margin-left: auto;
+			margin-right: auto;
+			width: 50%;
 		}
 	</style>
 </head>
@@ -168,7 +168,7 @@
 	<h2>
 		Tâche 1:Glossaire</h2>
 	<ul style="list-style-type: none;padding:0;">
-		<li><span class="bold">Client:</span> Une personne qui pourrait être un Potentiel membre qui n'est pas encore
+		<li><span class="bold">Client:</span> Membre potentiel qui n'est pas encore
 			inscrit à l'établissement.</li>
 
 		<li><span class="bold">Membre:</span> Une personne inscrite à l'établissement et qui a accès aux produits
@@ -195,7 +195,7 @@
 			des services. </li>
 
 		<li><span class="bold">Numéro du membre:</span> Un numéro unique généré automatiquement par le centre de donnée
-			de l'établissement fourni aux membres suite à leur inscription afin qu'ils puissent fréquenter le gymnase.
+			de l'établissement est fourni aux membres suite à leur inscription afin qu'ils puissent fréquenter le gym.
 		</li>
 
 		<li><span class="bold">Code du service: </span>Un numéro attribué à un type de cours ou d'autres services.</li>
@@ -213,152 +213,166 @@
 		Identifiez les différents cas d'utilisation du système à construire. Vous devez les représenter sous forme d'un
 		diagramme de cas d'utilisation UML en utilisant l'outil Visual Paradigm (VPP). Vous serez également évalué sur
 		l'utilisation appropriée des éléments UML. Un ordre de grandeur d'une dizaine de cas d'utilisations est attendu.
-		<a href ="DCU.png"><img src ="DCU.png" alt="diagram CU"></a>
+		<a href="DCU.png"><img src="DCU.png" alt="diagram CU"></a>
 
 	</p>
 	<h2>
 		Tâche 3: Cas d'utilisation</h2>
-	<div id="divCU">	
-	<div>
-    <span class="bold">Cas d'utilisation : </span>Création d'une séance<br>
-	<span class="bold">But :</span>Processus par lequel le professionnel peut demander à l'agent de créer un cours.<br>
-    <span class="bold">Préconditions: </span>Le professionnel doit être inscrit dans le Centre de Données du #GYM et avoir un numéro unique valide.<br>
-    <span class="bold">Acteurs:</span> Professionnel(principal), Agent(secondaire)<br>
-	<span class="bold">Scénario principal : </span>
-        <ol>
-            <li>Le professionnel demande au comptoir de créer une nouvelle séance. 
-            </li>
-            <li>l'agent envoie les informations à remplir
-            </li>
-            <li>Le professionnel remplit les informations demandées.
-            </li>
-            <li>L'agent confirme les informations remisent par le professionnel en enregistrant celles-ci dans le Centre de Données.
-            </li>
-            <li>Le Centre de Données créer un numéro à sept chiffres pour identifier la séance.
-            </li>
-            <li>Le Centre de Données créer une plage horraire disponible pour les membres afin qu'ils s'inscrivent.
-            </li>
-        </ol>
+	<div id="divCU">
+		<div>
+			<span class="bold">Cas d'utilisation : </span>Création d'une séance<br>
+			<span class="bold">But :</span>Processus par lequel le professionnel peut demander à l'agent de créer un
+			cours.<br>
+			<span class="bold">Préconditions: </span>Le professionnel doit être inscrit dans le Centre de Données du
+			#GYM et avoir un numéro unique valide.<br>
+			<span class="bold">Acteurs:</span> Professionnel(principal), Agent(secondaire)<br>
+			<span class="bold">Scénario principal : </span>
+			<ol>
+				<li>Le professionnel demande au comptoir de créer une nouvelle séance.
+				</li>
+				<li>l'agent envoie les informations à remplir
+				</li>
+				<li>Le professionnel remplit les informations demandées.
+				</li>
+				<li>L'agent confirme les informations remisent par le professionnel en enregistrant celles-ci dans le
+					Centre de Données.
+				</li>
+				<li>Le Centre de Données créer un numéro à sept chiffres pour identifier la séance.
+				</li>
+				<li>Le Centre de Données créer une plage horraire disponible pour les membres afin qu'ils s'inscrivent.
+				</li>
+			</ol>
 		</div>
-	<div>
-    <span class="bold">Cas d'utilisation : </span>Inscription au #GYM<br>
-	<span class="bold">But :</span>Processus qui sert à créer le profil du professionnel ou du membre afin que celui-ci offre ses services dans l'établissement. préconditions nécessaires.<br>
-	<span class="bold">Préconditions :</span> Le professionnel ou le client ne doivent pas être déja inscrits dans le Centre de Données et avoir ses informations valides avec lui.<br>
-	<span class="bold">Acteurs:</span> Professionnel/ Client(principal), Agent(secondaire)<br>
-    <span class="bold">Scénario principal : </span>    
-		<ol>
-            <li> Le professionnel/client se présente au comptoir d'accueil.
-            </li>
-            <li>L'agent se créer une page pour créer une nouveau profil tout en lui de mandant ses informations personnelles.
-            </li>
-            <li>Le professionnel/client lui donne ses informations.
-            </li>
-            <li>L'agent enregistre les informations dans le Centre de Données
-            </li>
-            <li>Le Centre de Données enregistre les informations.
-            </li>
-            <li>Le Centre de Données créer le profil du professionnel/membre dans sa base de donnée.
-            </li>
-            <li>Le Centre de Données assigne un numéro unique au professionnel/membre pour l'authentifier.
-            </li>
-        </ol>
-    <span class="bold">Postconditions : </span>
-        <p> 1. L'inscription du professionnel ou du client est enregistré sur le disque.<br>
-            2. La date et l'heure de l'enregistrement est inscrite dans le dossier grâce au Centre de Données.
-        </p>
-        </div>
-     <div>
-	<span class="bold">Cas d'utilisation : </span>Inscription aux séances<br>
-	<span class="bold">But :</span> Inscrire le client au séance disponible dans le Répertoires des Services<br>
-	<span class="bold">Préconditions : </span><br>
-		a. Le client s'inscrit au #GYM<br>
-	<span class="bold">Acteurs : </span>
-		Client (principal), Agent (secondaire).<br>
-	<span class="bold">Scénario principal : </span>
-		<p>
-		1. Le client se présente au comptoir d'accueil.<br>
-		2. Le client demande à l'agent de l'inscrire à un cours à la reception.<br>
-		3. Aller au cas "Consultation Répertoire des Services".<br>
-		4. Le client choisi et sélectionne une séance.<br>
-		5. Aller au cas "Confirmation d'inscription de séance".<br>
-		</p>
-	<span class="bold">Scénarios alternatifs : </span>
-		<p>
-		4a.1 Le client n'interesse à aucune séance.<br>
-		4a.2 Le client décide de seulement accéder au #GYM.<br>
-		4a.3 Passer au cas "Validation accès".
-		</p>
-	</div>
+		<div>
+			<span class="bold">Cas d'utilisation : </span>Inscription au #GYM<br>
+			<span class="bold">But :</span>Processus qui sert à créer le profil du professionnel ou du membre afin que
+			celui-ci offre ses services dans l'établissement. préconditions nécessaires.<br>
+			<span class="bold">Préconditions :</span> Le professionnel ou le client ne doivent pas être déja inscrits
+			dans le Centre de Données et avoir ses informations valides avec lui.<br>
+			<span class="bold">Acteurs:</span> Professionnel/ Client(principal), Agent(secondaire)<br>
+			<span class="bold">Scénario principal : </span>
+			<ol>
+				<li> Le professionnel/client se présente au comptoir d'accueil.
+				</li>
+				<li>L'agent se créer une page pour créer une nouveau profil tout en lui de mandant ses informations
+					personnelles.
+				</li>
+				<li>Le professionnel/client lui donne ses informations.
+				</li>
+				<li>L'agent enregistre les informations dans le Centre de Données
+				</li>
+				<li>Le Centre de Données enregistre les informations.
+				</li>
+				<li>Le Centre de Données créer le profil du professionnel/membre dans sa base de donnée.
+				</li>
+				<li>Le Centre de Données assigne un numéro unique au professionnel/membre pour l'authentifier.
+				</li>
+			</ol>
+			<span class="bold">Postconditions : </span>
+			<p> 1. L'inscription du professionnel ou du client est enregistré sur le disque.<br>
+				2. La date et l'heure de l'enregistrement est inscrite dans le dossier grâce au Centre de Données.
+			</p>
+		</div>
+		<div>
+			<span class="bold">Cas d'utilisation : </span>Inscription aux séances<br>
+			<span class="bold">But :</span> Inscrire le client au séance disponible dans le Répertoires des Services<br>
+			<span class="bold">Préconditions : </span><br>
+			a. Le client s'inscrit au #GYM<br>
+			<span class="bold">Acteurs : </span>
+			Client (principal), Agent (secondaire).<br>
+			<span class="bold">Scénario principal : </span>
+			<p>
+				1. Le client se présente au comptoir d'accueil.<br>
+				2. Le client demande à l'agent de l'inscrire à un cours à la reception.<br>
+				3. Aller au cas "Consultation Répertoire des Services".<br>
+				4. Le client choisi et sélectionne une séance.<br>
+				5. Aller au cas "Confirmation d'inscription de séance".<br>
+			</p>
+			<span class="bold">Scénarios alternatifs : </span>
+			<p>
+				4a.1 Le client n'interesse à aucune séance.<br>
+				4a.2 Le client décide de seulement accéder au #GYM.<br>
+				4a.3 Passer au cas "Validation accès".
+			</p>
+		</div>
 
-	<div>
-	<span class="bold">Cas d'utilisation : </span>Confirmation d'inscription de séance<br>
-	<span class="bold">But :</span> Confimer l'inscription du client à une séance qu'il a choisi.<br>
-	<span class="bold">Préconditions : </span><br>
-		a. Le client s'inscrit au #GYM et a son numéro de membre.<br>
-		b. Le client est dans le cas "Inscription aux séances".<br>
-	<span class="bold">Acteurs : </span>
-		Client (principal), Agent (secondaire).<br>
-	<span class="bold">Scénario principal : </span>
-		<p>
-		1. Le client donne son numéro de membre.<br>
-		2. L'agent entre son numéro de membre.<br>
-		3. Le logiciel crée un enregistrement sur le disque qui contient les champs suivants: Date et heure actuelles,Date à laquelle le service sera fourni, Numéro du professionnel, Numéro du membre, Code du service, Commentaires.<br>
-		</p>
-	<span class="bold">Scénarios alternatifs : </span>
-		<p>
-		3a.1 Le numéro de membre est invalide.<br>
-		3a.2 L'agent dit au client qu'il est suspendu.<br>
-		</p>
-	<span class="bold">Postconditions : </span>
-		 L'inscription du client à la séance est enregistré sur le disque .<br>
-	</div>
+		<div>
+			<span class="bold">Cas d'utilisation : </span>Confirmation d'inscription de séance<br>
+			<span class="bold">But :</span> Confimer l'inscription du client à une séance qu'il a choisi.<br>
+			<span class="bold">Préconditions : </span><br>
+			a. Le client s'inscrit au #GYM et a son numéro de membre.<br>
+			b. Le client est dans le cas "Inscription aux séances".<br>
+			<span class="bold">Acteurs : </span>
+			Client (principal), Agent (secondaire).<br>
+			<span class="bold">Scénario principal : </span>
+			<p>
+				1. Le client donne son numéro de membre.<br>
+				2. L'agent entre son numéro de membre.<br>
+				3. Le logiciel crée un enregistrement sur le disque qui contient les champs suivants: Date et heure
+				actuelles,Date à laquelle le service sera fourni, Numéro du professionnel, Numéro du membre, Code du
+				service, Commentaires.<br>
+			</p>
+			<span class="bold">Scénarios alternatifs : </span>
+			<p>
+				3a.1 Le numéro de membre est invalide.<br>
+				3a.2 L'agent dit au client qu'il est suspendu.<br>
+			</p>
+			<span class="bold">Postconditions : </span>
+			L'inscription du client à la séance est enregistré sur le disque .<br>
+		</div>
 
-	<div>
-	<span class="bold">Cas d'utilisation : </span>Consultation Répertoire des Services<br>
-	<span class="bold">But :</span> Trouver la/les séance.s disponible.s dans le Répertoire des Services<br>
-	<span class="bold">Préconditions : </span><br>
-		a. Le client s'inscrit au #GYM<br>
-		b. Le client est dans le cas "Inscription aux séances" ou "Confirmation présence à une séance"<br>
-	<span class="bold">Acteurs : </span>
-		Client (principal), Agent (secondaire).<br>
-	<span class="bold">Scénario principal : </span>
-		<p>
-		1. L'agent ouvre le Répertoire des Services dans le menu du logiciel.<br>
-		2. Le Répertoire des Services liste les séances disponible.<br>
-		3. Retourne au cas "Inscription aux séances".
-		</p>
-	<span class="bold">Scénarios alternatifs : </span>
-		<p>
-		2a.1 L'agent demande au client le code de service.<br>
-		2a.2 L'agent entre un code de service approprié à sept chiffres.<br>
-		2a.3 Le Répertoire des Services liste la séance avec le code correspondant<br>
-		3a. Retourne au cas "Confirmation présence à une séance"
-		</p>
-	</div>
+		<div>
+			<span class="bold">Cas d'utilisation : </span>Consultation Répertoire des Services<br>
+			<span class="bold">But :</span> Trouver la/les séance.s disponible.s dans le Répertoire des Services<br>
+			<span class="bold">Préconditions : </span><br>
+			a. Le client s'inscrit au #GYM<br>
+			b. Le client est dans le cas "Inscription aux séances" ou "Confirmation présence à une séance"<br>
+			<span class="bold">Acteurs : </span>
+			Client (principal), Agent (secondaire).<br>
+			<span class="bold">Scénario principal : </span>
+			<p>
+				1. L'agent ouvre le Répertoire des Services dans le menu du logiciel.<br>
+				2. Le Répertoire des Services liste les séances disponible.<br>
+				3. Retourne au cas "Inscription aux séances".
+			</p>
+			<span class="bold">Scénarios alternatifs : </span>
+			<p>
+				2a.1 L'agent demande au client le code de service.<br>
+				2a.2 L'agent entre un code de service approprié à sept chiffres.<br>
+				2a.3 Le Répertoire des Services liste la séance avec le code correspondant<br>
+				3a. Retourne au cas "Confirmation présence à une séance"
+			</p>
+		</div>
 	</div>
 	<h2>
 		Tâche 4: Risques</h2>
 	<p>
-        Identifiez 5 risques potentiels du projet et classez-les par ordre de sévérité (voir la page 32 dans le module 2.1.Exigences des notes de cours)
+		Identifiez 5 risques potentiels du projet et classez-les par ordre de sévérité (voir la page 32 dans le module
+		2.1.Exigences des notes de cours)
 		<ol>
-		<li> Les informations personnelles enregistrées directement sur le centre de donnée(non encrypté).</li>
-		<li> L'identification n'utilise qu'une seule numéro de membre. Une double authentification, avec photo, serait plus convenable pour éviter le vol ou bien évité tout dédoublement de numéro.</li>
-		<li> L'augmentation de la complexité de calcul pourrait éventuellement ralentir l'application ainsi que le processus d'inscription. </li>
-		<li> La génération de nombre aléatoire unique est facile en theorie mais moins en pratique.</li>
-		<li>Le fait d'attendre pour la certification d'un agent pourrait créer des problèmes d'attente à l'avant de l'établissement. Le manque de formation ou de responsabilité d'agent peuvent créer des risques sur les opérations. Un système automatique avec tourniquet serait recommandé.</li>
+			<li> Les informations personnelles enregistrées directement sur le centre de donnée(non encrypté).</li>
+			<li> L'identification n'utilise qu'un numéro de membre. Il n'y a pas de système de double vérification
+				pour éviter le vol ou bien éviter tout dédoublement de numéro.</li>
+			<li> L'augmentation de la taille de la base de donnée suite à un plus grand nombre de membres pourrait
+				éventuellement ralentir l'application ainsi que le processus d'inscription. </li>
+			<li> Le fait d'attendre pour la vérification d'un agent pourrait créer des problèmes d'attente à l'entrée de
+				l'établissement.</li>
+			<li> Un numéro de salle n'est pas assigné lors de la création d'un cours au gym.</li>
 		</ol>
-   </p>
+	</p>
 	<h2>
 		Tâche 5: Exigences non-fonctionnelles</h2>
 	<p>
 		Identifiez 5 besoins ou contraintes non-fonctionnelles du système.
 		<ul>
 			<li><b>Performance</b><br>
-				Le système doit répondre aux demandes de recherches de membre rapidement pour pouvoir servir en moins de temps.</li>
+				Le système doit répondre aux demandes de recherches de membre rapidement pour pouvoir servir en moins de
+				temps.</li>
 			<li><b>Stockage du serveur</b><br>
 				Le stockage du serveur doit avoir un capacité qui satisfait la quantité des données enregistrées</li>
 			<li><b>Utilisabilité</b><br>
-				L'interface du logiciel doit être assez facile d'utilisation pour les agents pour qu'il fasse leur travail efficacement
+				L'interface du logiciel doit être assez facile d'utilisation pour les agents pour qu'il fasse leur
+				travail efficacement
 			</li>
 			<li><b>Fiabilité</b><br>
 				Le système ne tombe pas en panne si une erreur se produit. L'erreur et
