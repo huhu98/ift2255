@@ -235,7 +235,7 @@
     <span class="bold">Cas d'utilisation : </span>Inscription au #GYM(Professionnel)<br>
 	<span class="bold">But :</span>Processus qui sert à créer le profil du professionnel afin que celui-ci offre ses services dans l'établissement. préconditions nécessaires.<br>
 	<span class="bold">Préconditions :</span> Le professionnel ne doit pas être déja inscrit dans le Centre de Données et avoir ses informations valides avec lui.<br>
-	<span class="bold">Acteurs:</span>Professionnel(principal), Agent(secondaire)<br>
+	<span class="bold">Acteurs:</span> Professionnel(principal), Agent(secondaire)<br>
     <span class="bold">Scénario principal : </span>    
 		<ol>
             <li> Le professionnel se présente au comptoir d'accueil.
@@ -253,8 +253,8 @@
             <li>Le Centre de Données assigne un numéro unique au professionnel pour l'authentifier.
             </li>
         </ol>
-    <span class="motGras">Postconditions : </span>
-        <p> 1. L'inscription du Professionnel est enregistré sur le disque.
+    <span class="bold">Postconditions : </span>
+        <p> 1. L'inscription du Professionnel est enregistré sur le disque.<br>
             2. La date et l'heure de l'enregistrement est inscrite dans le dossier grace au Centre de Données.
         </p>
         </div>
@@ -264,54 +264,54 @@
 	<span class="bold">Préconditions : </span><br>
 		a. Le client s'inscrit au #GYM<br>
 	<span class="bold">Acteurs : </span>
-		Membre (principal), Agent (secondaire).<br>
+		Client (principal), Agent (secondaire).<br>
 	<span class="bold">Scénario principal : </span>
 		<p>
-		1. Le membre se présente au comptoir d'accueil.<br>
-		2. Le membre demande à l'agent de l'inscrire à un cours à la reception.<br>
+		1. Le client se présente au comptoir d'accueil.<br>
+		2. Le client demande à l'agent de l'inscrire à un cours à la reception.<br>
 		3. Aller au cas "Consultation Répertoire des Services".<br>
-		4. Le membre choisi et sélectionne une séance.<br>
+		4. Le client choisi et sélectionne une séance.<br>
 		5. Aller au cas "Confirmation d'inscription de séance".<br>
 		</p>
 	<span class="bold">Scénarios alternatifs : </span>
 		<p>
-		4a.1 Le membre n'interesse à aucune séance.<br>
-		4a.2 Le membre décide de seulement accéder au #GYM.<br>
+		4a.1 Le client n'interesse à aucune séance.<br>
+		4a.2 Le client décide de seulement accéder au #GYM.<br>
 		4a.3 Passer au cas "Validation accès".
 		</p>
 	</div>
 
 	<div>
 	<span class="bold">Cas d'utilisation : </span>Confirmation d'inscription de séance<br>
-	<span class="bold">But :</span> Confimer l'inscription du membre à une séance qu'il a choisi.<br>
+	<span class="bold">But :</span> Confimer l'inscription du client à une séance qu'il a choisi.<br>
 	<span class="bold">Préconditions : </span><br>
-		a. Le membre s'inscrit au #GYM et a son numéro de membre.<br>
-		b. Le membre est dans le cas "Inscription aux séances".<br>
+		a. Le client s'inscrit au #GYM et a son numéro de membre.<br>
+		b. Le client est dans le cas "Inscription aux séances".<br>
 	<span class="bold">Acteurs : </span>
-		Membre (principal), Agent (secondaire).<br>
+		Client (principal), Agent (secondaire).<br>
 	<span class="bold">Scénario principal : </span>
 		<p>
-		1. Le membre donne son numéro de membre.<br>
+		1. Le client donne son numéro de membre.<br>
 		2. L'agent entre son numéro de membre.<br>
 		3. Le logiciel crée un enregistrement sur le disque qui contient les champs suivants: Date et heure actuelles,Date à laquelle le service sera fourni, Numéro du professionnel, Numéro du membre, Code du service, Commentaires.<br>
 		</p>
 	<span class="bold">Scénarios alternatifs : </span>
 		<p>
 		3a.1 Le numéro de membre est invalide.<br>
-		3a.2 L'agent dit au membre qu'il est suspendu.<br>
+		3a.2 L'agent dit au client qu'il est suspendu.<br>
 		</p>
-	<span class="motGras">Postconditions : </span>
-		a. L'inscription du membre à la séance est enregistré sur le disque .<br>
+	<span class="bold">Postconditions : </span>
+		 L'inscription du client à la séance est enregistré sur le disque .<br>
 	</div>
 
 	<div>
 	<span class="bold">Cas d'utilisation : </span>Consultation Répertoire des Services<br>
 	<span class="bold">But :</span> Trouver la/les séance.s disponible.s dans le Répertoire des Services<br>
 	<span class="bold">Préconditions : </span><br>
-		a. Le membre s'inscrit au #GYM<br>
-		b. Le membre est dans le cas "Inscription aux séances" ou "Confirmation présence à une séance"<br>
+		a. Le client s'inscrit au #GYM<br>
+		b. Le client est dans le cas "Inscription aux séances" ou "Confirmation présence à une séance"<br>
 	<span class="bold">Acteurs : </span>
-		Membre (principal), Agent (secondaire).<br>
+		Client (principal), Agent (secondaire).<br>
 	<span class="bold">Scénario principal : </span>
 		<p>
 		1. L'agent ouvre le Répertoire des Services dans le menu du logiciel.<br>
@@ -323,8 +323,6 @@
 		2a.1 L'agent demande au client le code de service.<br>
 		2a.2 L'agent entre un code de service approprié à sept chiffres.<br>
 		2a.3 Le Répertoire des Services liste la séance avec le code correspondant<br>
-		2a.3.1 Le code de service est invalide.
-		2a.3.2 Retoure au étape 2a.1.
 		3a. Retourne au cas "Confirmation présence à une séance"
 		</p>
 	</div>
