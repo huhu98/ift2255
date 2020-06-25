@@ -230,7 +230,7 @@
 			<ol>
 				<li>Le professionnel demande au comptoir de créer une nouvelle séance.
 				</li>
-				<li>l'agent envoie les informations à remplir
+				<li>L'agent envoie les informations à remplir
 				</li>
 				<li>Le professionnel remplit les informations demandées.
 				</li>
@@ -292,7 +292,7 @@
 			</p>
 			<span class="bold">Scénarios alternatifs : </span>
 			<p>
-				4a.1 Le client n'interesse à aucune séance.<br>
+				4a.1 Le client n'est pas interessé à aucune séance.<br>
 				4a.2 Le client décide de seulement accéder au #GYM.<br>
 				4a.3 Passer au cas "Validation accès".
 			</p>
@@ -348,24 +348,23 @@
 
 		<div>
 			<span class="bold">Cas d'utilisation : </span>Validation d'accès<br>
-			<span class="bold">But :</span> Valider le numéro<br>
+			<span class="bold">But :</span> Valider le numéro du membre pour qu'il puisse accéder au #GYM<br>
 			<span class="bold">Préconditions : </span><br>
 			a. Le client doit être un membre<br>
-			b. <br>
+			b. Le client doit avoir son numéro de membre<br>
 			<span class="bold">Acteurs : </span>
 			Client (principal), Agent (secondaire).<br>
 			<span class="bold">Scénario principal : </span>
 			<p>
-				1. <br>
-				2. <br>
-				3.
+				1. Le client donne son numéro de membre.<br>
+				2. L'agent entre son numéro de membre.<br>
+				3. Validé est affiché à l'écran.<br>
+				4. Le tourniquet du centre est ouvert pour le client.
 			</p>
 			<span class="bold">Scénarios alternatifs : </span>
 			<p>
-				2a.1 <br>
-				2a.2 <br>
-				2a.3 <br>
-				3a.
+				3a.1 Numéro invalide est affiché à l'écran.<br>
+				3b.1 Membre suspendu est affiché à l'écran.<br>
 			</p>
 		</div>
 
