@@ -56,7 +56,7 @@
 			display: block;
 			margin-left: auto;
 			margin-right: auto;
-			width: 50%;
+			width: 70%;
 		}
 	</style>
 </head>
@@ -109,39 +109,39 @@
 		<tbody>
 			<tr>
 				<td class="first_col">Glossaire</td>
+				<td>80</td>
 				<td></td>
-				<td></td>
-				<td></td>
+				<td>20</td>
 			</tr>
 			<tr>
 				<td class="first_col">Diagramme de cas d'utilisation</td>
-				<td></td>
-				<td></td>
-				<td></td>
+				<td>40</td>
+				<td>40</td>
+				<td>20</td>
 			</tr>
 			<tr>
 				<td class="first_col">Cas d'utilisation</td>
-				<td></td>
-				<td></td>
-				<td></td>
+				<td>25</td>
+				<td>37.5</td>
+				<td>37.5</td>
 			</tr>
 			<tr>
 				<td class="first_col">Risques</td>
-				<td></td>
-				<td></td>
-				<td></td>
+				<td>80</td>
+				<td>10</td>
+				<td>10</td>
 			</tr>
 			<tr>
 				<td class="first_col">Exigences non-fonctionnelles</td>
 				<td></td>
-				<td></td>
-				<td></td>
+				<td>80</td>
+				<td>20</td>
 			</tr>
 			<tr>
 				<td class="first_col">Analyse</td>
 				<td></td>
 				<td></td>
-				<td></td>
+				<td>100</td>
 			</tr>
 			<tr>
 				<td class="first_col">Diagramme d'activité UML</td>
@@ -203,6 +203,10 @@
 		</li>
 
 		<li><span class="bold">#GYM: </span>L'entreprise à qui l'établissement appartient.</li>
+		
+		<li><span class="bold">Requête:</span> Une instruction sous forme de demande présentée au Centre de Données afin de faire une action.</li> 
+
+		<li><span class="bold">Répertoire des services:</span> Une base de données qui regroupe les séances et les services de l'établissement. </li>
 
 
 	</ul>
@@ -329,6 +333,7 @@
 			<p>
 				1. Le client donne son numéro de membre.<br>
 				2. L'agent entre son numéro de membre.<br>
+				3. Le logiciel s'affiche que le numéro de membre est valide.
 			</p>
 			<span class="bold">Scénarios alternatifs : </span>
 			<p>
@@ -505,8 +510,8 @@
 			<li>Où seront stockées les données ?</li>
 			<li>Quel matériel sera nécessaire ?</li>
 			<li>Comment le système #GYM que vous développez interagira avec les autres systèmes ?</li>
-			<li>Comment les utilisateurs interagiront avec le système ?</li><br>
-			<li>
+			<li>Comment les utilisateurs interagiront avec le système ?</li>
+			</ul>
 				Le Centre de données sera informatisées grace au langage informatique Java.
 
 				Les données seront stockées soit sur un disque dur dans une serveur présent aux gym, ou seront stockées
@@ -520,8 +525,7 @@
 
 				Les utilisateurs seront les agents qui utilise le logiciel pour valider les clients ainsi que pour
 				accéder à la base de données.
-			</li>
-		</ul>
+		
 	</p>
 	<h2>
 		Tâche 7: Diagramme d'activité UML</h2>
@@ -534,6 +538,12 @@
 			<li>inscription à une séance</li>
 			<li>confirmer séance</li>
 		</ul>
+		<h4>Diagramme principal</h4>
+		<a href="DA_principal.jpg"><img src="DA_principal.jpg" alt="diagram principal"></a>
+		<h4>Ajouter/mettre à jour/supprimer un membre</h4>
+		<a href="DA3.jpg"><img src="DA3.jpg" alt="diagram membre"></a>
+		<h4>Ajouter/mettre à jour/supprimer un service</h4>
+		<a href="DA2.jpg"><img src="DA2.jpg" alt="diagram service"></a>
 	</p>
 	<h2>
 		Collaboration</h2>
