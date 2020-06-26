@@ -220,10 +220,11 @@
 	<div id="divCU">
 		<div>
 			<span class="bold">Cas d'utilisation : </span>Création d'une séance<br>
-			<span class="bold">But :</span>Processus par lequel le professionnel peut demander à l'agent de créer un
+			<span class="bold">But : </span>Processus par lequel le professionnel peut demander à l'agent de créer un
 			cours.<br>
-			<span class="bold">Préconditions: </span>Le professionnel doit être inscrit dans le Centre de Données du
-			#GYM et avoir un numéro unique valide.<br>
+			<span class="bold">Préconditions: </span><br>
+			a. Le professionnel doit être inscrit dans le Centre de Données du #GYM<br>
+			b. Avoir un numéro unique valide.<br>
 			<span class="bold">Acteurs:</span> Professionnel(principal), Agent(secondaire)<br>
 			<span class="bold">Scénario principal : </span>
 			<ol>
@@ -236,36 +237,39 @@
 				<li>L'agent confirme les informations remises par le professionnel en enregistrant celles-ci dans le
 					Centre de Données.
 				</li>
-				<li>Le Centre de Données créer un numéro à sept chiffres pour identifier la séance.
-				</li>
-				<li>Le Centre de Données créer une plage horaire disponible pour les membres afin qu'ils s'inscrivent.
+				<li>Le Centre de Données créé un numéro à sept chiffres pour identifier la séance.
 				</li>
 			</ol>
+			<span class="bold">Postconditions : </span>
+			<p> 1. Une plage horaire est créé par le Centre de Données pour les membres afin qu'ils s'inscrivent.
+			</p>
 		</div>
 
 		<div>
 			<span class="bold">Cas d'utilisation : </span>Inscription au #GYM<br>
-			<span class="bold">But :</span>Processus qui sert à créer le profil du professionnel ou du membre afin que
-			celui-ci offre ses services dans l'établissement. préconditions nécessaires.<br>
-			<span class="bold">Préconditions :</span> Le professionnel ou le client ne doivent pas être déja inscrits
-			dans le Centre de Données et avoir ses informations valides avec lui.<br>
+			<span class="bold">But : </span>Processus qui sert à créer le profil du professionnel ou du membre afin que
+			celui-ci accéder à l'établissement.<br>
+			<span class="bold">Préconditions :</span><br>
+			a. Le professionnel ou le client ne doivent pas être déja inscrits au #GYM.<br>
+			b. Avoir ses informations valides avec lui.<br>
 			<span class="bold">Acteurs:</span> Professionnel/ Client(principal), Agent(secondaire)<br>
 			<span class="bold">Scénario principal : </span>
 			<ol>
 				<li> Le professionnel/client se présente au comptoir d'accueil.
 				</li>
-				<li>L'agent se créer une page pour créer un nouveau profil tout en lui de mandant ses informations
-					personnelles.
+				<li>L'agent crée un nouveau profil en lui demandant les informations personnelles de la personne.
 				</li>
 				<li>Le professionnel/client lui donne ses informations.
 				</li>
-				<li>L'agent enregistre les informations dans le Centre de Données
+				<li>L'agent enregistre les informations dans le Centre de Données.
 				</li>
 				<li>Le Centre de Données enregistre les informations.
 				</li>
-				<li>Le Centre de Données créer le profil du professionnel/membre dans sa base de données.
+				<li>Le Centre de Données crée le profil du professionnel/membre dans sa base de données.
 				</li>
 				<li>Le Centre de Données assigne un numéro unique au professionnel/membre pour l'authentifier.
+				</li>
+				<li>L'agent donne ce numéro au professionnel/ membre.
 				</li>
 			</ol>
 			<span class="bold">Postconditions : </span>
@@ -276,10 +280,11 @@
 
 		<div>
 			<span class="bold">Cas d'utilisation : </span>Inscription aux séances<br>
-			<span class="bold">But :</span> Inscrire le client a une séance disponible dans le Répertoires des
+			<span class="bold">But :</span> Inscrire le client a une séance dans le Répertoires des
 			Services<br>
 			<span class="bold">Préconditions : </span><br>
 			a. Le client est inscrit au #GYM<br>
+			b. Il faut avoir des séances disponibles.<br>
 			<span class="bold">Acteurs : </span>
 			Client (principal), Agent (secondaire).<br>
 			<span class="bold">Scénario principal : </span>
@@ -296,6 +301,8 @@
 				4a.2 Le client décide de seulement accéder au #GYM.<br>
 				4a.3 Passer au cas "Validation accès".
 			</p>
+			<span class="bold">Postconditions : </span>
+			L'inscription du client à la séance est enregistrée sur le disque .<br>
 		</div>
 
 		<div>
