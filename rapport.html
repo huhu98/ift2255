@@ -291,9 +291,8 @@
 			<p>
 				1. Le client se présente au comptoir d'accueil.<br>
 				2. Le client demande à l'agent de l'inscrire à un cours à la réception.<br>
-				3. Aller au cas "Consultation Répertoire des Services".<br>
+				3. Appel au cas "Consultation Répertoire des Services".<br>
 				4. Le client choisi et sélectionne une séance.<br>
-				5. Aller au cas "Confirmation d'inscription de séance".<br>
 			</p>
 			<span class="bold">Scénarios alternatifs : </span>
 			<p>
@@ -302,7 +301,7 @@
 				4a.3 Passer au cas "Validation accès".
 			</p>
 			<span class="bold">Postconditions : </span>
-			L'inscription du client à la séance est enregistrée sur le disque .<br>
+			<p>Appel au cas "Confirmation d'inscription de séance".</p>
 		</div>
 
 		<div>
@@ -326,8 +325,17 @@
 				3a.1 Le numéro de membre est invalide.<br>
 				3a.2 L'agent dit au client qu'il est suspendu.<br>
 			</p>
-			<span class="bold">Postconditions : </span>
-			L'inscription du client à la séance est enregistrée sur le disque .<br>
+			<span class="bold">Postconditions : </span><p>
+			L'inscription du client à la séance est enregistrée sur le disque avec les champs suivants 
+			<ul>
+				<li>Date et heure actuelles</li>
+				<li>Date à laquelle le service sera fourni</li>
+				<li>Numéro du professionnel</li>
+				<li>Numéro du membre</li>
+				<li>Code du service</li>
+				<li>Commentaires (facultatif).:</li>.<br>
+			</ul>
+				</p>
 		</div>
 
 		<div>
