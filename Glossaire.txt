@@ -1,22 +1,6 @@
-#GYM
-nutritionniste
-physiothérapeute
-massothérapeute
-agent
-système central
-Centre de Données #GYM
-membre
-accès
-logiciel
-tourniquet
-enregistrement sur le disque
-professionnel
-requête
-Répertoire des Services
-octroyée
-tests d'acceptation
-interactions avec l'ordinateur
-console Java
+Requête: Une instruction sous forme de demande présentée au Centre de Données afin de faire une action. 
+
+Répertoire des services: Une base de données qui regroupe les séances et les services de l'établissement. 
 
 Client: Une personne qui pourrait être un Potentiel membre qui n'est pas encore inscrit à l'établissement.
 
