@@ -325,17 +325,18 @@
 				3a.1 Le numéro de membre est invalide.<br>
 				3a.2 L'agent dit au client qu'il est suspendu.<br>
 			</p>
-			<span class="bold">Postconditions : </span><p>
-			L'inscription du client à la séance est enregistrée sur le disque avec les champs suivants 
-			<ul>
-				<li>Date et heure actuelles</li>
-				<li>Date à laquelle le service sera fourni</li>
-				<li>Numéro du professionnel</li>
-				<li>Numéro du membre</li>
-				<li>Code du service</li>
-				<li>Commentaires (facultatif).:</li>.<br>
-			</ul>
-				</p>
+			<span class="bold">Postconditions : </span>
+			<p>
+				L'inscription du client à la séance est enregistrée sur le disque avec les champs suivants
+				<ul>
+					<li>Date et heure actuelles</li>
+					<li>Date à laquelle le service sera fourni</li>
+					<li>Numéro du professionnel</li>
+					<li>Numéro du membre</li>
+					<li>Code du service</li>
+					<li>Commentaires (facultatif).</li>
+				</ul>
+			</p>
 		</div>
 
 		<div>
@@ -375,12 +376,15 @@
 				2. Le client donne son numéro de membre.<br>
 				3. L'agent entre le numéro de membre dans le logiciel.<br>
 				4. Le logiciel affiche Validé à l'écran.<br>
-				5. Le tourniquet du centre est ouvert pour le client.
 			</p>
 			<span class="bold">Scénarios alternatifs : </span>
 			<p>
 				4a. Le logiciel affiche Numéro invalide à l'écran.<br>
 				4b. Le logiciel affiche Membre suspendu à l'écran.<br>
+			</p>
+			<span class="bold">Postconditions : </span>
+			<p>
+				Le tourniquet du centre est ouvert pour le client.
 			</p>
 		</div>
 
@@ -396,21 +400,29 @@
 			<span class="bold">Scénario principal : </span>
 			<p>
 				1. Le client se présente à la réception du centre.<br>
-				2. L'agent navige dans le logiciel pour être à la bonne séance.<br>
-				3. Il sélectionne Confirmer inscriptions.<br>
+				2. L'agent navigue dans le logiciel pour être à la bonne séance.<br>
+				3. Il sélectionne Confirmer inscription.<br>
 				4. Il entre le code membre du client.<br>
 				5. Une requête est envoyée au Centre de Données.<br>
 				6. Le Centre de Données retourne que l'inscription est valide.<br>
 				7. Le logiciel affiche Validé à l'écran.<br>
-				8. Le logiciel crée un enregistrement sur le disque qui contient les champs suivants :
-				Date et heure actuelles, Numéro du professionnel, Numéro du membre, Code du service,
-				Commentaires (facultatif).<br>
-				9. L'enregistrement prouve à l'avance que le service est fourni.
 			</p>
 			<span class="bold">Scénarios alternatifs : </span>
 			<p>
 				6a. Le Centre de Données retourne que l'inscription est invalide .<br>
 				7a. Le client membre est refusé à la séance.<br>
+			</p>
+			<span class="bold">Postconditions : </span>
+			<p>
+				1. Le logiciel crée un enregistrement sur le disque qui contient les champs suivants :
+				<ul>
+					<li>Date et heure actuelles</li>
+					<li>Numéro du professionnel</li>
+					<li>Numéro du membre</li>
+					<li>Code du service</li>
+					<li>Commentaires (facultatif).</li>
+				</ul>
+				2. L'enregistrement prouve à l'avance que le service est fourni.
 			</p>
 		</div>
 
@@ -419,7 +431,7 @@
 			<span class="bold">But : </span>Donner au professionnel l'information de ses séances.<br>
 			<span class="bold">Préconditions : </span><br>
 			a. La demande est faite par un professionnel<br>
-			b. Le professionnel doit avoir au moins une séance rélié à son compte<br>
+			b. Le professionnel doit avoir au moins une séance réliée à son compte<br>
 			<span class="bold">Acteurs : </span>
 			Professionnel (principal), Agent (secondaire).<br>
 			<span class="bold">Scénario principal : </span>
