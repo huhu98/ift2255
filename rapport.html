@@ -171,8 +171,7 @@
 		<li><span class="bold">Client:</span> Membre potentiel qui n'est pas encore
 			inscrit à l'établissement.</li>
 
-		<li><span class="bold">Membre:</span> Une personne inscrite à l'établissement et qui a accès aux produits
-			offerts par la compagnie.</li>
+		<li><span class="bold">Membre:</span> Une personne inscrite à l'établissement.</li>
 
 		<li><span class="bold">Professionnel (Pro):</span> Une personne qui offre des services, dans l'établissement,
 			aux nombreux membres inscris à l'établissement.</li>
@@ -234,12 +233,12 @@
 				</li>
 				<li>Le professionnel remplit les informations demandées.
 				</li>
-				<li>L'agent confirme les informations remisent par le professionnel en enregistrant celles-ci dans le
+				<li>L'agent confirme les informations remises par le professionnel en enregistrant celles-ci dans le
 					Centre de Données.
 				</li>
 				<li>Le Centre de Données créer un numéro à sept chiffres pour identifier la séance.
 				</li>
-				<li>Le Centre de Données créer une plage horraire disponible pour les membres afin qu'ils s'inscrivent.
+				<li>Le Centre de Données créer une plage horaire disponible pour les membres afin qu'ils s'inscrivent.
 				</li>
 			</ol>
 		</div>
@@ -255,7 +254,7 @@
 			<ol>
 				<li> Le professionnel/client se présente au comptoir d'accueil.
 				</li>
-				<li>L'agent se créer une page pour créer une nouveau profil tout en lui de mandant ses informations
+				<li>L'agent se créer une page pour créer un nouveau profil tout en lui de mandant ses informations
 					personnelles.
 				</li>
 				<li>Le professionnel/client lui donne ses informations.
@@ -264,35 +263,35 @@
 				</li>
 				<li>Le Centre de Données enregistre les informations.
 				</li>
-				<li>Le Centre de Données créer le profil du professionnel/membre dans sa base de donnée.
+				<li>Le Centre de Données créer le profil du professionnel/membre dans sa base de données.
 				</li>
 				<li>Le Centre de Données assigne un numéro unique au professionnel/membre pour l'authentifier.
 				</li>
 			</ol>
 			<span class="bold">Postconditions : </span>
-			<p> 1. L'inscription du professionnel ou du client est enregistré sur le disque.<br>
-				2. La date et l'heure de l'enregistrement est inscrite dans le dossier grâce au Centre de Données.
+			<p> 1. L'inscription du professionnel ou du client est enregistrée sur le disque.<br>
+				2. La date et l'heure de l'enregistrement sont inscrits dans le dossier grâce au Centre de Données.
 			</p>
 		</div>
 
 		<div>
 			<span class="bold">Cas d'utilisation : </span>Inscription aux séances<br>
-			<span class="bold">But :</span> Inscrire le client au séance disponible dans le Répertoires des Services<br>
+			<span class="bold">But :</span> Inscrire le client a une séance disponible dans le Répertoires des Services<br>
 			<span class="bold">Préconditions : </span><br>
-			a. Le client s'inscrit au #GYM<br>
+			a. Le client est inscrit au #GYM<br>
 			<span class="bold">Acteurs : </span>
 			Client (principal), Agent (secondaire).<br>
 			<span class="bold">Scénario principal : </span>
 			<p>
 				1. Le client se présente au comptoir d'accueil.<br>
-				2. Le client demande à l'agent de l'inscrire à un cours à la reception.<br>
+				2. Le client demande à l'agent de l'inscrire à un cours à la réception.<br>
 				3. Aller au cas "Consultation Répertoire des Services".<br>
 				4. Le client choisi et sélectionne une séance.<br>
 				5. Aller au cas "Confirmation d'inscription de séance".<br>
 			</p>
 			<span class="bold">Scénarios alternatifs : </span>
 			<p>
-				4a.1 Le client n'est pas interessé à aucune séance.<br>
+				4a.1 Le client n'est pas intéressé à aucune séance.<br>
 				4a.2 Le client décide de seulement accéder au #GYM.<br>
 				4a.3 Passer au cas "Validation accès".
 			</p>
@@ -311,7 +310,7 @@
 				1. Le client donne son numéro de membre.<br>
 				2. L'agent entre son numéro de membre.<br>
 				3. Le logiciel crée un enregistrement sur le disque qui contient les champs suivants: Date et heure
-				actuelles,Date à laquelle le service sera fourni, Numéro du professionnel, Numéro du membre, Code du
+				actuelle, Date à laquelle le service sera fourni, Numéro du professionnel, Numéro du membre, Code du
 				service, Commentaires.<br>
 			</p>
 			<span class="bold">Scénarios alternatifs : </span>
@@ -320,7 +319,7 @@
 				3a.2 L'agent dit au client qu'il est suspendu.<br>
 			</p>
 			<span class="bold">Postconditions : </span>
-			L'inscription du client à la séance est enregistré sur le disque .<br>
+			L'inscription du client à la séance est enregistrée sur le disque .<br>
 		</div>
 
 		<div>
@@ -334,7 +333,7 @@
 			<span class="bold">Scénario principal : </span>
 			<p>
 				1. L'agent ouvre le Répertoire des Services dans le menu du logiciel.<br>
-				2. Le Répertoire des Services liste les séances disponible.<br>
+				2. Le Répertoire des Services liste les séances disponibles.<br>
 				3. Retourne au cas "Inscription aux séances".
 			</p>
 			<span class="bold">Scénarios alternatifs : </span>
@@ -356,15 +355,16 @@
 			Client (principal), Agent (secondaire).<br>
 			<span class="bold">Scénario principal : </span>
 			<p>
-				1. Le client donne son numéro de membre.<br>
-				2. L'agent entre son numéro de membre.<br>
-				3. Validé est affiché à l'écran.<br>
-				4. Le tourniquet du centre est ouvert pour le client.
+				1. Le client se présente à la réception du centre.<br>
+				2. Le client donne son numéro de membre.<br>
+				3. L'agent entre le numéro de membre dans le logiciel.<br>
+				4. Le logiciel affiche Validé à l'écran.<br>
+				5. Le tourniquet du centre est ouvert pour le client.
 			</p>
 			<span class="bold">Scénarios alternatifs : </span>
 			<p>
-				3a.1 Numéro invalide est affiché à l'écran.<br>
-				3b.1 Membre suspendu est affiché à l'écran.<br>
+				4a. Le logiciel affiche Numéro invalide à l'écran.<br>
+				4b. Le logiciel affiche Membre suspendu à l'écran.<br>
 			</p>
 		</div>
 
@@ -373,21 +373,28 @@
 			<span class="bold">But :</span><br>
 			<span class="bold">Préconditions : </span><br>
 			a. Le client doit être un membre<br>
-			b. <br>
+			b. Le client doit avoir son numéro de membre<br>
+			c. Le client doit être inscrit à la séance doit il veut confirmer la présence
 			<span class="bold">Acteurs : </span>
 			Client (principal), Agent (secondaire).<br>
 			<span class="bold">Scénario principal : </span>
 			<p>
-				1. <br>
-				2. <br>
-				3.
+				1. Le client se présente à la réception du centre.<br>
+				2. L'agent navige dans le logiciel pour être à la bonne séance.<br>
+				3. Il sélectionne Confirmer inscriptions.<br>
+				4. Il entre le code membre du client.<br>
+				5. Une requête est envoyée au Centre de Données.<br>
+				6. Le Centre de Données retourne que l'inscription est valide.<br>
+				7. Le logiciel affiche Validé à l'écran.<br>
+				8. Le logiciel crée un enregistrement sur le disque qui contient les champs suivants :
+				Date et heure actuelles, Numéro du professionnel, Numéro du membre, Code du service,
+				Commentaires (facultatif).<br>
+				9. L'enregistrement prouve à l'avance que le service est fourni.
 			</p>
 			<span class="bold">Scénarios alternatifs : </span>
 			<p>
-				2a.1 <br>
-				2a.2 <br>
-				2a.3 <br>
-				3a.
+				6a. Le Centre de Données retourne que l'inscription est invalide .<br>
+				7a. Le client membre est refusé à la séance.<br>
 			</p>
 		</div>
 
@@ -395,15 +402,16 @@
 			<span class="bold">Cas d'utilisation : </span>Consultation des inscriptions<br>
 			<span class="bold">But :</span><br>
 			<span class="bold">Préconditions : </span><br>
-			a. <br>
-			b. <br>
+			a. La demande est faite par un professionnel<br>
+			b. Le professionnel doit avoir au moins une séance rélié à son compte<br>
 			<span class="bold">Acteurs : </span>
-			Client (principal), Agent (secondaire).<br>
+			Professionnel (principal), Agent (secondaire).<br>
 			<span class="bold">Scénario principal : </span>
 			<p>
-				1. <br>
-				2. <br>
-				3.
+				1. Le professionnel se présente à la réception du centre.<br>
+				2. Le professionnel demande à l'agent pour consulter ses inscriptions à ses séances.<br>
+				3. L'agent envoie une requête au Centre de Données.
+				4. Le Centre de Données retourne l'information de la séance souhaitée
 			</p>
 			<span class="bold">Scénarios alternatifs : </span>
 			<p>
