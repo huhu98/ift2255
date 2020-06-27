@@ -408,23 +408,25 @@
 			<span class="bold">But : </span>Confirmer la présence d'un membre à une séance.<br>
 			<span class="bold">Préconditions : </span><br>
 			a. Le client doit être un membre<br>
-			b. Le client doit avoir son numéro de membre<br>
-			c. Le client doit être inscrit à la séance doit il veut confirmer la présence
+			b. Le client doit avoir son numéro de membre et le code de service<br>
+			c. Le client doit être inscrit à la séance qu'il veut confirmer la présence<br>
 			<span class="bold">Acteurs : </span>
 			Client (principal), Agent (secondaire).<br>
 			<span class="bold">Scénario principal : </span>
 			<p>
 				1. Le client se présente à la réception du centre.<br>
-				2. Le client donne le numéro de séance.
-				3. L'agent navigue dans le logiciel pour être à la bonne séance.<br>
+				2. Le client donne le code de service et son numéro de membre.<br>
+				3. L'agent navigue dans le Répertoire de services pour être à la bonne séance.<br>
+				4. Le Répertoire de services affiche le séance correspondant.<br>
 				5. Il sélectionne Confirmer inscription.<br>
-				6. Il entre le code membre du client.<br>
+				6. Il entre le numéro de membre.<br>
 				7. Une requête est envoyée au Centre de Données.<br>
 				8. Le Centre de Données retourne que l'inscription est valide.<br>
 				9. Le logiciel affiche Validé à l'écran.<br>
 			</p>
 			<span class="bold">Scénarios alternatifs : </span>
-			<p>
+			<p>	4a.1. Le Répertoire de services affiche aucune séance.<br>
+				4a.2. Retoure au étape 2.<br>
 				7a. Le Centre de Données retourne que l'inscription est invalide .<br>
 				8a. Le client membre est refusé à la séance.<br>
 			</p>
@@ -536,7 +538,7 @@
 			<li>ajouter/mettre à jour/supprimer un membre</li>
 			<li>ajouter/mettre à jour/supprimer un service</li>
 			<li>inscription à une séance</li>
-			<li>confirmer séance</li>
+			<li>confirmer présence à séance</li>
 		</ul>
 		<h4>Diagramme principal</h4>
 		<a href="DA_principal.jpg"><img src="DA_principal.jpg" alt="diagram principal"></a>
@@ -544,6 +546,8 @@
 		<a href="DA3.jpg"><img src="DA3.jpg" alt="diagram membre"></a>
 		<h4>Ajouter/mettre à jour/supprimer un service</h4>
 		<a href="DA2.jpg"><img src="DA2.jpg" alt="diagram service"></a>
+		<h4>Confirmer présence à séance</h4>
+		<a href="DA1.jpg"><img src="DA1.jpg" alt="diagram confirme presence">
 	</p>
 	<h2>
 		Collaboration</h2>
