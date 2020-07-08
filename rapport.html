@@ -13,7 +13,7 @@
 		}
 
 		li {
-			padding: 2.5 0;
+			margin: 2.5 0;
 		}
 
 		table {
@@ -62,12 +62,13 @@
 			background-color : #d8f9aa;
 			display:inline;
 		}
+		.corrige
 	</style>
 </head>
 
 <body>
 	<h1 style="text-align: center;">
-		IFT 2255 - Devoir 1 mise à jour- Equipe 16</h1>
+		IFT 2255 - Devoir 1 corrigé et mise à jour- Equipe 16</h1>
 	<h2>
 		Information générale</h2>
 	<p>
@@ -155,81 +156,64 @@
 		</tbody>
 	</table>
 	<p>
-	<p class="Dev2">Les mises à jour au fond vert ont été ajoutées lors du Devoir 2</p>
+	<p class="Dev2">Les informations au fond vert ont été ajoutées pour répondre aux nouvelles exigences du Devoir 2</p>
         <h3><span class="bold">Hypothèse :</span></h3>
         
         Nous assumons que le client est honnête à propos de son identité. Nous avons, par la suite, assumés que les professionnels ont bien des certifications pour pratiquer ce qu'ils font. Nous n'envisagons pas que l'agent soit mal intentionné avec le Centre de Données.
     </p>
-	<p>Services offert par #GYM:
-		<ul>
-			<li>Adhérer le client ou le professionnel au #GYM</li>
-			<li>Enregistrer le numéro de membre unique dans le Centre de Données</li>
-			<li>Validation du numéro de membre: « Numéro invalide » ou « Membre suspendu »</li>
-			<li>Créer une séance</li>
-			<li>Rechercher une séance dans le Répertoire des Services</li>
-			<li>Confirmer l'inscription du membre à une séance par une requête</li>
-			<li>Vérifier l'inscription à une séance</li>
-			<li>Consulter les inscriptions dans une séance</li>
-			<li>Confirmer la présence à une séance.</li>
-		</ul>
-	</p>
 	<h2>
 		Tâche 1:Glossaire</h2>
 	<ul style="list-style-type: none;padding:0;">
-		<li><span class="bold">Client:</span> Membre potentiel qui n'est pas encore
-			inscrit à l'établissement.</li>
-
-		<li><span class="bold">Membre:</span> Une personne inscrite à l'établissement.</li>
-
-		<li><span class="bold">Professionnel (Pro):</span> Une personne qui offre des services, dans l'établissement,
-			aux nombreux membres inscris à l'établissement.</li>
-
-		<li><span class="bold">Agent:</span> Le personnel qui travail au sein de l'établissement et qui s'assure de
-			l'authentification des membres et des professionnels à l'entrée.</li>
-
-		<li><span class="bold">Service: </span></li>
-		<li><span class="bold">Séance: </span></li>
-
-		<li><span class="bold">Cours: </span>Activités physique offertent par des professionnels et, dont les membres
-			ont accès lors de la finalisation de leur inscription.</li>
-
 		<li><span class="bold">Centre de donnée:</span> Une base de donnée qui recouvre toutes les informations
 			personnelles des membres ainsi que les professionnels de l'établissement et qui génère un chiffre unique
 			comme identifiant leur de l'inscription de ceux-ci au #GYM.</li>
 
-		<li><span class="bold">Numéro du professionnel:</span> Un numéro unique généré automatiquement par le centre de
+		<li><span class="bold">Client:</span> Membre ou professionnel potentiel qui n'est pas encore
+			inscrit à l'établissement.</li>
+		<li><span class="bold">Membre:</span> Une personne inscrite à l'établissement pour accéder aux services.</li>
+		<li><span class="bold">Professionnel (Pro):</span> Une personne qui offre des services en exercice physique ou de la santé physique, dans l'établissement.</li>
+		<li><span class="bold">Agent: </span> Le personnel qui travail au sein de l'établissement et qui s'assure de
+			l'authentification des membres et des professionnels à l'entrée .</li>
+		<li class="Dev2"><span class="bold">Gérant: </span>Le personnel qui peut demander d'executer le rapport de procédure comptable à n'importe quel moment de la semaine.</li>
+
+		<li><span class="bold">Service: </span>Activités offertent par des professionnels et, dont les membres
+			ont accès lors de la finalisation de leur inscription.</li>
+			
+		<li><span class="bold">Séance: </span>un activité physique ou une consultation de santé physique qui a lieu à une date et une heure spécifiée avec une capacité maximale.</li>
+
+		
+		<li><span class="bold">Numéro du professionnel:</span> Un numéro unique <span class="Dev2">de 9 chiffres</span> généré automatiquement par le centre de
 			donnée de l'établissement fourni aux professionnels suite à leur inscription afin qu'ils puissent offrirent
 			des services. </li>
 
-		<li><span class="bold">Numéro du membre:</span> Un numéro unique généré automatiquement par le centre de donnée
+		<li><span class="bold">Numéro du membre: </span> Un numéro unique <span class="Dev2"> de 9 chiffres</span> généré automatiquement par le centre de donnée
 			de l'établissement est fourni aux membres suite à leur inscription afin qu'ils puissent fréquenter le gym.
 		</li>
 
-		<li><span class="bold">Code du service: </span>Un numéro attribué à un type de cours ou d'autres services.</li>
+		<li><span class="bold">Code du service: </span>Un numéro de 7 chiffres attribué à un type de cours ou d'autres services.</li>
 
-		<li><span class="bold">Entrée/Accès: </span>Processus par lequel le membre est identifié par l'agent présent.
+		<li><span class="bold">Informations personnelles: </span>Informations fournies par les clients lors de l'inscription au #GYM.
 		</li>
 
-		<li><span class="bold">#GYM: </span>L'entreprise à qui l'établissement appartient.</li>
-
-		<li><span class="bold">Requête:</span> Une instruction sous forme de demande présentée au Centre de Données afin
+		<li><span class="bold">Requête: </span> Une instruction sous forme de demande présentée au Centre de Données afin
 			de faire une action.</li>
-
-		<li><span class="bold">Répertoire des services:</span> Une base de données qui regroupe les séances et les
+			
+		<li><span class="bold">#GYM: </span>L'entreprise à qui l'établissement appartient.</li>
+			
+		<li class="Dev2"><span class="bold">Fichiers TEF: </span>Données de transfert électronique de fond. Forme de enregistrements génerés par la procédure comptable.</li>
+		
+		<li><span class="bold">Répertoire des services: </span> Une base de données qui regroupe les séances et les
 			services de l'établissement. </li>
-		<li class="Dev2"><span class="bold">Services comptables RnB:</span></li>
-
+			
+		<li class="Dev2"><span class="bold">Services comptables RnB: </span>Organisation tierce qui st responsable de toutes les procédures financières, comme l'enregistrement des paiements des frais d'adhésion, la suspension des membres dont les frais sont en retard et le rétablissement des membres suspendus qui ont maintenant payé les frais dus.</li>
 
 	</ul>
 	<h2>
 		Tâche 2: Diagramme de cas d'utilisation UML</h2>
-	<p>
-		Identifiez les différents cas d'utilisation du système à construire. Vous devez les représenter sous forme d'un
-		diagramme de cas d'utilisation UML en utilisant l'outil Visual Paradigm (VPP). Vous serez également évalué sur
-		l'utilisation appropriée des éléments UML. Un ordre de grandeur d'une dizaine de cas d'utilisations est attendu.
+	
+		
 		<a href="DCU.png"><img src="DCU.png" alt="diagram CU"></a>
 
-	</p>
 	<h2>
 		Tâche 3: Cas d'utilisation</h2>
 	<div id="divCU">
@@ -239,7 +223,6 @@
 			cours.<br>
 			<span class="bold">Préconditions: </span><br>
 			a. Le professionnel doit être inscrit dans le Centre de Données du #GYM<br>
-			b. Avoir un numéro unique valide.<br>
 			<span class="bold">Acteurs:</span> Professionnel(principal), Agent(secondaire)<br>
 			<span class="bold">Scénario principal : </span>
 			<ol>
@@ -247,7 +230,7 @@
 				</li>
 				<li>L'agent envoie les informations à remplir
 				</li>
-				<li>Le professionnel remplit les informations demandées.
+				<li>Le professionnel remplit les informations demandées et fournir son numéro de professionnel.
 				</li>
 				<li>L'agent confirme les informations remises par le professionnel en enregistrant celles-ci dans le
 					Centre de Données.
@@ -255,21 +238,16 @@
 				<li>Le Centre de Données créé un numéro à sept chiffres pour identifier la séance.
 				</li>
 			</ol>
+			<span class="bold">Scénario alternatif : </span><br>
+			3a.1 Le professionnel n'a pas de numéro de professionnel.<br>
+			3a.2 Appel au cas "Inscription au #GYM".<br>
+			3a.3 Retour à l'étape 4.<br>
+			4a.1 Le numéro de professionnel est invalide.<br>
+			4a.2 Le professionnel quitte.<br>
 			<span class="bold">Postconditions : </span>
 			<p> 1. Une plage horaire est créé par le Centre de Données pour les membres afin qu'ils s'inscrivent.<br>
-				2. Le logiciel crée un enregistrement sur le disque qui contient les champs suivants :
-				<ul>
-					<li>Date et heure actuelles</li>
-					<li>Date de début du service</li>
-					<li>Date de fin du service</li>
-					<li>Heure de la séance</li>
-					<li>Récurrence hebdomadaire de la séance</li>
-					<li>Capacité maximale</li>
-					<li>Numéro du professionnel</li>
-					<li>Numéro du membre</li>
-					<li>Code du service</li>
-					<li>Commentaires (facultatif).</li>
-				</ul>
+				2. Le logiciel crée un enregistrement sur le disque qui contient les champs suivants :Date et heure actuelles, Date de début du service, Date de fin du service, Heure de la séance, Récurrence hebdomadaire de la séance, Capacité maximale, Numéro du professionnel, Code du service, <span class="Dev2">Frais du service</span>, Commentaires (facultatif).
+				
 			</p>
 		</div>
 
@@ -285,9 +263,9 @@
 			<ol>
 				<li> Le professionnel/client se présente au comptoir d'accueil.
 				</li>
-				<li>L'agent crée un nouveau profil en lui demandant les informations personnelles de la personne.
+				<li>L'agent crée un nouveau profil en lui demandant les informations personnelles de la personne <span class="Dev2">et le frais d'adhésion mensuel.</span>
 				</li>
-				<li>Le professionnel/client lui donne ses informations.
+				<li>Le professionnel/client lui donne ses informations <span class="Dev2">et payer le frais.</span>
 				</li>
 				<li>L'agent enregistre les informations dans le Centre de Données.
 				</li>
@@ -300,6 +278,14 @@
 				<li>L'agent donne ce numéro au professionnel/ membre.
 				</li>
 			</ol>
+			<span class="bold">Scénario alternatif : </span>
+			<p>
+				4a.1 Les données sont invalides.<br>
+				4a.2 L'agent invite le client à vérifier ses information personnelles.<br>
+				4a.3 Retour à l'étape 3.<br>
+
+				
+			</p>
 			<span class="bold">Postconditions : </span>
 			<p> 1. L'inscription du professionnel ou du client est enregistrée sur le disque.<br>
 				2. La date et l'heure de l'enregistrement sont inscrits dans le dossier grâce au Centre de Données.
@@ -321,38 +307,24 @@
 				2. Le client demande à l'agent de l'inscrire à un cours à la réception.<br>
 				3. Appel au cas "Consultation Répertoire des Services".<br>
 				4. Le client choisi et sélectionne une séance.<br>
+				5. L'agent lui demander son numéro de membre.<br>
+				6. Le client fornir son numéro.<br>
+				7. Le logiciel s'affiche que le numéro de membre est valide.<br>
+				<span class="Dev2">8.L'application recherche et affiche ensuite le montant à payer pour ce service.<br>
+				9. Le client paye le montant.</span><br>
+				
 			</p>
 			<span class="bold">Scénarios alternatifs : </span>
 			<p>
 				4a.1 Le client n'est pas intéressé à aucune séance.<br>
 				4a.2 Le client décide de seulement accéder au #GYM.<br>
-				4a.3 Passer au cas "Validation accès".
+				4a.3 Passer au cas "Validation accès".<br>
+				4b.1 La séance que le client a choisi est pleine.<br>
+				4b.2 Retour à l'étape 3 pour choisir un autre séance.<br>
+				7a.1 Le numéro est invalide.<br>
+				<span class="Dev2">7a.2 L'agent lui demander de payer son frais d'adhésion mensuel.</span>
 			</p>
-			<span class="bold">Postconditions : </span>
-			<p>Appel au cas "Confirmation d'inscription de séance".</p>
-		</div>
-
-		<div>
-			<span class="bold">Cas d'utilisation : </span>Confirmation d'inscription de séance<br>
-			<span class="bold">But :</span> Confimer l'inscription du client à une séance qu'il a choisi.<br>
-			<span class="bold">Préconditions : </span><br>
-			a. Le client s'inscrit au #GYM et a son numéro de membre.<br>
-			b. Le client est dans le cas "Inscription aux séances".<br>
-			<span class="bold">Acteurs : </span>
-			Client (principal), Agent (secondaire).<br>
-			<span class="bold">Scénario principal : </span>
-			<p>
-				1. Le client donne son numéro de membre.<br>
-				2. L'agent entre son numéro de membre.<br>
-				3. Le logiciel s'affiche que le numéro de membre est valide.
-			</p>
-			<span class="bold">Scénarios alternatifs : </span>
-			<p>
-				3a.1 Le numéro de membre est invalide.<br>
-				3a.2 L'agent dit au client qu'il est suspendu.<br>
-			</p>
-			<span class="bold">Postconditions : </span>
-			<p>
+			<span class="bold">Postconditions : </span><br>
 				L'inscription du client à la séance est enregistrée sur le disque avec les champs suivants
 				<ul>
 					<li>Date et heure actuelles</li>
@@ -362,7 +334,6 @@
 					<li>Code du service</li>
 					<li>Commentaires (facultatif).</li>
 				</ul>
-			</p>
 		</div>
 
 		<div>
@@ -377,7 +348,7 @@
 			<p>
 				1. L'agent ouvre le Répertoire des Services dans le menu du logiciel.<br>
 				2. Le Répertoire des Services liste les séances disponibles.<br>
-				3. Retourne au cas "Inscription aux séances".
+				3. Retour au cas "Inscription aux séances".
 			</p>
 			<span class="bold">Scénarios alternatifs : </span>
 			<p>
@@ -393,7 +364,6 @@
 			<span class="bold">But :</span> Valider le numéro du membre pour qu'il puisse accéder au #GYM.<br>
 			<span class="bold">Préconditions : </span><br>
 			a. Le client doit être un membre<br>
-			b. Le client doit avoir son numéro de membre<br>
 			<span class="bold">Acteurs : </span>
 			Client (principal), Agent (secondaire).<br>
 			<span class="bold">Scénario principal : </span>
@@ -405,15 +375,37 @@
 			</p>
 			<span class="bold">Scénarios alternatifs : </span>
 			<p>
-				4a. Le logiciel affiche Numéro invalide à l'écran.<br>
-				4b. Le logiciel affiche Membre suspendu à l'écran.<br>
+				4a.1 Le logiciel affiche Numéro invalide à l'écran.<br>
+				4a.2 L'agent invite le client de vérifier son numéro.<br>
+				4a.3 Retour à l'étape 2.<br>
+				4b.1 Le logiciel affiche Membre suspendu à l'écran.<br>
+				<span class="Dev2">4b.2 L'agent demande au client de payer son frais d'adhésion mensuel.</span><br>
 			</p>
 			<span class="bold">Postconditions : </span>
 			<p>
 				Le tourniquet du centre est ouvert pour le client.
 			</p>
 		</div>
-
+		<div>
+			<span class="bold">Cas d'utilisation : </span>Consultation des inscriptions<br>
+			<span class="bold">But : </span>Donner au professionnel l'information de ses séances.<br>
+			<span class="bold">Préconditions : </span><br>
+			a. La demande est faite par un professionnel<br>
+			b. Le professionnel doit avoir au moins une séance réliée à son compte<br>
+			<span class="bold">Acteurs : </span>
+			Professionnel (principal), Agent (secondaire).<br>
+			<span class="bold">Scénario principal : </span>
+			<p>
+				1. Le professionnel se présente à la réception du centre.<br>
+				2. Le professionnel demande à l'agent pour consulter ses inscriptions à ses séances.<br>
+				3. L'agent envoie une requête au Centre de Données.<br>
+				4. Le Centre de Données retourne l'information de la séance souhaitée
+			</p>
+			<span class="bold">Scénarios alternatifs : </span>
+			<p>
+				4a. Le Centre de Données ne trouve pas de séances liés au professionnel<br>
+			</p>
+		</div>
 		<div>
 			<span class="bold">Cas d'utilisation : </span>Confirmation de présence<br>
 			<span class="bold">But : </span>Confirmer la présence d'un membre à une séance.<br>
@@ -454,28 +446,6 @@
 				2. L'enregistrement prouve à l'avance que le service est fourni.
 			</p>
 		</div>
-
-		<div>
-			<span class="bold">Cas d'utilisation : </span>Consultation des inscriptions<br>
-			<span class="bold">But : </span>Donner au professionnel l'information de ses séances.<br>
-			<span class="bold">Préconditions : </span><br>
-			a. La demande est faite par un professionnel<br>
-			b. Le professionnel doit avoir au moins une séance réliée à son compte<br>
-			<span class="bold">Acteurs : </span>
-			Professionnel (principal), Agent (secondaire).<br>
-			<span class="bold">Scénario principal : </span>
-			<p>
-				1. Le professionnel se présente à la réception du centre.<br>
-				2. Le professionnel demande à l'agent pour consulter ses inscriptions à ses séances.<br>
-				3. L'agent envoie une requête au Centre de Données.<br>
-				4. Le Centre de Données retourne l'information de la séance souhaitée
-			</p>
-			<span class="bold">Scénarios alternatifs : </span>
-			<p>
-				4a. Le Centre de Données ne trouve pas de séances liés au professionnel<br>
-			</p>
-		</div>.
-
 		<div>
 			<span class="bold">Cas d'utilisation : </span>Modification d'un service<br>
 			<span class="bold">But :</span> Mettre à jour / supprimer un service<br>
@@ -488,22 +458,28 @@
 			<span class="bold">Scénario principal : </span>
 			<p>
 				1. Le professionnel se présente à la réception du centre.<br>
-				2. Le professionnel donne son numéro de membre.<br>
-				3. L'agent entre le numéro de membre dans le logiciel.<br>
+				2. Le professionnel donne son numéro de professionnel.<br>
+				3. L'agent entre le numéro de professionnel dans le logiciel.<br>
 				4. Le logiciel affiche Validé à l'écran.<br>
 				5. Le professionnel choisi de mettre à jour une séance.<br>
-				6. Demande au professionnel le numéro de service.<br>
-				7. L'agent demande le numéro de service.<br>
-				8. Demande au professionnel les champs à mettre à jour.<br>
-				9. Le professionnel remplit les informations<br>
-				10. L'agent envoie une requete au Centre de Données avec les informations reçus.<br>
-				11. Le centre de donnée sauvegarde la nouvelle liste des séances.<br>
+				6. L'agent demande au professionnel le numéro de service.<br>
+				7. Le professionnel fournit le numéro de service.<br>
+				8. L'agent confirme que c'est bien le propriétaire du service.
+				9. L'agent demande au professionnel les champs à mettre à jour.<br>
+				10. Le professionnel remplit les informations<br>
+				11. L'agent envoie une requete au Centre de Données avec les informations reçus.<br>
+				12. Le centre de donnée sauvegarde la nouvelle liste des séances.<br>
 			</p>
 			<span class="bold">Scénarios alternatifs : </span>
 			<p>
-				5a. Demande au professionnel le service à supprimer<br>
-				6a. Le centre de donnée sauvegarde la nouvelle liste des séances.
-				<br>
+				4a.1 Le numéro de professionnel est invalide.<br>
+				4a.2 L'agent invite le professionnel de vérifier son numéro.<br>
+				4a.3 Retour à l'étape 3.<br>
+				5a.1 Le professionnel choisi de supprimer une séance.<br>
+				5a.2 Continue à l'étape 6,7,8.<br>
+				5a.3 Retour à l'étape 11.<br>
+				8a.1 Le numéro de service ne correspond pas au numéro de professionnel.<br>
+				8a.2 Retour à l'étape 6.<br>
 			</p>
 			<span class="bold">Postconditions : </span>
 			<p>
@@ -543,29 +519,36 @@
 			<p> 1. Le Centre de Données met à jour les informations du membre.
 			</p>
 		</div>
-		
 		<div class="Dev2">
 			<span class="bold">Cas d'utilisation : </span>Payer les frais<br>
-			<span class="bold">But : </span><br>
+			<span class="bold">But :</span>Payer les frais dus sur le compte de client afin d'ahdérer au #GYM ou inscrire à une séance ou rétablir son adhésion.<br>
 			<span class="bold">Préconditions :</span><br>
-			
-			<span class="bold">Acteurs:</span> Membre(principal), Agent(secondaire)<br>
+				 Le client est dans le cas "Inscrpition au #GYM".<br>
+				/ le client est dans le cas "Inscription à une séance"<br>
+				/ Le client est suspendu.<br>
+			<span class="bold">Acteurs:</span> Client(principal), Agent(secondaire)<br>
 			<span class="bold">Scénario principal : </span>
 			<ol>
-				<li> </li>
-				<li></li>
-				<li></li>
-				<li></li>
+				<li>L'agent demande au client sa méthode de paiement.</li>
+				<li>Le client payer avec sa méthode de paiement.</li>
+				<li>Le système informatique de RnB traiter les paiements.</li>
+				<li>Le système informatique de RnB met à jour les enregistrements d'adhésion pertinents du Centre de Données #GYM chaque à 21h.</li>
 				
 			</ol>
 			<span class="bold">Scénarios alternatifs : </span>
 			<p>
-				
+				4a.1 La méthode de paiement est refusée par le système de RnB.<br>
+				4a.2 Le client change de méthode.<br>
+				4a.3 Retour à l'étape 2.<br>
+				4a.2a.1 Le client n'a aucune autre choix.<br>
+				4a.2a.2 L'agent refuse de procéder ses demandes.
 			</p>
 			<span class="bold">Postconditions : </span>
-			<p> 
+			<p> Le client a payé ses frais dus sur son compte.
+			Il pourrait continuer ses démarches dans les autres cas.
 			</p>
 		</div>
+		
 	</div>
 
 	<h2>
@@ -644,6 +627,7 @@
 		<h4>Confirmer présence à séance</h4>
 		<a href="DA4.jpg"><img src="DA4.jpg" alt="diagramme presence"></a>
 		<h4 class="Dev2">procédure comptable</h4>
+		<a href="DA5.jpg"><img src="DA5.jpg" alt="diagramme procedure comptable"></a>
 	</p>
 	<h2>
 		Collaboration Devoir 1</h2>
