@@ -2,15 +2,6 @@ import java.util.Scanner;
 
 public class Main {
 
-    static String numRandom(int longueur) {
-        String x = "";
-        for (int i = 0; i < longueur; i++) {
-            int random = (int) (Math.random() * 10);
-            x = x + random;
-        }
-        return x;
-    }
-
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("\n" +
@@ -19,15 +10,11 @@ public class Main {
                 "----------------------------------------------------------------------\n\n" +
                 "Veuillez choisir l'action voulue en entrant le numéro correspondant et\n" +
                 "ensuite appuyez sur ENTER :\n\n" +
-                "1 -\n" +
-                "2 -\n" +
-                "3 -\n" +
-                "4 -\n" +
-                "5 -\n" +
-                "6 -\n" +
-                "7 -\n" +
-                "8 -\n" +
-                "9 -\n"
+                "1 - ajouter/mettre à jour/supprimer un membre\n" +
+                "2 - ajouter/mettre à jour/supprimer un service\n" +
+                "3 - inscription à une séance\n" +
+                "4 - confirmer présence à une séance\n" +
+                "5 - procédure comptable\n"
         );
 
         System.out.print("Action voulue: \n");

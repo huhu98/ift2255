@@ -15,6 +15,6 @@ public class Professionnel {
     public boolean isSuspendu() {
         return suspendu;
     }
-    
+
 //    public void addSeance(){}
 }
