@@ -2,7 +2,7 @@ public class Numero {
 
     private int longueur;
 
-    public Numero (int longueur) {
+    public Numero(int longueur) {
         this.longueur = longueur;
     }
 

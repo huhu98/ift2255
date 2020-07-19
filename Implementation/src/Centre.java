@@ -1,20 +1,57 @@
 public class Centre {
-    private Membre membre;
-    private Professionnel pro;
-    private Services services = new Services();
+    private Membre[] membre;
+    private Professionnel[] pro;
+    private Services[] services;
 
-    public Centre(){
+    public Centre() {
 
     }
 
-//    public String modifier(){}
-//    public String ajouter(){}
-//    public void supprimer(){}
-//    public boolean presence(){}
-//    public boolean validationNum(){}
-//    public String getContent(){}
-
-    public Services getServices() {
-        return services;
+    public Membre getMembre(String numM) {
     }
+
+    public Services(String code) {
+    }
+
+    public void ajoutClient(String nom, String adresse, String email, String codePostal) {
+    }
+
+    public void ajoutService(String titre, Numero numPro, Temps date, Temps debut, Temps fin, Heure heure,
+                             Semaine semaine, int capacite, double prix) {
+    }
+
+    public void modifierClient(String code, String champ, String valeur) {
+    }
+
+    public void modifierService(String code, String champ, String valeur) {
+    }
+
+    public void supClient(String numero) {
+    }
+
+    public void supService(String code) {
+    }
+
+    public void inscritSeance(String code, String numM) {
+    }
+
+    public void confirmPresence(String numM, String date, String code) {
+    }
+
+    public boolean validationNum(String numM) {
+    }
+
+    public Services[] consultService(String debut, String fin) {
+    }
+
+    public Membre[] consultInscrit(String numPro, String code) {
+    }
+
+    public void comptable() {
+    }
+
+    public String toString() {
+
+    }
+
 }

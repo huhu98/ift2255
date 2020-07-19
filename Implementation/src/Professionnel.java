@@ -1,20 +1,12 @@
-public class Professionnel {
-    private String nom;
-    private String adresse;
-    private String email;
-    private String codePostal;
-    private boolean suspendu = false;
+public class Professionnel extends Client {
 
-    public Professionnel(String nom, String adresse, String email, String codePostal){
-        this.nom = nom;
-        this.adresse = adresse;
-        this.email = email;
-        this.codePostal = codePostal;
+    private Services[] services;
+
+    public Professionnel(String nom, String adresse, String email, String codePostal) {
+        super(nom, adresse, email, codePostal);
     }
 
-    public boolean isSuspendu() {
-        return suspendu;
-    }
+    public void addSeance(Services services) {
 
-//    public void addSeance(){}
+    }
 }

@@ -5,7 +5,7 @@ public class Inscription {
     private boolean serviceExiste;
     private Services services;
 
-    public Inscription(){
+    public Inscription() {
 
     }
 

@@ -1,20 +1,42 @@
+import org.graalvm.compiler.lir.LIRInstruction;
+
 public class Services {
-    private Inscription inscription;
+
+    private String titre;
+    private Numero numPro;
+    private Temps date;
+    private Temps debut;
+    private Temps fin;
+    private Heure heure;
+    private Semaine semaine;
     private int capacite;
-    private String nom;
-    private String presences;
     private double prix;
-    private boolean serviceExiste;
-    private String date;
-    private int heure;
-    private String semaine;
-    private Professionnel pro;
+    private String comment;
+    private Presence presences;
+    private boolean serviceExiste = false;
 
-    public Services(){
-
+    public Services(String titre, Numero numPro, Temps date, Temps debut, Temps fin, Heure heure, Semaine semaine,
+                    int capacite, double prix) {
+        this.titre = titre;
+        this.numPro = numPro;
+        this.date = date;
+        this.debut = debut;
+        this.fin = fin;
+        this.heure = heure;
+        this.semaine = semaine;
+        this.capacite = capacite;
+        this.prix = prix;
     }
-//    public getContenu(){}
-//    public addSeance(){}
-//    public getSeance(){}
-//    public getService(){}
+
+    public String getContenu(){}
+
+    // pas sur
+//    public String setContenu(){}
+
+    public addSeance(){}
+    public Seance getSeance(Temps date){}
+    public void addSeance (){}
+
+    // get set comments presences serviceExiste
+
 }
