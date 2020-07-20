@@ -8,11 +8,11 @@ public class Client {
     public Client(String nom, String adresse, String email, String codePostal) {
     }
 
-    public String getContenu(String champ){
-
-    }
-
-    public void setContenu(String champ, String value){
-
-    }
+//    public String getContenu(String champ){
+//
+//    }
+//
+//    public void setContenu(String champ, String value){
+//
+//    }
 }

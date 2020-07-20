@@ -1,5 +1,9 @@
 public class Temps {
-    public Temps (){
+    private String heure;
+    private String semaine;
+    private String date;
+
+    public Temps() {
 
     }
 }

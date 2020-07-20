@@ -1,5 +1,3 @@
-import org.graalvm.compiler.lir.LIRInstruction;
-
 public class Services {
 
     private String titre;
@@ -7,19 +5,19 @@ public class Services {
     private Temps date;
     private Temps debut;
     private Temps fin;
-    private Heure heure;
-    private Semaine semaine;
+    private Temps heure;
+    private Temps semaine;
     private int capacite;
     private double prix;
     private String comment;
+    private Numero code;
     private Presence presences;
     private boolean serviceExiste = false;
 
-    public Services(String titre, Numero numPro, Temps date, Temps debut, Temps fin, Heure heure, Semaine semaine,
+    public Services(String titre, Numero numPro, Temps debut, Temps fin, Temps heure, Temps semaine,
                     int capacite, double prix) {
         this.titre = titre;
         this.numPro = numPro;
-        this.date = date;
         this.debut = debut;
         this.fin = fin;
         this.heure = heure;
@@ -28,14 +26,13 @@ public class Services {
         this.prix = prix;
     }
 
-    public String getContenu(){}
-
-    // pas sur
-//    public String setContenu(){}
-
-    public addSeance(){}
-    public Seance getSeance(Temps date){}
-    public void addSeance (){}
+//    public String getContenu(){}
+//
+//    public String setContenu(String champ, String valeur){}
+//
+//    public Seance getSeance(Temps date){}
+//
+//    public void addSeance (){}
 
     // get set comments presences serviceExiste
 

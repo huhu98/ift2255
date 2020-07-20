@@ -1,6 +1,7 @@
 public class Membre {
+
     private boolean suspendu = false;
-    private Inscription[] inscriptions;
+    private Services[] services;
 
     public Membre(String nom, String adresse, String email, String codePostal) {
 
