@@ -1,0 +1,26 @@
+###Centre donnee #GYM
+Date limite: 2020/8/4
+
+##Fonctionnalité de comtoir agent:
+-main menu de selection
+-ajout/modifier/supprimer un membre/pro
+-ajout/modifier/supprimer un service de pro
+-procedure comptable
+...TEF des pros
+...rapport synthese qui rassemble les TEF de pro
+...liste de services participés pour membre
+...liste de service fournis pour pro
+
+##Fonctionnalité de app mobile:
+-validation acces par login avec courriel (membre)
+-voir repertoire de service (membre)
+-voir les inscriptions à services （pro）
+-inscription aux services (membre)
+-confirmation presence par pro --> verifie numero membre （pro）
+
+##Deja rendu:
+
+##TODO ajd(2020/7/27):
+
+##TODO dans le futur:
+
