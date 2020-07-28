@@ -15,7 +15,7 @@ public class Services {
     private boolean serviceExiste = false;
 
     public Services(String titre, Numero numPro, Temps debut, Temps fin, Temps heure, Temps semaine,
-                    int capacite, double prix) {
+                    int capacite, double prix, Numero code, Presence presences, boolean serviceExiste ) {
         this.titre = titre;
         this.numPro = numPro;
         this.debut = debut;
@@ -24,9 +24,31 @@ public class Services {
         this.semaine = semaine;
         this.capacite = capacite;
         this.prix = prix;
+        this.code = code;
+        this.presences = presences;
+        this.serviceExiste = serviceExiste;
     }
+    public String getContenu(String champ) {
+        String val = "";
+        boolean vraie = true;
+        boolean faux = false;
+        switch(champ) {
+            case "titre":
+                val = this.titre;
+                break;
+            case "numPro":
+                val = this.numPro;
+        }
 
-//    public String getContenu(){}
+   }
+    public boolean estService() {
+        serviceExiste = true;
+        return serviceExiste;
+    }
+    public boolean pasService() {
+        serviceExiste = false;
+        return serviceExiste;
+    }
 //
 //    public String setContenu(String champ, String valeur){}
 //

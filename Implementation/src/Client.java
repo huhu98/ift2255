@@ -17,6 +17,9 @@ public class Client {
         this.province = province;
     }
 
+    public Client(String nom, String adresse, String email, String codePostal, String ville, String province) {
+    }
+
     public String getContenu(String champ){
         String val = "";
         switch (champ) {

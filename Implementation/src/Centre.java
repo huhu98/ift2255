@@ -3,12 +3,15 @@ public class Centre {
     private Professionnel[] pro;
     private Services[] services;
     private Services[] servicesFournis;
+    private String code;
 
-//    public Membre getMembre(String numM) {
+
+    //    public Membre getMembre(String numM) {
 //    }
 //
-//    public Services getService(String code) {
-//    }
+ //  public String getService(String code) {
+
+  // }
 //
 //    public void ajoutClient(String nom, String adresse, String email, String codePostal) {
 //    }
