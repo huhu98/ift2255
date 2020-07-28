@@ -1,3 +1,5 @@
+import java.util.HashMap;
+
 public class Services {
 
     private String titre;
@@ -13,9 +15,10 @@ public class Services {
     private Numero code;
     private Presence presences;
     private boolean serviceExiste = false;
+    private HashMap<Numero, String> seance = new HashMap<Numero, String>();
 
     public Services(String titre, Numero numPro, Temps debut, Temps fin, Temps heure, Temps semaine,
-                    int capacite, double prix, Numero code, Presence presences, boolean serviceExiste ) {
+                    int capacite, double prix, Numero code, Presence presences, boolean serviceExiste, Temps date ) {
         this.titre = titre;
         this.numPro = numPro;
         this.debut = debut;
@@ -27,6 +30,7 @@ public class Services {
         this.code = code;
         this.presences = presences;
         this.serviceExiste = serviceExiste;
+        this.date = date;
     }
     public String getContenu(String champ) {
         String val = "";
@@ -39,6 +43,7 @@ public class Services {
         String fini = fin.toString();
         String commence = debut.toString();
         String sem = semaine.toString();
+        String jour = date.toString();
         String nbrPlace = "" + capacite;
         String coût = "" + prix;
 
@@ -74,6 +79,9 @@ public class Services {
             case "semaine":
                 val = sem;
                 break;
+            case "date":
+                val = jour;
+                break;
             case "prix":
                 val = coût;
                 break;
@@ -92,11 +100,17 @@ public class Services {
         return serviceExiste;
     }
 //
-//    public String setContenu(String champ, String valeur){}
+//    public void setContenu(String champ, String valeur){}
 //
-//    public Seance getSeance(Temps date){}
+   public Temps getSeance(Temps date,Numero code, String titre){ seance.get(code); return date;}
 //
-//    public void addSeance (){}
+   public void removeSeance (Numero code, String titre) {
+        seance.remove(code, titre);
+    }
+   public void addSeance (Numero code, String titre ) {
+        seance.put(code, titre);
+        System.out.println(seance);
+   }
 
     // get set comments presences serviceExiste
 
