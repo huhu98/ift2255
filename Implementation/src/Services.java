@@ -30,16 +30,58 @@ public class Services {
     }
     public String getContenu(String champ) {
         String val = "";
-        boolean vraie = true;
-        boolean faux = false;
+        String vraie = "oui";
+        String faux = "non";
+        String numero = code.toString();
+        String numeroPro = numPro.toString();
+        String present = presences.toString();
+        String hr = heure.toString();
+        String fini = fin.toString();
+        String commence = debut.toString();
+        String sem = semaine.toString();
+        String nbrPlace = "" + capacite;
+        String coût = "" + prix;
+
         switch(champ) {
             case "titre":
                 val = this.titre;
                 break;
+            case "serviceExiste":
+                if(this.serviceExiste == true) {
+                    val = vraie;
+                } else {
+                    val = faux;
+                }
+                break;
+            case "code":
+                val = numero;
+                break;
             case "numPro":
-                val = this.numPro;
+                val = numeroPro;
+                break;
+            case "presences":
+                val = present;
+                break;
+            case "heure":
+                val = hr;
+                break;
+            case "fin":
+                val = fini;
+                break;
+            case "debut":
+                val = commence;
+                break;
+            case "semaine":
+                val = sem;
+                break;
+            case "prix":
+                val = coût;
+                break;
+            case "capacite":
+                val = nbrPlace;
+                break;
         }
-
+        return val;
    }
     public boolean estService() {
         serviceExiste = true;
