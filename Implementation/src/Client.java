@@ -1,23 +1,18 @@
-public class Client {
+public abstract class Client {
     private String nom;
     private String adresse;
     private String email;
     private String codePostal;
-    private String numero;
     private String province;
     private String ville;
 
-    public Client(String nom, String adresse, String email, String codePostal, String numero, String ville, String province) {
+    public Client(String nom, String adresse, String email, String codePostal, String ville, String province) {
         this.adresse = adresse;
         this.codePostal = codePostal;
         this.email = email;
         this.nom = nom;
-        this.numero = numero;
         this.ville = ville;
         this.province = province;
-    }
-
-    public Client(String nom, String adresse, String email, String codePostal, String ville, String province) {
     }
 
     public String getContenu(String champ){
@@ -34,9 +29,6 @@ public class Client {
              break;
          case "codePostal":
              val = this.codePostal;
-             break;
-         case "numero":
-             val = this.numero;
              break;
          case "ville":
              val = this.ville;
@@ -61,9 +53,6 @@ public class Client {
                val = value;
                break;
            case "codePostal":
-               val = value;
-               break;
-           case "numero":
                val = value;
                break;
            case "ville":
