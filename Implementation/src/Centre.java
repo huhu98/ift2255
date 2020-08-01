@@ -6,11 +6,7 @@ public class Centre {
     private String code;
 
 
-       public Membre getMembre(String numM) {
-    for(int i = 0; i < membre.length; i++) {
-        Membre[numM];
-    }
-   }
+ //      public Membre getMembre(String numM) { }
 //
  //  public String getService(String code) {
 

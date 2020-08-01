@@ -3,7 +3,7 @@ import java.util.HashMap;
 public class Services {
 
     private String titre;
-    private Numero numPro;
+    private String numPro;
     private Temps date;
     private Temps debut;
     private Temps fin;
@@ -12,13 +12,13 @@ public class Services {
     private int capacite;
     private double prix;
     private String comment;
-    private Numero code;
+    private String code;
     private Presence presences;
     private boolean serviceExiste = false;
-    private HashMap<Numero, String> seance = new HashMap<Numero, String>();
+    private HashMap<String, String> seance = new HashMap<String, String>();
 
-    public Services(String titre, Numero numPro, Temps debut, Temps fin, Temps heure, Temps semaine,
-                    int capacite, double prix, Numero code, Presence presences, boolean serviceExiste, Temps date ) {
+    public Services(String titre, String numPro, Temps debut, Temps fin, Temps heure, Temps semaine,
+                    int capacite, double prix, String code, Presence presences, boolean serviceExiste, Temps date ) {
         this.titre = titre;
         this.numPro = numPro;
         this.debut = debut;
@@ -91,6 +91,51 @@ public class Services {
         }
         return val;
    }
+   public void setContenu(String champ, String value){
+       String val = "";
+       switch(champ) {
+           case "titre":
+               val = value;
+               break;
+           case "serviceExiste":
+               if (val.equalsIgnoreCase("true")) {
+                   val = value;
+               }
+               if (val.equalsIgnoreCase("false")) {
+                   val = value;
+               }
+           case "code":
+               val = value;
+               break;
+           case "numPro":
+               val = value;
+               break;
+           case "prix":
+               val = value;
+               break;
+           case "presences":
+               val = value;
+               break;
+           case "capacite":
+               val = value;
+               break;
+           case "debut":
+               val = value;
+               break;
+           case "fin":
+               val = value;
+               break;
+           case "heure":
+               val = value;
+               break;
+           case "semaine":
+               val = value;
+               break;
+           case "date":
+               val = value;
+               break;
+       }
+   }
     public boolean estService() {
         serviceExiste = true;
         return serviceExiste;
@@ -102,12 +147,12 @@ public class Services {
 //
 //    public void setContenu(String champ, String valeur){}
 //
-   public Temps getSeance(Temps date,Numero code, String titre){ seance.get(code); return date;}
+   public Temps getSeance(Temps date,String code, String titre){ seance.get(code); return date;}
 //
-   public void removeSeance (Numero code, String titre) {
+   public void removeSeance (String code, String titre) {
         seance.remove(code, titre);
     }
-   public void addSeance (Numero code, String titre ) {
+   public void addSeance (String code, String titre ) {
         seance.put(code, titre);
         System.out.println(seance);
    }

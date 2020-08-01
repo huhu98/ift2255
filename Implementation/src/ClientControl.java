@@ -16,16 +16,18 @@ public class ClientControl extends Client{
         this.membres = membres;
         this.pro = pro;
     }
-    
+
     public String ajoutMembre(String numM, Membre membre) {
         membre = new Membre(nom, adresse, email, codePostal, ville, province, suspendu);
         membres.put(numM, membre);
+        System.out.println(membres);
         return membres.toString();
     }
 
     public String ajoutPro(String numP, Professionnel professionnel) {
         professionnel = new Professionnel(nom, adresse, email, codePostal, ville, province);
         pro.put(numP, professionnel);
+        System.out.println(pro);
         return pro.toString();
     }
 
@@ -34,6 +36,7 @@ public class ClientControl extends Client{
             Membre m1 = membres.get(numM);
             m1.setContenu(champ, value);
             membres.replace(numM, m1);
+            System.out.println(membres);
         }
     }
 
@@ -42,6 +45,7 @@ public class ClientControl extends Client{
             Professionnel p1 = pro.get(numP);
             p1.setContenu(champ, value);
             pro.replace(numP, p1);
+            System.out.println(pro);
         }
     }
 
