@@ -2,7 +2,7 @@ import java.util.HashMap;
 
 public class Professionnel extends Client {
 
-    private HashMap<Numero, String> services = new HashMap<Numero, String>();
+    private HashMap<String, String> services = new HashMap<String, String>();
     //private Numero serviceCode; public?
 
 
@@ -11,7 +11,7 @@ public class Professionnel extends Client {
         this.services = services;
     }
 
-    public void addSeance(Numero code, String titre) {
+    public void addSeance(String code, String titre) {
       services.put(code, titre);
     }
 }
