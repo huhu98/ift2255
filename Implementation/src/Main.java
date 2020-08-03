@@ -1,5 +1,7 @@
 import java.util.Arrays;
 import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * Devoir 2 IFT 2255
@@ -131,8 +133,18 @@ public class Main {
                                         membreInfo[1] = adresseM;
 
                                         System.out.println("Veuillez entrer son email :");
-                                        membreInfo[5] = scanner.nextLine();
-
+                                        String email = scanner.nextLine();
+                                        if (null != email) {
+                                            String regex = "^[a-zA-Z0-9_!#$%&’*+/=?`{|}~^.-]+@[a-zA-Z0-9.-]+$";
+                                            Pattern pattern = Pattern.compile(regex);
+                                            Matcher matcher = pattern.matcher(email);
+                                            while (!((Matcher) matcher).matches()) {
+                                                System.out.println("Erreur le courriel doit être sous la forme qui suit - Hanlanouille@hotmail.ca :");
+                                                email = scanner.nextLine();
+                                                matcher = pattern.matcher(email);
+                                            }
+                                        }
+                                        membreInfo[5] = email;
                                         System.out.println("Veuillez entrer son codePostal :");
                                         String codePostal = scanner.nextLine();
                                         while (codePostal.length() > 6) {
@@ -238,7 +250,74 @@ public class Main {
 
                                         membreMAJ[1] = champ;
                                         System.out.println("Veuillez choisir la nouvelle valeur voulue :");
-                                        membreMAJ[2] = scanner.nextLine();
+                                        String res = scanner.nextLine();
+                                        switch (champ) {
+                                            case "nom": {
+                                                while (res.length() > 25) {
+                                                    System.out.println(
+                                                            "Erreur, le nom doit comporter 25 lettres maximum.\n" +
+                                                                    "Veuillez réessayer :");
+                                                    res = scanner.nextLine();
+                                                }
+                                                membreMAJ[2] = res;
+                                                break;
+                                            }
+                                            case "adresse": {
+                                                while (res.length() > 25) {
+                                                    System.out.println(
+                                                            "Erreur, l'adresse doit comporter 25 caractères maximum.\n" +
+                                                                    "Veuillez réessayer :");
+                                                    res = scanner.nextLine();
+                                                }
+                                                membreMAJ[2] = res;
+                                                break;
+                                            }
+                                            case "email": {
+                                                if (null != res) {
+                                                    String regex = "^[a-zA-Z0-9_!#$%&’*+/=?`{|}~^.-]+@[a-zA-Z0-9.-]+$";
+                                                    Pattern pattern = Pattern.compile(regex);
+                                                    Matcher matcher = pattern.matcher(res);
+                                                    while (!((Matcher) matcher).matches()) {
+                                                        System.out.println("Erreur le courriel doit être sous la forme qui suit - Hanlanouille@hotmail.ca :");
+                                                        res = scanner.nextLine();
+                                                        matcher = pattern.matcher(res);
+                                                    }
+                                                }
+                                                membreMAJ[2] = res;
+                                                break;
+                                            }
+                                            case "codepostal": {
+                                                while (res.length() > 6) {
+                                                    System.out.println(
+                                                            "Erreur, le code postal doit comporter 6 caractères maximum.\n" +
+                                                                    "Veuillez réessayer :");
+                                                    res = scanner.nextLine();
+                                                }
+                                                membreMAJ[2] = res;
+                                                break;
+                                            }
+                                            case "ville": {
+                                                while (res.length() > 14) {
+                                                    System.out.println(
+                                                            "Erreur, la ville doit comporter 14 caractères maximum.\n" +
+                                                                    "Veuillez réessayer :");
+                                                    res = scanner.nextLine();
+                                                }
+                                                membreMAJ[2] = res;
+                                                break;
+                                            }
+                                            case "province": {
+                                                while (res.length() > 2) {
+                                                    System.out.println(
+                                                            "Erreur, la ville doit comporter 2 caractères maximum.\n" +
+                                                                    "Veuillez réessayer :");
+                                                    res = scanner.nextLine();
+                                                }
+                                                membreMAJ[2] = res;
+                                                break;
+                                            }
+                                        }
+                                        membreMAJ[2] = res;
                                         System.out.println(Arrays.toString(membreMAJ));
                                         clientControl.modifierMembre(membreMAJ[0], membreMAJ[1], membreMAJ[2]);
                                         System.out.println("Mise à jour du membre confirmée");
@@ -416,7 +495,74 @@ public class Main {
 
                                         proMAJ[1] = champ;
                                         System.out.println("Veuillez choisir la nouvelle valeur voulue :");
-                                        proMAJ[2] = scanner.nextLine();
+                                        String res = scanner.nextLine();
+                                        switch (champ) {
+                                            case "nom": {
+                                                while (res.length() > 25) {
+                                                    System.out.println(
+                                                            "Erreur, le nom doit comporter 25 lettres maximum.\n" +
+                                                                    "Veuillez réessayer :");
+                                                    res = scanner.nextLine();
+                                                }
+                                                proMAJ[2] = res;
+                                                break;
+                                            }
+                                            case "adresse": {
+                                                while (res.length() > 25) {
+                                                    System.out.println(
+                                                            "Erreur, l'adresse doit comporter 25 caractères maximum.\n" +
+                                                                    "Veuillez réessayer :");
+                                                    res = scanner.nextLine();
+                                                }
+                                                proMAJ[2] = res;
+                                                break;
+                                            }
+                                            case "email": {
+                                                if (null != res) {
+                                                    String regex = "^[a-zA-Z0-9_!#$%&’*+/=?`{|}~^.-]+@[a-zA-Z0-9.-]+$";
+                                                    Pattern pattern = Pattern.compile(regex);
+                                                    Matcher matcher = pattern.matcher(res);
+                                                    while (!((Matcher) matcher).matches()) {
+                                                        System.out.println("Erreur le courriel doit être sous la forme qui suit - Hanlanouille@hotmail.ca :");
+                                                        res = scanner.nextLine();
+                                                        matcher = pattern.matcher(res);
+                                                    }
+                                                }
+                                                proMAJ[2] = res;
+                                                break;
+                                            }
+                                            case "codepostal": {
+                                                while (res.length() > 6) {
+                                                    System.out.println(
+                                                            "Erreur, le code postal doit comporter 6 caractères maximum.\n" +
+                                                                    "Veuillez réessayer :");
+                                                    res = scanner.nextLine();
+                                                }
+                                                proMAJ[2] = res;
+                                                break;
+                                            }
+                                            case "ville": {
+                                                while (res.length() > 14) {
+                                                    System.out.println(
+                                                            "Erreur, la ville doit comporter 14 caractères maximum.\n" +
+                                                                    "Veuillez réessayer :");
+                                                    res = scanner.nextLine();
+                                                }
+                                                proMAJ[2] = res;
+                                                break;
+                                            }
+                                            case "province": {
+                                                while (res.length() > 2) {
+                                                    System.out.println(
+                                                            "Erreur, la ville doit comporter 2 caractères maximum.\n" +
+                                                                    "Veuillez réessayer :");
+                                                    res = scanner.nextLine();
+                                                }
+                                                proMAJ[2] = res;
+                                                break;
+                                            }
+                                        }
+                                        proMAJ[2] = res;
                                         System.out.println(Arrays.toString(proMAJ));
                                         clientControl.modifierPro(proMAJ[0], proMAJ[1], proMAJ[2]);
                                         System.out.println("Mise à jour du professionnel confirmée");
