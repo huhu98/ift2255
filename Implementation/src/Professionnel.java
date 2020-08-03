@@ -6,8 +6,8 @@ public class Professionnel extends Client {
     //private Numero serviceCode; public?
 
 
-    public Professionnel(String nom, String adresse, String email, String codePostal, String ville, String province) {
-        super(nom, adresse, email, codePostal, ville, province);
+    public Professionnel(String nom, String adresse,String ville, String province, String codePostal, String email) {
+        super(nom, adresse, ville, province, codePostal, email);
         this.services = services;
     }
 

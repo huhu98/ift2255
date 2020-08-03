@@ -4,8 +4,8 @@ public class Membre extends Client {
     private Services[] services;
 
     // besoin de plus d'info sur ce que membre va faire exemple : numero(meme?)
-    public Membre(String nom, String adresse, String email, String codePostal, String ville, String province, boolean suspendu) {
-        super(nom, email, adresse, ville, codePostal, province);
+    public Membre(String nom, String adresse,String ville, String province, String codePostal, String email, boolean suspendu) {
+        super(nom, adresse, ville, province, codePostal, email);
         this.suspendu = suspendu;
     }
 

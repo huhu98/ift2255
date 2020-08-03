@@ -4,15 +4,15 @@ public class ClientControl {
     private HashMap<String, Membre> membres = new HashMap<String, Membre>();
     private HashMap<String, Professionnel> pro = new HashMap<String, Professionnel>();
 
-    public String ajoutMembre(String nom, String adresse, String email, String codePostal, String ville, String province) {
-        Membre membre = new Membre(nom, adresse, email, codePostal, ville, province, false);
+    public String ajoutMembre(String nom, String adresse,String ville, String province, String codePostal, String email) {
+        Membre membre = new Membre(nom, adresse, ville, province, codePostal, email, false);
         String numM = Numero.genererNum(9);
         membres.put(numM, membre);
         return numM;
     }
 
-    public String ajoutPro(String nom, String adresse, String email, String codePostal, String ville, String province) {
-        Professionnel professionnel = new Professionnel(nom, adresse, email, codePostal, ville, province);
+    public String ajoutPro(String nom, String adresse,String ville, String province, String codePostal, String email) {
+        Professionnel professionnel = new Professionnel(nom, adresse, ville, province, codePostal, email);
         String numP = Numero.genererNum(7);
         String digit =  ""+ pro.size();
         if (digit.length() == 1) {
