@@ -5,7 +5,7 @@ public abstract class Client {
     private String codePostal;
     private String province;
     private String ville;
-   
+
 
     public Client(String nom, String adresse, String email, String codePostal, String ville, String province) {
         this.adresse = adresse;
