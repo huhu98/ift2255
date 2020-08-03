@@ -1,162 +1,111 @@
 import java.util.HashMap;
 
 public class Services {
-
-    private String titre;
+	private HashMap<String, Seance> seances = new HashMap<String, Seance>();
+    
+	private String titre;
+	private int code;
     private String numPro;
-    private Temps date;
-    private Temps debut;
-    private Temps fin;
-    private Temps heure;
-    private Temps semaine;
+    private String debut;
+    private String fin;
+    private String heure;
+    private String jour;
     private int capacite;
     private double prix;
     private String comment;
-    private String code;
-    private Presence presences;
-    private boolean serviceExiste = false;
-    private HashMap<String, String> seance = new HashMap<String, String>();
-
-    public Services(String titre, String numPro, Temps debut, Temps fin, Temps heure, Temps semaine,
-                    int capacite, double prix, String code, Presence presences, boolean serviceExiste, Temps date ) {
+    
+    public Services(String titre, int code, String numPro, String debut, String fin, String heure, String jour,
+                    int capacite, double prix, String comment) {
         this.titre = titre;
+        this.code = code; // 3 chiffres
         this.numPro = numPro;
         this.debut = debut;
         this.fin = fin;
         this.heure = heure;
-        this.semaine = semaine;
+        this.jour = jour;
         this.capacite = capacite;
         this.prix = prix;
-        this.code = code;
-        this.presences = presences;
-        this.serviceExiste = serviceExiste;
-        this.date = date;
+        this.comment = comment;
     }
     public String getContenu(String champ) {
-        String val = "";
-        String vraie = "oui";
-        String faux = "non";
-        String numero = code.toString();
-        String numeroPro = numPro.toString();
-        String present = presences.toString();
-        String hr = heure.toString();
-        String fini = fin.toString();
-        String commence = debut.toString();
-        String sem = semaine.toString();
-        String jour = date.toString();
-        String nbrPlace = "" + capacite;
-        String coût = "" + prix;
-
+    	String result = null;
         switch(champ) {
             case "titre":
-                val = this.titre;
-                break;
-            case "serviceExiste":
-                if(this.serviceExiste == true) {
-                    val = vraie;
-                } else {
-                    val = faux;
-                }
+            	result = this.titre;
                 break;
             case "code":
-                val = numero;
-                break;
+            	int codeService = this.code;
+            	result = Integer.toString(codeService);
             case "numPro":
-                val = numeroPro;
-                break;
-            case "presences":
-                val = present;
-                break;
-            case "heure":
-                val = hr;
-                break;
-            case "fin":
-                val = fini;
+                result = this.numPro;
                 break;
             case "debut":
-                val = commence;
+            	result = this.debut;
                 break;
-            case "semaine":
-                val = sem;
+            case "fin":
+            	result = this.fin;
                 break;
-            case "date":
-                val = jour;
+            case "heure":
+            	result = this.heure;
+            case "jour":
+            	result = this.jour;
                 break;
             case "prix":
-                val = coût;
+            	double cout = this.prix;
+            	result = Double.toString(cout);
                 break;
             case "capacite":
-                val = nbrPlace;
+            	int espace = this.capacite;
+            	result = Integer.toString(espace);
                 break;
+            case "comment":
+            	result = this.comment;
         }
-        return val;
+        return result;
    }
    public void setContenu(String champ, String value){
-       String val = "";
        switch(champ) {
            case "titre":
-               val = value;
-               break;
-           case "serviceExiste":
-               if (val.equalsIgnoreCase("true")) {
-                   val = value;
-               }
-               if (val.equalsIgnoreCase("false")) {
-                   val = value;
-               }
-           case "code":
-               val = value;
-               break;
-           case "numPro":
-               val = value;
-               break;
-           case "prix":
-               val = value;
-               break;
-           case "presences":
-               val = value;
-               break;
-           case "capacite":
-               val = value;
+               this.titre = value;
                break;
            case "debut":
-               val = value;
+               this.debut= value;
                break;
            case "fin":
-               val = value;
+               this.fin = value;
                break;
            case "heure":
-               val = value;
+               this.heure = value;
                break;
-           case "semaine":
-               val = value;
+           case "jour":
+               this.jour = value;
                break;
-           case "date":
-               val = value;
+           case "prix":
+               this.prix = Double.parseDouble(value);
                break;
+           case "capacite":
+               this.capacite = Integer.parseInt(value);
+               break;
+           case "comment":
+        	   this.comment = value;
+        	   break;           
        }
    }
-    public boolean estService() {
-        serviceExiste = true;
-        return serviceExiste;
-    }
-    public boolean pasService() {
-        serviceExiste = false;
-        return serviceExiste;
-    }
-//
-//    public void setContenu(String champ, String valeur){}
-//
-   public Temps getSeance(Temps date,String code, String titre){ seance.get(code); return date;}
-//
-   public void removeSeance (String code, String titre) {
-        seance.remove(code, titre);
-    }
-   public void addSeance (String code, String titre ) {
-        seance.put(code, titre);
-        System.out.println(seance);
+   public void addSeance() {
+	   int nombreSeance = 0;
+	   //calculer la difference de date pour avoir un nombre de semaine que le service va recurrer
+	   //calculer la date de chacun
+	   //genCodeSeance pour les i nombres de semaine xxxiipp
+	   //creer seance avec la date
+	   //put codeSeance et Seance(date) dans Hashmap
    }
-
-    // get set comments presences serviceExiste
-
+   public String genCodeSeance(int i) {
+	   String numSeance = Integer.toString(i);
+	   String codeSeance = null;
+	   String codeService = this.getContenu("code"); 
+	   String numP2 = this.getContenu(numPro);
+	   codeSeance = codeService+numSeance+numP2.substring(numP2.length()-2);
+	   return codeSeance;
+   }
 }
+   

@@ -1,25 +1,23 @@
 import java.util.*;
 
-public class ServiceControl extends Services {
+public class ServiceControl{
     private HashMap<String, Services> services = new HashMap<String, Services>();
     private HashMap<String, List<String>> seanceInscrit = new HashMap<String, List<String>>();
     private HashMap<String, List<Services>> seanceFournie = new HashMap<String, List<Services>>();
     private ArrayList <String> codeService = new ArrayList<String>();
 
-    public ServiceControl(String titre, String numPro, Temps debut, Temps fin, Temps heure, Temps semaine, int capacite, double prix, String code, Presence presences, boolean serviceExiste, Temps date) {
-        super(titre, numPro, debut, fin, heure, semaine, capacite, prix, code, presences, serviceExiste, date);
-    }
-    // rendre code seance etc.. private
-    public String ajoutService(String codeSeance, Services service) {
+    
+/*    public String ajoutService(String codeSeance, Services service) {
         services.put(codeSeance, service);
         System.out.println(services.toString());
         return services.toString();
     }
-    public Services creerSeances(String codeSeance, Services service, String titre, String numPro, Temps debut, Temps fin, Temps heure, Temps semaine, int capacite, double prix, String code, Presence presences, boolean serviceExiste, Temps date) {
-        service = new Services(titre, numPro, debut, fin, heure, semaine, capacite, prix, code, presences, serviceExiste, date);
+    public void creerSeances(titre,numPro,debut,fin, heure,jour,capacite,prix,comment){
+        service = new Services(titre,numPro,debut,fin,heure,jour,capacite,prix,comment);
         System.out.println(service.toString());
         return service;
     }
+    */
     public void putService(String codeSeance, Services service){
         services.put(codeSeance,service);
         System.out.println(services.toString());
