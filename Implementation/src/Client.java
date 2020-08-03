@@ -5,6 +5,7 @@ public abstract class Client {
     private String codePostal;
     private String province;
     private String ville;
+   
 
     public Client(String nom, String adresse, String email, String codePostal, String ville, String province) {
         this.adresse = adresse;
@@ -40,26 +41,25 @@ public abstract class Client {
          return val;
     }
 
-    public void setContenu(String champ, String value){
-        String val = "";
+    public void setContenu(String champ, String value) {
         switch(champ) {
            case "nom":
-               val = value;
+               this.nom = value;
                break;
            case "adresse":
-               val = value;
+               this.adresse = value;
                break;
            case "email":
-               val = value;
+               this.email = value;
                break;
            case "codePostal":
-               val = value;
+                this.codePostal = value;
                break;
            case "ville":
-               val = value;
+               this.ville = value;
                break;
            case "province":
-               val = value;
+               this.province = value;
                break;
        }
     }
