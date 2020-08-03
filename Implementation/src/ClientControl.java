@@ -3,19 +3,13 @@ import java.util.HashMap;
 public class ClientControl {
     private HashMap<String, Membre> membres = new HashMap<String, Membre>();
     private HashMap<String, Professionnel> pro = new HashMap<String, Professionnel>();
-
-   /* public ClientControl() {
-        this.membres = new HashMap<>();
-        this.pro = new HashMap<>();
-    }*/
-
-
+    
     public String ajoutMembre(String nom, String adresse, String email, String codePostal, String ville, String province) {
         Membre membre = new Membre(nom, adresse, email, codePostal, ville, province, false);
         String numM = Numero.genererNum(9);
         membres.put(numM, membre);
         System.out.println(membres);
-        return membres.toString();
+        return membres.get(numM).toString();
     }
 
     public String ajoutPro(String nom, String adresse, String email, String codePostal, String ville, String province) {
@@ -23,7 +17,7 @@ public class ClientControl {
         String numP = Numero.genererNum(9);
         pro.put(numP, professionnel);
         System.out.println(pro);
-        return pro.toString();
+        return pro.get(numP).toString();
     }
 
     public void modifierMembre(String champ, String numM, String value) {
