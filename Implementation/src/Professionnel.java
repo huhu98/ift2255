@@ -12,6 +12,6 @@ public class Professionnel extends Client {
     }
 
     public void addSeance(String code, String titre) {
-      services.put(code, titre);
+        services.put(code, titre);
     }
 }

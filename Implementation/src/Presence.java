@@ -18,13 +18,16 @@ public class Presence {
         present = true;
         return present;
     }
+
     public boolean notPresent() {
         present = false;
         return present;
     }
+
     public boolean getPresence(boolean present) {
         return present;
     }
+
     public void setPresence(String present, boolean state) {
         switch (present) {
             case "oui":
