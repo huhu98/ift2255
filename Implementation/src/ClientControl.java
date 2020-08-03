@@ -23,21 +23,19 @@ public class ClientControl {
         return numP;
     }
 
-    public void modifierMembre(String champ, String numM, String value) {
+    public void modifierMembre(String numM, String champ, String value) {
         if (membres.containsKey(numM)) {
             Membre m1 = membres.get(numM);
             m1.setContenu(champ, value);
             membres.replace(numM, m1);
-            System.out.println(membres);
         }
     }
 
-    public void modifierPro(String champ, String numP, String value) {
-        if (membres.containsKey(numP)) {
+    public void modifierPro(String numP, String champ, String value) {
+        if (pro.containsKey(numP)) {
             Professionnel p1 = pro.get(numP);
             p1.setContenu(champ, value);
             pro.replace(numP, p1);
-            System.out.println(pro);
         }
     }
 
@@ -71,16 +69,30 @@ public class ClientControl {
         String ville = "ville: "+m.getContenu("ville");
         String province ="province: " +m.getContenu("province");
         String codeP = "code postal: " + m.getContenu("codePostal");
-        String result = nom+"\n"+adresse+"\n"+ville+"\n"+province+"\n"+codeP;
+        String email = "email:"+ m.getContenu("email");
+        String result = nom+"\n"+adresse+"\n"+ville+"\n"+province+"\n"+codeP+"\n"+email;
         return result;
-
     }
+
+    public String affichePro(String numP) {
+        Professionnel p1 = this.getPro(numP);
+        String nom = "nom: "+p1.getContenu("nom");
+        String adresse ="adresse: "+ p1.getContenu("adresse");
+        String ville = "ville: "+p1.getContenu("ville");
+        String province ="province: " +p1.getContenu("province");
+        String codeP = "code postal: " + p1.getContenu("codePostal");
+        String email = "email:"+ p1.getContenu("email");
+        String result = nom+"\n"+adresse+"\n"+ville+"\n"+province+"\n"+codeP+"\n"+email;
+        return result;
+    }
+
     public void testMembre() {
         for (String key: membres.keySet()) {
             System.out.println("key : " + key);
             System.out.println("value : " + membres.get(key));
         }
     }
+
     public void testPro() {
         for (String key: pro.keySet()) {
             System.out.println("key : " + key);

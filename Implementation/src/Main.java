@@ -131,7 +131,7 @@ public class Main {
                                         membreInfo[1] = adresseM;
 
                                         System.out.println("Veuillez entrer son email :");
-                                        membreInfo[2] = scanner.nextLine();
+                                        membreInfo[5] = scanner.nextLine();
 
                                         System.out.println("Veuillez entrer son codePostal :");
                                         String codePostal = scanner.nextLine();
@@ -141,7 +141,7 @@ public class Main {
                                                             "Veuillez réessayer :");
                                             codePostal = scanner.nextLine();
                                         }
-                                        membreInfo[3] = codePostal;
+                                        membreInfo[4] = codePostal;
 
                                         System.out.println("Veuillez entrer sa ville :");
                                         String ville = scanner.nextLine();
@@ -151,7 +151,7 @@ public class Main {
                                                             "Veuillez réessayer :");
                                             ville = scanner.nextLine();
                                         }
-                                        membreInfo[4] = ville;
+                                        membreInfo[2] = ville;
 
                                         System.out.println("Veuillez entrer sa province :");
                                         String province = scanner.nextLine();
@@ -161,7 +161,7 @@ public class Main {
                                                             "Veuillez réessayer :");
                                             province = scanner.nextLine();
                                         }
-                                        membreInfo[5] = province;
+                                        membreInfo[3] = province;
 
                                         System.out.println("Ajout confirmé, voici le numéro du membre :");
                                         String numeroM = clientControl.ajoutMembre(membreInfo[0], membreInfo[1], membreInfo[2], membreInfo[3], membreInfo[4], membreInfo[5]);
@@ -242,6 +242,7 @@ public class Main {
                                         System.out.println(Arrays.toString(membreMAJ));
                                         clientControl.modifierMembre(membreMAJ[0], membreMAJ[1], membreMAJ[2]);
                                         System.out.println("Mise à jour du membre confirmée");
+                                        System.out.println(clientControl.afficheMembre(membreMAJ[0]));
                                         System.out.println(bienvenuGYM);
                                         break;
                                     }
@@ -308,7 +309,7 @@ public class Main {
                                         proInfo[1] = adresseM;
 
                                         System.out.println("Veuillez entrer son email :");
-                                        proInfo[2] = scanner.nextLine();
+                                        proInfo[5] = scanner.nextLine();
 
                                         System.out.println("Veuillez entrer son codePostal :");
                                         String codePostal = scanner.nextLine();
@@ -318,7 +319,7 @@ public class Main {
                                                             "Veuillez réessayer :");
                                             codePostal = scanner.nextLine();
                                         }
-                                        proInfo[3] = codePostal;
+                                        proInfo[4] = codePostal;
 
                                         System.out.println("Veuillez entrer sa ville :");
                                         String ville = scanner.nextLine();
@@ -328,7 +329,7 @@ public class Main {
                                                             "Veuillez réessayer :");
                                             ville = scanner.nextLine();
                                         }
-                                        proInfo[4] = ville;
+                                        proInfo[2] = ville;
 
                                         System.out.println("Veuillez entrer sa province :");
                                         String province = scanner.nextLine();
@@ -338,10 +339,12 @@ public class Main {
                                                             "Veuillez réessayer :");
                                             province = scanner.nextLine();
                                         }
-                                        proInfo[5] = province;
+                                        proInfo[3] = province;
 
                                         System.out.println("Ajout confirmé, voici le numéro de professionnel :");
-                                        clientControl.ajoutPro(proInfo[0], proInfo[1], proInfo[2], proInfo[3], proInfo[4], proInfo[5]);
+                                        String numeroP = clientControl.ajoutPro(proInfo[0], proInfo[1], proInfo[2], proInfo[3], proInfo[4], proInfo[5]);
+                                        System.out.println(numeroP);
+                                        System.out.println(clientControl.affichePro(numeroP));
                                         System.out.println(bienvenuGYM);
                                         break;
                                     }
@@ -349,16 +352,16 @@ public class Main {
                                         String[] proMAJ = new String[3];
                                         System.out.println("Veuillez entrer le numéro du professionnel :");
 
-                                        String numM = scanner.nextLine();
-                                        while (numM.length() != 9) {
+                                        String numP = scanner.nextLine();
+                                        while (numP.length() != 9) {
                                             System.out.println(
                                                     "Erreur, le numéro du professionnel est composé de 9 chiffres\n" +
                                                             "Veuillez réessayer :");
-                                            numM = scanner.nextLine();
+                                            numP = scanner.nextLine();
                                         }
                                         //TODO
                                         //il faut verifier si le numero existe
-                                        proMAJ[0] = numM;
+                                        proMAJ[0] = numP;
 
                                         System.out.println("Veuillez choisir le champ que vous voulez modifier :\n" +
                                                 "a - nom\n" +
@@ -417,6 +420,7 @@ public class Main {
                                         System.out.println(Arrays.toString(proMAJ));
                                         clientControl.modifierPro(proMAJ[0], proMAJ[1], proMAJ[2]);
                                         System.out.println("Mise à jour du professionnel confirmée");
+                                        System.out.println(clientControl.affichePro(proMAJ[0]));
                                         System.out.println(bienvenuGYM);
                                         break;
                                     }
