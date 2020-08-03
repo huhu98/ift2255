@@ -3,21 +3,24 @@ import java.util.HashMap;
 public class ClientControl {
     private HashMap<String, Membre> membres = new HashMap<String, Membre>();
     private HashMap<String, Professionnel> pro = new HashMap<String, Professionnel>();
-    
+
     public String ajoutMembre(String nom, String adresse, String email, String codePostal, String ville, String province) {
         Membre membre = new Membre(nom, adresse, email, codePostal, ville, province, false);
         String numM = Numero.genererNum(9);
         membres.put(numM, membre);
-        System.out.println(membres);
-        return membres.get(numM).toString();
+        return numM;
     }
 
     public String ajoutPro(String nom, String adresse, String email, String codePostal, String ville, String province) {
         Professionnel professionnel = new Professionnel(nom, adresse, email, codePostal, ville, province);
-        String numP = Numero.genererNum(9);
+        String numP = Numero.genererNum(7);
+        String digit =  ""+ pro.size();
+        if (digit.length() == 1) {
+            digit = "0" + digit;
+        }
+        numP += digit;
         pro.put(numP, professionnel);
-        System.out.println(pro);
-        return pro.get(numP).toString();
+        return numP;
     }
 
     public void modifierMembre(String champ, String numM, String value) {
@@ -60,6 +63,29 @@ public class ClientControl {
 
     public boolean validationNumP(String numP) {
         return pro.containsKey(numP);
+    }
+    public String afficheMembre(String numM) {
+        Membre m = this.getMembre(numM);
+        String nom = "nom: "+m.getContenu("nom");
+        String adresse ="adresse: "+ m.getContenu("adresse");
+        String ville = "ville: "+m.getContenu("ville");
+        String province ="province: " +m.getContenu("province");
+        String codeP = "code postal: " + m.getContenu("codePostal");
+        String result = nom+"\n"+adresse+"\n"+ville+"\n"+province+"\n"+codeP;
+        return result;
+
+    }
+    public void testMembre() {
+        for (String key: membres.keySet()) {
+            System.out.println("key : " + key);
+            System.out.println("value : " + membres.get(key));
+        }
+    }
+    public void testPro() {
+        for (String key: pro.keySet()) {
+            System.out.println("key : " + key);
+            System.out.println("value : " + pro.get(key));
+        }
     }
 
 }

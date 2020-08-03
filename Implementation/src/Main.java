@@ -145,7 +145,7 @@ public class Main {
 
                                         System.out.println("Veuillez entrer sa ville :");
                                         String ville = scanner.nextLine();
-                                        while (ville.length() > 6) {
+                                        while (ville.length() > 14) {
                                             System.out.println(
                                                     "Erreur, la ville doit comporter 14 caractères maximum.\n" +
                                                             "Veuillez réessayer :");
@@ -155,7 +155,7 @@ public class Main {
 
                                         System.out.println("Veuillez entrer sa province :");
                                         String province = scanner.nextLine();
-                                        while (province.length() > 6) {
+                                        while (province.length() > 2) {
                                             System.out.println(
                                                     "Erreur, la ville doit comporter 2 caractères maximum.\n" +
                                                             "Veuillez réessayer :");
@@ -164,7 +164,9 @@ public class Main {
                                         membreInfo[5] = province;
 
                                         System.out.println("Ajout confirmé, voici le numéro du membre :");
-                                        clientControl.ajoutMembre(membreInfo[0], membreInfo[1], membreInfo[2], membreInfo[3], membreInfo[4], membreInfo[5]);
+                                        String numeroM = clientControl.ajoutMembre(membreInfo[0], membreInfo[1], membreInfo[2], membreInfo[3], membreInfo[4], membreInfo[5]);
+                                        System.out.println(numeroM);
+                                        System.out.println(clientControl.afficheMembre(numeroM));
                                         System.out.println(bienvenuGYM);
                                         break;
                                     }
@@ -320,7 +322,7 @@ public class Main {
 
                                         System.out.println("Veuillez entrer sa ville :");
                                         String ville = scanner.nextLine();
-                                        while (ville.length() > 6) {
+                                        while (ville.length() > 14) {
                                             System.out.println(
                                                     "Erreur, la ville doit comporter 14 caractères maximum.\n" +
                                                             "Veuillez réessayer :");
@@ -330,7 +332,7 @@ public class Main {
 
                                         System.out.println("Veuillez entrer sa province :");
                                         String province = scanner.nextLine();
-                                        while (province.length() > 6) {
+                                        while (province.length() > 2) {
                                             System.out.println(
                                                     "Erreur, la ville doit comporter 2 caractères maximum.\n" +
                                                             "Veuillez réessayer :");
