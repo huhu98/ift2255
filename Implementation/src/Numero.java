@@ -10,7 +10,7 @@ public class Numero {
         return genererNum(longueur);
     }
 
-    public String genererNum(int longueur) {
+    public static String genererNum(int longueur) {
         StringBuilder num = new StringBuilder();
         for (int i = 0; i < longueur; i++) {
             int random = (int) (Math.random() * 10);

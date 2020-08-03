@@ -17,8 +17,9 @@ public class ClientControl extends Client{
         this.pro = pro;
     }
 
-    public String ajoutMembre(String numM, Membre membre) {
-        membre = new Membre(nom, adresse, email, codePostal, ville, province, suspendu);
+    public String ajoutMembre(String nom, String adresse, String email,String codePostal, String ville, String province) {
+        Membre membre = new Membre(nom, adresse, email, codePostal, ville, province, suspendu);
+        String numM = Numero.genererNum(7);
         membres.put(numM, membre);
         System.out.println(membres);
         return membres.toString();
