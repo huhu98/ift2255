@@ -1,4 +1,8 @@
-import java.util.HashMap;
+import java.text.DecimalFormat;
+import java.time.*;
+import java.time.format.*;
+import java.time.temporal.TemporalAdjusters;
+import java.util.*;
 
 public class Services {
     private HashMap<String, Seance> seances = new HashMap<String, Seance>();
@@ -9,15 +13,15 @@ public class Services {
     private String debut;
     private String fin;
     private String heure;
-    private String jour;
+    private int jour;
     private int capacite;
     private double prix;
     private String comment;
 
-    public Services(String titre, int code, String numPro, String debut, String fin, String heure, String jour,
+    public Services(int code, String titre, String numPro, String debut, String fin, String heure, int jour,
                     int capacite, double prix, String comment) {
-        this.titre = titre;
-        this.code = code; // 3 chiffres
+    	this.code = code; // 3 chiffres
+    	this.titre = titre;
         this.numPro = numPro;
         this.debut = debut;
         this.fin = fin;
@@ -27,6 +31,21 @@ public class Services {
         this.prix = prix;
         this.comment = comment;
     }
+    
+    public void addSeance() {
+    	List<LocalDate> dates = dateSeance(this.debut,this.fin,this.jour);
+        for(int i = 0; i < dates.size(); i++) {
+        	Seance s = new Seance(dates.get(i));
+        	String codeSeance = genCodeSeance(i);
+        	this.seances.put(codeSeance, s);
+        }
+    }
+    
+    
+    public HashMap<String, Seance> getSeanceMap(){
+    	return this.seances;
+    }
+    
 
     public String getContenu(String champ) {
         String result = null;
@@ -49,7 +68,8 @@ public class Services {
             case "heure":
                 result = this.heure;
             case "jour":
-                result = this.jour;
+            	int day = this.jour;
+                result = DayOfWeek.of(day).getDisplayName(TextStyle.FULL, Locale.FRENCH);
                 break;
             case "prix":
                 double cout = this.prix;
@@ -64,23 +84,18 @@ public class Services {
         }
         return result;
     }
-
+      
+    /*
+     * Le titre et le code de Service en 3 chiffres sont dépendantes de l'un à l'autre.
+     * La date debut et fin, et la recurrence semaine sont aussi dépendantes de l'un à l'autre.
+     * On ne les modifie pas individuellement.
+     * Si l'utilisateur veut changer l'un de champ mentionné en haut, il doit supprimer le service et
+     * en créer un nouveau pour que le système calcule de nouveau le nombre, la date et le numero de Seance.
+     * */
     public void setContenu(String champ, String value) {
         switch (champ) {
-            case "titre":
-                this.titre = value;
-                break;
-            case "debut":
-                this.debut = value;
-                break;
-            case "fin":
-                this.fin = value;
-                break;
             case "heure":
                 this.heure = value;
-                break;
-            case "jour":
-                this.jour = value;
                 break;
             case "prix":
                 this.prix = Double.parseDouble(value);
@@ -93,22 +108,42 @@ public class Services {
                 break;
         }
     }
-
-    public void addSeance() {
-        int nombreSeance = 0;
-        //calculer la difference de date pour avoir un nombre de semaine que le service va recurrer
-        //calculer la date de chacun
-        //genCodeSeance pour les i nombres de semaine xxxiipp
-        //creer seance avec la date
-        //put codeSeance et Seance(date) dans Hashmap
+    
+    public List<LocalDate> dateSeance(String debut, String fin, int jour) {
+    	//Initialize une arraylist des dates de seances
+    	List<LocalDate> dates = new ArrayList<LocalDate>(); 
+    	
+    	//Convertir debut et fin de String "dd-mm-yyyy" en LocalDate
+    	DateTimeFormatter format = DateTimeFormatter.ofPattern("d-MM-yyyy");
+    	LocalDate start = LocalDate.parse(debut, format);
+    	LocalDate end = LocalDate.parse(fin, format);
+    	
+    	//Trouver le premier date de Seance apres le debut
+    	LocalDate startday = start.with(TemporalAdjusters.next(DayOfWeek.of(jour)));
+    	
+    	//Trouver le dernier date de Seance avant la fin
+    	LocalDate endday =end.with(TemporalAdjusters.previous(DayOfWeek.of(jour)));
+    	
+    	//Ajouter la date du premier seance dans arraylisy
+    	dates.add(startday);
+    	
+    	//Ajouter les dates de seances entre le premier et le dernier seances
+    	while (endday.isAfter(startday)) {
+    		LocalDate tmpday = startday;
+    		tmpday = tmpday.plusWeeks(1);
+    		startday = tmpday;
+    		dates.add(startday);
+    	}
+    	return dates;
     }
 
+    
+
     public String genCodeSeance(int i) {
-        String numSeance = Integer.toString(i);
-        String codeSeance = null;
+        String numSeance = new DecimalFormat("00").format(i);
         String codeService = this.getContenu("code");
         String numP2 = this.getContenu(numPro);
-        codeSeance = codeService + numSeance + numP2.substring(numP2.length() - 2);
+        String codeSeance = codeService + numSeance + numP2.substring(numP2.length()- 2);
         return codeSeance;
     }
 }
