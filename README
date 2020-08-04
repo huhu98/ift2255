@@ -1,8 +1,5 @@
 # Centre donnee #GYM
-Date limite: 2020/8/4  
-Han: H  
-Maxime: M  
-Qiao: Q  
+Date limite: 2020/8/6  
 ## Fonctionnalité par comtoir agent:
 - main menu de selection
 - ajout/modifier/supprimer un membre/pro
@@ -19,7 +16,14 @@ Qiao: Q
 - inscription aux services (membre)
 - confirmation presence par pro --> verifie numero membre （pro）
 ## Deja rendu:
-## TODO ajd(2020/7/27):
-Main.java: gerer les inputs avec des contraintes
-## TODO dans le futur:
-
+## TODO ajd(2020/8/04):
+Han:
+-Main.java: Couper les fonctions en morceau?
+-Manuel utilisateur
+-Mise à jour diagramme de sequence?
+Maxime:
+-ClientControl.java: test Unitaire pour gestion membre
+-ClientControl.java, Client.java: Tags pour Javadoc
+Qiao:
+-ServiceControl.java: Completer les fonctions, tags pour Javadoc
+-Mise à jour Diagramme de classe
