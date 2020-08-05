@@ -6,14 +6,21 @@ public class Seance {
     private LocalDate date;
     private List<String> inscriptions = new ArrayList<String>();
     private List<String> presences = new ArrayList<String>();
+	private String numP;
 
-    public Seance(LocalDate date) {
+    public Seance(LocalDate date, String numP) {
         this.date = date;
-
+        this.numP = numP;
     }
 
     public void ajoutPresence(String numM) {
         presences.add(numM);
+    }
+    public List<String> getPresence(){
+    	return this.presences;
+    }
+    public List<String> getInscrit() {
+    	return this.inscriptions;
     }
 
     public void ajoutInscrit(String numM) {
@@ -24,16 +31,16 @@ public class Seance {
         String value = "";
         switch (champ) {
             case "presences":
-                String listP = String.join(", ", this.presences);
-                value = listP;
+                value = String.join("\n", getPresence());
                 break;
             case "inscriptions":
-                String listI = String.join(", ", this.inscriptions);
-                value = listI;
+                value = String.join("\n", getInscrit());
                 break;
             case "date":
                 value = this.date.toString();
                 break;
+            case "numP":
+            	value = this.numP;
             default:
                 value = null;
         }
