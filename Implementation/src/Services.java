@@ -5,7 +5,6 @@ import java.time.temporal.TemporalAdjusters;
 import java.util.*;
 
 public class Services {
-    private HashMap<String, Seance> seances = new HashMap<String, Seance>();
 
     private String titre;
     private int code;
@@ -32,19 +31,21 @@ public class Services {
         this.comment = comment;
     }
     
-    public void addSeance() {
+    public HashMap<String, Seance> addSeance() {
+    	HashMap<String, Seance> seances = new HashMap<String, Seance>();
+    	
     	List<LocalDate> dates = dateSeance(this.debut,this.fin,this.jour);
+    	
         for(int i = 0; i < dates.size(); i++) {
-        	Seance s = new Seance(dates.get(i));
+        	Seance s = new Seance(dates.get(i),this.numPro);
         	String codeSeance = genCodeSeance(i);
-        	this.seances.put(codeSeance, s);
+        	seances.put(codeSeance, s);
         }
+        return seances;
     }
+   
     
-    
-    public HashMap<String, Seance> getSeanceMap(){
-    	return this.seances;
-    }
+   
     
 
     public String getContenu(String champ) {
