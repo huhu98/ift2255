@@ -1,6 +1,10 @@
 import java.time.*;
 import java.util.*;
 
+/**
+ * @author Quiao Wang
+ * @author Maxime Lechasseur
+ */
 public class Seance {
 
     private LocalDate date;
