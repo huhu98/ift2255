@@ -8,6 +8,7 @@ public class Membre extends Client {
 
     /**
      * Constructeur d'un nouveau membre.
+     *
      * @param nom
      * @param adresse
      * @param ville
@@ -16,13 +17,14 @@ public class Membre extends Client {
      * @param email
      * @param suspendu
      */
-    public Membre(String nom, String adresse,String ville, String province, String codePostal, String email, boolean suspendu) {
+    public Membre(String nom, String adresse, String ville, String province, String codePostal, String email, boolean suspendu) {
         super(nom, adresse, ville, province, codePostal, email);
         this.suspendu = suspendu;
     }
 
     /**
      * Methode qui gère l'état de l'inscription du membre.
+     *
      * @return un boolean.
      */
     public boolean estSuspendu() {
@@ -33,6 +35,6 @@ public class Membre extends Client {
     public boolean getSuspendu(boolean suspendu) {
         return suspendu;
     }
-       
+
 
 }

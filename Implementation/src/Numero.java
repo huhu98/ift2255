@@ -1,18 +1,9 @@
 public class Numero {
 
-    private int longueur;
-
-    public Numero(int longueur) {
-        this.longueur = longueur;
-    }
-    
-    public String getNumero() {
-        return genererNum(longueur);
-    }
-    
     /**
      * Générer une chaine de numéro aléatoire de longuer spécifiee
-     * @param longueur	la longuer du numéro
+     *
+     * @param longueur la longuer du numéro
      * @return la chaine de numéro aléatoire de longuer spécifiée
      */
     public static String genererNum(int longueur) {
@@ -23,5 +14,4 @@ public class Numero {
         }
         return num.toString();
     }
-
 }

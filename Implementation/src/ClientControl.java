@@ -49,7 +49,7 @@ public class ClientControl {
 
     /**
      * Méthode qui permet de modifier les informations a l'intérieur du HashMap membres.
-     * @param numM
+     * @param numM numéro de membre
      * @param champ Attribut que l'on veut changer dans le membre.
      * @param value La nouvelle valeur attribuée.
      */
@@ -63,7 +63,7 @@ public class ClientControl {
 
     /**
      * Méthode qui permet de modifier les informations a l'intérieur du HashMap pro.
-     * @param numP
+     * @param numP numéro de membre
      * @param champ Attribut que l'on veut changer dans le professionnel.
      * @param value La nouvelle valeur attribuée.
      */
@@ -77,7 +77,7 @@ public class ClientControl {
 
     /**
      * Méthode qui permet de supprimer un membre de notre choix.
-     * @param numM
+     * @param numM numéro de membre
      */
     public void supMembre(String numM) {
         membres.remove(numM);
@@ -85,7 +85,7 @@ public class ClientControl {
 
     /**
      * Méthode qui permet de supprimer un professionnel de notre choix.
-     * @param numP
+     * @param numP numéro de pro
      */
     public void supPro(String numP) {
         pro.remove(numP);
@@ -101,7 +101,7 @@ public class ClientControl {
 
     /**
      * Méthode qui valide la présence du numéro du membre dans le HashMap membres.
-     * @param numM
+     * @param numM numéro de membre
      * @return Un boolean sur l'état de la présence du numéro.
      */
     public boolean validationNumM(String numM) {
@@ -110,7 +110,7 @@ public class ClientControl {
 
     /**
      * Méthode qui valide la présence du numéro du professionnel dans le HashMap pro.
-     * @param numP
+     * @param numP numéro de membre
      * @return Un boolean sur l'état de la présence du numéro.
      */
     public boolean validationNumP(String numP) {
@@ -131,13 +131,12 @@ public class ClientControl {
         String province ="province: " +m.getContenu("province");
         String codeP = "code postal: " + m.getContenu("codePostal");
         String email = "email:"+ m.getContenu("email");
-        String result = nom+"\n"+adresse+"\n"+ville+"\n"+province+"\n"+codeP+"\n"+email;
-        return result;
+        return nom+"\n"+adresse+"\n"+ville+"\n"+province+"\n"+codeP+"\n"+email;
     }
 
     /**
      * Méthode qui confirme les informations entrés lors d'ajoutPro.
-     * @param numP
+     * @param numP numéro de pro
      * @return Les informations explicites du professionnel entrés
      */
     public String affichePro(String numP) {
@@ -148,8 +147,7 @@ public class ClientControl {
         String province ="province: " +p1.getContenu("province");
         String codeP = "code postal: " + p1.getContenu("codePostal");
         String email = "email:"+ p1.getContenu("email");
-        String result = nom+"\n"+adresse+"\n"+ville+"\n"+province+"\n"+codeP+"\n"+email;
-        return result;
+        return nom+"\n"+adresse+"\n"+ville+"\n"+province+"\n"+codeP+"\n"+email;
     }
 
     /**
@@ -173,13 +171,11 @@ public class ClientControl {
     }
     
     public HashMap<String, Membre> getRepMembre(){
-    	HashMap<String, Membre> m = this.membres;
-    	return m;
+        return this.membres;
     }
     
     public HashMap<String, Professionnel> getRepPro(){
-    	HashMap<String, Professionnel> p = this.pro;
-    	return p;
+        return this.pro;
     }
     
     /**

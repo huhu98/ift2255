@@ -4,9 +4,9 @@
  */
 public class Professionnel extends Client {
 
-
     /**
      * Constructeur d'un nouveau professionnel.
+     *
      * @param nom
      * @param adresse
      * @param ville
@@ -14,13 +14,7 @@ public class Professionnel extends Client {
      * @param codePostal
      * @param email
      */
-    public Professionnel(String nom, String adresse,String ville, String province, String codePostal, String email) {
+    public Professionnel(String nom, String adresse, String ville, String province, String codePostal, String email) {
         super(nom, adresse, ville, province, codePostal, email);
     }
-
-    /**
-     * Methode qui ajoute un service dans le HashMap services d'un professionnel.
-     * @param code
-     * @param titre
-     */
 }
