@@ -4,10 +4,11 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * Devoir 2 IFT 2255
- * Maxime Lechasseur 20129433
- * Qiao Wang 20095140
- * Han Zhang 20144330
+ * 
+ * @author Han Zhang
+ * @author Qiao Wang
+ * @author Maxime Lechasseur
+ *
  */
 public class Menu {
 	private ClientControl clientControl;
@@ -133,8 +134,59 @@ public class Menu {
 	 * @param scanner 
 	 */
 	public void menuMobile(Scanner scanner) {
+		String bienvenue ="----------------------------------------------------------------------\n" +
+                "------------------------  Application Mobile  ------------------------\n" +
+                "----------------------------------------------------------------------\n\n" +
+                "Veuillez choisir l'action voulue en entrant le numéro correspondant et\n" +
+                "appuyez ensuite sur ENTER :\n\n" +
+                "1 - Consulter le répertoire de Service\n"+
+                "2 - Validation accèes\n"+
+                "3 - Inscrire à une séance\n"+
+                "4 - Consulter les inscriptions à un séance\n"+
+                "5 - Confirmer la présence d'un membre à une séance\n"+
+                "quitter - Retour à l'accueil"
+                ;
+		while (true) {
+			System.out.println(bienvenue);
+            System.out.print("Action voulue: \n");
+			 switch (scanner.nextLine()) {
+		         case "1": {
+		        	 System.out.print("----------------------------------------------------------------------\n" +
+		                     		  "------------------------Répertoire de Services------------------------\n" +
+		                     		  "----------------------------------------------------------------------\n\n");
+		        	 consultService();
+		             break;
+		         }
+		         case "2": {
+		        	 authentification(scanner);		        	 		           
+		             break;
+		         }
+		         case "3": {
+		        	 inscriptSeance(scanner);
+		             break;
+		         }
+		         case "4": {
+		        	 consultInscrit(scanner);
+		             break;
+		         }
+		         case "5": {
+		        	 confirmPresence(scanner);
+		             break;
+		         }
+		         
+		         case "quitter": {
+		        	 menuMain();
+		             break;
+		         }
+		         default: {
+		             System.out.println("Erreur, veuiller réessayer.");
+		         }
+			 }
+		}
 	}
 			
+	
+
 	/**
 	 * Le sous-menu pour la gestion de membre
 	 * Interagit entre l'utilisateur et le Centre de donnée pour les membres
@@ -296,7 +348,7 @@ public class Menu {
         String numPro = scanner.nextLine();
         while (numPro.length() != 9) {
             System.out.println(
-                    "Erreur, le numéro du membre est composé de 9 chiffres\n" +
+                    "Erreur, le numéro du professionnel est composé de 9 chiffres\n" +
                             "Veuillez réessayer :");
             numPro = scanner.nextLine();
         }
@@ -583,10 +635,10 @@ public class Menu {
 	}
 	
 	/**
-	 * Verifier si le numero de membre ou de professionnel existe
-	 * @param scanner 
-	 * @return le numero de membre ou de professionnel s'il existe,
-	 * 		   "error" sinon. 		
+	 * Verifier si le numero de membre existe
+	 * @param 	scanner 
+	 * @return 	le numero de membre s'il existe,
+	 * 		   	"error" sinon. 		
 	 */
 	public String verifieNum(Scanner scanner) {
 		System.out.println("Veuillez entrez le numéro de membre");
@@ -604,6 +656,13 @@ public class Menu {
         	return "error";
         }
 	}
+	
+	/**
+	 * Verifier si le numero de professionnel 
+	 * @param 	scanner
+	 * @return	le numero de professionnel,
+	 * 			"error" sinon.
+	 */
 	public String verifiePro(Scanner scanner) {
 		System.out.println("Veuillez entrez le numéro de professionnel");
 		String numero = scanner.nextLine();
@@ -634,7 +693,7 @@ public class Menu {
         System.out.println("Numéro du membre :");
         inscription[1] = scanner.nextLine();
         if(clientControl.validationNumM(inscription[1])&& serviceControl.seanceExist(inscription[0])) {
-        	serviceControl.inscritSeance(inscription[0], inscription[1]);
+        	serviceControl.inscritSeance(inscription[1], inscription[0]);
         }else {
         	System.out.println("Code de séance ou le numéro du membre invalide.");
         }
@@ -654,14 +713,13 @@ public class Menu {
 	public void consultInscrit(Scanner scanner) {
 		String[] consultation = new String[2];
         System.out.println("Vous avez choisi : consulter les inscriptions");
-        System.out.println("Numéro du professionnel :");
-        consultation[0] = scanner.nextLine();
-        System.out.println("Numéro de la séance :");
+        System.out.println("Veuillez entrer le code de séance que vous voulez consulter:");
         consultation[1] = scanner.nextLine();
-        if(serviceControl.seanceExist(consultation[1])) {
+        consultation[0] = verifiePro(scanner);        
+        if(serviceControl.seanceExist(consultation[1])&& !consultation[0].equals("error")) {
         	serviceControl.consultInscrit(consultation[0], consultation[1]);
         }else {
-        	System.out.println("Code de séance invalide.");
+        	System.out.println("Le code de séance ne correspond pas au numéro de professionnel.");
         }
 	}
 	
@@ -672,18 +730,46 @@ public class Menu {
 	public void confirmPresence(Scanner scanner) {
 		String[] confirmation = new String[2];
         System.out.println("Vous avez choisi : confirmer la présence à une séance\n");
-        System.out.println("Numéro du membre :");
-        confirmation[0] = scanner.nextLine();
+        confirmation[0] = verifieNum(scanner);
         System.out.println("Numéro de la séance :");
         confirmation[1] = scanner.nextLine();
         
-        if(serviceControl.seanceExist(confirmation[0])) {
+        if(serviceControl.seanceExist(confirmation[1])&& !confirmation[0].equals("error")) {
             serviceControl.confirmPresence(confirmation[0], confirmation[1]);
         }else {
-        	System.out.println("Code de séance invalide.");
+        	System.out.println("Le code de séance ne correspond pas au numéro de membre");
         }
 	}
 	
+	
+	/**
+	 * l'option validation l'acces d'un membre
+	 * @param scanner
+	 */
+	private void authentification(Scanner scanner) {
+	 System.out.print("Entrez votre numéro de membre");
+   	 String numM =scanner.nextLine();
+   	 while (numM.length() != 9) {
+            System.out.println(
+                    "Erreur, le numéro du membre est composé de 9 chiffres\n" +
+                            "Veuillez réessayer :");
+            numM = scanner.nextLine();
+        }
+   	 System.out.println("Entrez votre adresse courriel");
+   	 String email = scanner.nextLine();
+   	 if (null != email) {
+            String regex = "^[a-zA-Z0-9_!#$%&’*+/=?`{|}~^.-]+@[a-zA-Z0-9.-]+$";
+            Pattern pattern = Pattern.compile(regex);
+            Matcher matcher = pattern.matcher(email);
+            while (!((Matcher) matcher).matches()) {
+                System.out.println("Erreur le courriel doit être sous la forme qui suit - Hanlanouille@hotmail.ca :");
+                email = scanner.nextLine();
+                matcher = pattern.matcher(email);
+            }
+        }
+   	 clientControl.validationAcces(numM, email);
+	}
+
 	/**
 	 * le sous-menu de prpcédure comptable
 	 * @param scanner

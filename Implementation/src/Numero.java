@@ -5,11 +5,16 @@ public class Numero {
     public Numero(int longueur) {
         this.longueur = longueur;
     }
-
+    
     public String getNumero() {
         return genererNum(longueur);
     }
-
+    
+    /**
+     * Générer une chaine de numéro aléatoire de longuer spécifiee
+     * @param longueur	la longuer du numéro
+     * @return la chaine de numéro aléatoire de longuer spécifiée
+     */
     public static String genererNum(int longueur) {
         StringBuilder num = new StringBuilder();
         for (int i = 0; i < longueur; i++) {

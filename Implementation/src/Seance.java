@@ -1,9 +1,9 @@
 import java.time.*;
 import java.util.*;
-
 /**
- * @author Quiao Wang
- * @author Maxime Lechasseur
+ * 
+ * @author Qiao Wang
+ *
  */
 public class Seance {
 
@@ -19,21 +19,30 @@ public class Seance {
         this.code = code;
 
     }
-
+    
+    /**
+     * Ajouter le numéro de membre à la liste de présence
+     * @param numM	numéro de membre
+     */
     public void ajoutPresence(String numM) {
         presences.add(numM);
     }
+    
+    /**
+     * Ajouter le numéro de membre à la liste des inscriptions
+     * @param numM	numéro de membre
+     */
+    public void ajoutInscrit(String numM) {
+        inscriptions.add(numM);
+    }
+    
     public List<String> getPresence(){
     	return this.presences;
     }
     public List<String> getInscrit() {
     	return this.inscriptions;
     }
-
-    public void ajoutInscrit(String numM) {
-        inscriptions.add(numM);
-    }
-
+ 
     public String getContenu(String champ) {
         String value = "";
         switch (champ) {
@@ -51,21 +60,25 @@ public class Seance {
             	break;
             case "code":
             	value = this.code;
+            	break;
             default:
                 value = null;
         }
         return value;
     }
-    public void printSeance() {
-    	
-    }
-    
+    /**
+     * Afficher les détails de séance et le numéro de membre
+     * pour former un confirmation d'inscription
+     * @param codeSeance
+     * @param numM
+     * @return affichage de confirmation d'inscription
+     */
     public String printInscription(String codeSeance,String numM) {
     	String recu = "Date et heure actuelles: "+Temps.mtn()+
-    			"Date à laquelle du service qui sera fourni: "+getContenu("date")+
-    			"Numéro du professionnel: "+getContenu("numP")+
-    			"Numéro du membre: "+numM+
-    			"Code de la séance "+getContenu("code");
+    			"\nDate à laquelle du service qui sera fourni: "+getContenu("date")+
+    			"\nNuméro du professionnel: "+getContenu("numP")+
+    			"\nNuméro du membre: "+numM+
+    			"\nCode de la séance "+getContenu("code");
     			
     	return recu;
     }

@@ -5,7 +5,6 @@
 public class Membre extends Client {
 
     private boolean suspendu = false;
-    private Services[] services;
 
     /**
      * Constructeur d'un nouveau membre.
@@ -34,5 +33,6 @@ public class Membre extends Client {
     public boolean getSuspendu(boolean suspendu) {
         return suspendu;
     }
+       
 
 }

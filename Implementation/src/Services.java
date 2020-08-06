@@ -1,10 +1,10 @@
 import java.time.*;
 import java.time.format.*;
 import java.util.*;
-
 /**
- * @author Quiao Wang
- * @author Maxime Lechasseur
+ * 
+ * @author Qiao Wang
+ *
  */
 public class Services {
 
@@ -33,6 +33,10 @@ public class Services {
         this.comment = comment;
     }
     
+    /**
+     * Méthode qui créer les séances associées du service
+     * @return un HashMap<String,Seance>, le clé est le code de seance en 7 chiffres, la valeur est la séance. 
+     */
     public HashMap<String, Seance> addSeance() {
     	
     	List<LocalDate> dates = Temps.dateSeance(this.debut,this.fin,this.jour);
@@ -46,41 +50,48 @@ public class Services {
     }
    
     
-   
-    
-
     public String getContenu(String champ) {
         String result = null;
         switch (champ) {
             case "titre":
                 result = this.titre;
                 break;
+                
             case "code":
                 result = this.code;
                 break;
+                
             case "numPro":
                 result = this.numPro;
                 break;
+                
             case "debut":
                 result = this.debut;
                 break;
+                
             case "fin":
                 result = this.fin;
                 break;
+                
             case "heure":
                 result = this.heure;
+                break;
+                
             case "jour":
             	int day = this.jour;
                 result = DayOfWeek.of(day).getDisplayName(TextStyle.FULL, Locale.FRENCH);
                 break;
+                
             case "prix":
                 double cout = this.prix;
                 result = Double.toString(cout);
                 break;
+                
             case "capacite":
                 int espace = this.capacite;
                 result = Integer.toString(espace);
                 break;
+                
             case "comment":
                 result = this.comment;
                 break;
@@ -88,13 +99,16 @@ public class Services {
         return result;
     }
       
-    /*
+    /**
+     * Setter pour le Service.
      * Le titre et le code de Service en 3 chiffres sont dépendantes de l'un à l'autre.
      * La date debut et fin, et la recurrence semaine sont aussi dépendantes de l'un à l'autre.
      * On ne les modifie pas individuellement.
      * Si l'utilisateur veut changer l'un de champ mentionné en haut, il doit supprimer le service et
      * en créer un nouveau pour que le système calcule de nouveau le nombre, la date et le numero de Seance.
-     * */
+     * @param champ
+     * @param value
+     */
     public void setContenu(String champ, String value) {
         switch (champ) {
             case "heure":
@@ -112,16 +126,26 @@ public class Services {
         }
     }
     
-    
+    /**
+     * Générer le code de séance
+     * Les 3 premiers chiffres sont le code de service
+     * Les 2 chiffres au millieu sont le numéro de séance
+     * Les 2 derniers chiffres sont les 2 derniers chiffres du numéro de professionnel
+     * @param i		numéro de séance
+     * @return		code de séance
+     */
     public String genCodeSeance(int i) {
         String codeService = getContenu("code");
-        System.out.println(codeService);
         String numSeance = String.format("%02d",i);
         String numP2 = getContenu("numPro");
         String codeSeance = codeService + numSeance + numP2.substring(numP2.length()- 2);
         return codeSeance;
     }
     
+    /**
+     * Afficher les attributs du service ainsi les codes de séances associés à ce service
+     * @return affichage du service
+     */
     public String printService() {
     	String keys = printKeys();
     	String s =" Titre du service: "+getContenu("titre")+
@@ -136,7 +160,11 @@ public class Services {
         "\n Commentaires: "+getContenu("comment")+"\n";
     	return s;
     }
-   
+    
+   /**
+    * Afficher les codes de séances
+    * @return affichage des codes de séances
+    */
     public String printKeys() {
     	String result="";
     	

@@ -119,7 +119,8 @@ public class ClientControl {
 
     /**
      * Méthode qui confirme les informations entrés lors d'ajoutMembre.
-     * @param numM
+     * @author Qiao Wang
+     * @param numM numéro de membre
      * @return Les informations explicites du membre entrés
      */
     public String afficheMembre(String numM) {
@@ -155,10 +156,9 @@ public class ClientControl {
      * Methode qui test le HashMap membres en assurant la presence d'un membre avec un numero comme key.
      * affiche la clé et la valeur du membre dans le HashMap.
      */
-    public void testMembre() {
+    public void printRepMembres() {
         for (String key: membres.keySet()) {
-            System.out.println("key : " + key);
-            System.out.println("value : " + membres.get(key));
+            System.out.println(afficheMembre(key));
         }
     }
 
@@ -166,10 +166,9 @@ public class ClientControl {
      * Methode qui test le HashMap pro en assurant la presence d'un pro avec un numero comme key.
      * affiche la clé et la valeur du professionnel dans le HashMap.
      */
-    public void testPro() {
+    public void printRepPros() {
         for (String key: pro.keySet()) {
-            System.out.println("key : " + key);
-            System.out.println("value : " + pro.get(key));
+            System.out.println(affichePro(key));
         }
     }
     
@@ -181,6 +180,27 @@ public class ClientControl {
     public HashMap<String, Professionnel> getRepPro(){
     	HashMap<String, Professionnel> p = this.pro;
     	return p;
+    }
+    
+    /**
+     * Methode pour l'authentification d'un membre
+     * @author Qiao Wang
+     * @param numM	numéro de membre
+     * @param email	courriel de membre
+     */
+    public void validationAcces(String numM,String email) {
+    	if(validationNumM(numM)) {
+	    	Membre m = getMembre(numM);
+	    	String courriel = m.getContenu("email");
+	    	String nom = m.getContenu("nom");
+	    	if(courriel.equals(email)) {
+	    		System.out.println("Validé.\n Bonjour, "+nom+".");
+	    	}else {
+	    		System.out.println("Courriel invalide.");
+	    	}
+    	}else {
+    		System.out.println("Numéro de membre invalide.");
+    	}
     }
 
 }
