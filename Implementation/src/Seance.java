@@ -9,10 +9,11 @@ public class Seance {
 	private String numP;
 	private String code;
 
-    public Seance(LocalDate date, String numP,String code) {
-    	this.code = code;
-        this.date = date;
+    public Seance(LocalDate date, String numP,String code) {    	
         this.numP = numP;
+        this.date = date;
+        this.code = code;
+
     }
 
     public void ajoutPresence(String numM) {
@@ -54,6 +55,7 @@ public class Seance {
     public void printSeance() {
     	
     }
+    
     public String printInscription(String codeSeance,String numM) {
     	String recu = "Date et heure actuelles: "+Temps.mtn()+
     			"Date à laquelle du service qui sera fourni: "+getContenu("date")+

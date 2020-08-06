@@ -172,5 +172,15 @@ public class ClientControl {
             System.out.println("value : " + pro.get(key));
         }
     }
+    
+    public HashMap<String, Membre> getRepMembre(){
+    	HashMap<String, Membre> m = this.membres;
+    	return m;
+    }
+    
+    public HashMap<String, Professionnel> getRepPro(){
+    	HashMap<String, Professionnel> p = this.pro;
+    	return p;
+    }
 
 }

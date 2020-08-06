@@ -8,16 +8,28 @@ public class ServiceControl {
     
     
     public HashMap<String, Seance> getRepSeance(){
-    	return this.repSeances;
+    	HashMap<String, Seance> rs = this.repSeances;
+    	return rs;
     }
     public HashMap<String, Services> getRepService(){
-    	return this.repServices;
+    	HashMap<String, Services> rss = this.repServices;
+    	return rss;
+    }
+    public HashMap<String, List<Seance>> getRepInscrit(){
+    	HashMap<String, List<Seance>> ri = this.seanceInscrit;
+    	return ri;
+    }
+    public HashMap<String, List<Seance>> getRepFournie(){
+    	HashMap<String, List<Seance>> rf = this.seanceFournie;
+    	return rf;
     }
     public Services getService(String code) {
-    	return this.repServices.get(code);
+    	Services s = this.repServices.get(code);
+    	return s;
     }
     public Seance getSeance(String codeSeance) {
-    	return this.repSeances.get(codeSeance);
+    	Seance s = this.repSeances.get(codeSeance);
+    	return s;
     }
     public void replaceSeance(String codeSeance,Seance s) {
     	this.repSeances.replace(codeSeance, s);
@@ -29,18 +41,15 @@ public class ServiceControl {
     	return this.repSeances.containsKey(code);
     }
     public String serviceCode() {
-    	String code = Numero.genererNum(3);
-		return code;
+		return Numero.genererNum(3);
     	
     }
-    public void ajoutService(String titre, String numPro, String debut, String fin, String heure, String jour,
-            String capacite, String prix, String comment) {
+    public void ajoutService(String titre, String numPro, String debut, String fin, String heure, String jour, String capacite, String prix, String comment) {
     	
     	String code = serviceCode();
-    	if(getService(code) != null){
-    		System.out.print("Code de service existe déja");
-    		
-    	}else {
+    	if(serviceExist(code)) {
+    		code = serviceCode();
+    	}
     		
     	//Creer le service
     	Services s = new Services(code,titre,numPro,debut,fin,heure,Integer.parseInt(jour),Integer.parseInt(capacite),Double.parseDouble(prix),comment);
@@ -53,12 +62,12 @@ public class ServiceControl {
     	this.repSeances.putAll(sub);
     	
     	//Afficher les codes de seances
-    	System.out.println("Code de service:"+code+"\n");
+    	System.out.println("Code de service:"+code);
     	String reply = s.printService();
     	System.out.print(reply);
-    	}
-    	
     }
+    
+    
     public void modifierService( String code, String champ, String value) {
 	    //champs modifiable: heure prix capacite comment
 	    if(champ.matches("prix|heure|capacite|comment")) {

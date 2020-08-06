@@ -1,4 +1,3 @@
-import java.text.DecimalFormat;
 import java.time.*;
 import java.time.format.*;
 import java.util.*;
@@ -17,8 +16,7 @@ public class Services {
     private String comment;
 
 	private HashMap<String, Seance> seances = new HashMap<String, Seance>();
-    public Services(String code, String titre, String numPro, String debut, String fin, String heure, int jour,
-                    int capacite, double prix, String comment) {
+    public Services(String code, String titre, String numPro, String debut, String fin, String heure, int jour,int capacite, double prix, String comment) {
     	this.code = code; // 3 chiffres
     	this.titre = titre;
         this.numPro = numPro;
@@ -55,6 +53,7 @@ public class Services {
                 break;
             case "code":
                 result = this.code;
+                break;
             case "numPro":
                 result = this.numPro;
                 break;
@@ -80,6 +79,7 @@ public class Services {
                 break;
             case "comment":
                 result = this.comment;
+                break;
         }
         return result;
     }
@@ -109,36 +109,34 @@ public class Services {
     }
     
     
-
-    
-
     public String genCodeSeance(int i) {
-        String numSeance = new DecimalFormat("00").format(i);
-        String codeService = this.getContenu("code");
-        String numP2 = this.getContenu(numPro);
+        String codeService = getContenu("code");
+        System.out.println(codeService);
+        String numSeance = String.format("%02d",i);
+        String numP2 = getContenu("numPro");
         String codeSeance = codeService + numSeance + numP2.substring(numP2.length()- 2);
         return codeSeance;
     }
+    
     public String printService() {
-    	String s ="Titre du service"+getContenu("titre")+
-        "\n Date de début du service "+getContenu("debut")+
+    	String keys = printKeys();
+    	String s =" Titre du service: "+getContenu("titre")+
+        "\n Date de début du service: "+getContenu("debut")+
         "\n Date de fin du service: "+getContenu("fin")+
-        "\n Heure du service"+getContenu("heure")+
-        "\n Récurrence hebdomadaire des séances"+getContenu("jour")+
-        "\n Capacité maximale"+getContenu("capacite")+
-        "\n Numéro du professionnel"+getContenu("numPro")+
-        "\n Code des seances"+printKeys()+
-        "\n Frais du service"+getContenu("prix")+
-        "\n Commentaires"+getContenu("comment");
+        "\n Heure du service: "+getContenu("heure")+
+        "\n Récurrence hebdomadaire des séances: "+getContenu("jour")+
+        "\n Capacité maximale: "+getContenu("capacite")+
+        "\n Numéro du professionnel: "+getContenu("numPro")+
+        "\n Code des seances: "+ keys +
+        "\n Frais du service: "+getContenu("prix")+
+        "\n Commentaires: "+getContenu("comment")+"\n";
     	return s;
     }
    
-    
     public String printKeys() {
-    	HashMap<String, Seance> sub = this.seances;
     	String result="";
     	
-    	for ( String key : sub.keySet() ) {
+    	for ( String key : this.seances.keySet() ) {
     	    result += "\n"+key;
     	}
 		return result;

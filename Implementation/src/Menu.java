@@ -10,38 +10,48 @@ import java.util.regex.Pattern;
  * Han Zhang 20144330
  */
 public class Menu {
-	private ClientControl clientControl = new ClientControl();
-    private ServiceControl serviceControl =new ServiceControl();
+	private ClientControl clientControl;
+    private ServiceControl serviceControl;
     
-    /**
+    public Menu(ClientControl cc, ServiceControl sc) {
+		this.clientControl = cc;
+		this.serviceControl =sc;
+	}
+
+	/**
      * Le menu principale
      */
 	public void menuMain() {
 		Scanner scanner = new Scanner(System.in);
-		System.out.println("----------------------------------------------------------------------\n" +
-		"------------------------------  Accueil  -----------------------------\n" +
-        "----------------------------------------------------------------------\n\n" +
-        "Veuillez choisir l'action voulue en entrant le numéro correspondant et\n" +
-        "appuyez ensuite sur ENTER :\n\n" +
-        "1 - Application mobile\n" +
-        "2 - Centre de Données #GYM\n" +
-        "quitter - pour quitter\n"
-        );
-        System.out.print("Action voulue: \n");
+		String accueil = ("----------------------------------------------------------------------\n" +
+				"------------------------------  Accueil  -----------------------------\n" +
+		        "----------------------------------------------------------------------\n\n" +
+		        "Veuillez choisir l'action voulue en entrant le numéro correspondant et\n" +
+		        "appuyez ensuite sur ENTER :\n\n" +
+		        "1 - Application mobile\n" +
+		        "2 - Centre de Données #GYM\n" +
+		        "quitter - pour quitter\n"
+		        );
+		
         
         while (true) {
+        	System.out.println(accueil);
+            System.out.print("Action voulue: \n");
             switch (scanner.nextLine()) {
                 case "1": {
                 	menuMobile(scanner);
+                	System.out.println(accueil);
                 	break;
                 }
                 case "2":{
                 	menuComptoir(scanner);
+                	System.out.println(accueil);
                 	break;
                 }
                 case "quitter": {
                     System.out.println("Fermeture du programme #GYM");
                     scanner.close();
+                    System.exit(0);
                     return;
                 }
                 default: {
@@ -68,11 +78,16 @@ public class Menu {
                 "5 - confirmer la présence à une séance\n" +
                 "6 - consulter les inscriptions\n" +
                 "7 - procédure comptable\n" +
-                "quitter - pour quitter\n";
-        System.out.println(bienvenuGYM);
-        System.out.print("Action voulue: \n");
+                "quitter - retour à l'accueil\n";
         
         while (true) {
+        	try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+        	System.out.println(bienvenuGYM);
+            System.out.print("Action voulue: \n");
             switch (scanner.nextLine()) {
                 case "1": {
                 	gestionMembre(scanner);
@@ -103,9 +118,8 @@ public class Menu {
                 	break;
                 }
                 case "quitter": {
-                    System.out.println("Fermeture du programme #GYM");
-                    scanner.close();
-                    return;
+                    menuMain();
+                    break;
                 }
                 default:
                     System.out.println("Erreur, veuiller réessayer.");
@@ -133,7 +147,7 @@ public class Menu {
                 "a - ajouter un membre\n" +
                 "b - mettre à jour un membre\n" +
                 "c - supprimer un membre\n" +
-                "quitter - pour quitter\n"
+                "quitter - retour au menu Centre de Données\n"
         );
         System.out.print("Action voulue: \n");
         switch (scanner.nextLine()) {
@@ -167,8 +181,8 @@ public class Menu {
 	        	break;
 	        }
 	        case "quitter": {
-	        	System.out.println("Fermeture du programme #GYM");
-	            return;
+	        	menuComptoir(scanner);
+                break;
 	        }
 	        default:
 	        	System.out.println("Erreur, veuiller réessayer.");
@@ -187,7 +201,7 @@ public class Menu {
                 "a - ajouter un professionnel\n" +
                 "b - mettre à jour un professionnel\n" +
                 "c - supprimer un professionnel\n" +
-                "quitter - pour quitter\n"
+                "quitter - retour au menu Centre de Données\n"
         );
 
         System.out.print("Action voulue: \n");
@@ -198,12 +212,12 @@ public class Menu {
         	System.out.println("Ajout confirmé, voici le numéro du professionnel :");
             String numeroP = clientControl.ajoutPro(proInfo[0], proInfo[1], proInfo[2],proInfo[3], proInfo[4], proInfo[5]);
             System.out.println(numeroP);
-            System.out.println(clientControl.afficheMembre(numeroP));
+            System.out.println(clientControl.affichePro(numeroP));
             break;
     		
         }
         case "b": {
-        	String num = verifieNum(scanner);
+        	String num = verifiePro(scanner);
         	if(num.equals("error")) {
         		System.out.println("Invalide.");
         		break;
@@ -211,7 +225,7 @@ public class Menu {
         	String[] proMAJ = modifieClient(num,scanner);
             clientControl.modifierPro(proMAJ[0], proMAJ[1], proMAJ[2]);
             System.out.println("Mise à jour du professionnel confirmée");
-            System.out.println(clientControl.afficheMembre(proMAJ[0]));
+            System.out.println(clientControl.affichePro(proMAJ[0]));
         	break;
         }
         case "c":{
@@ -221,10 +235,11 @@ public class Menu {
         		break;
         	}
         	supClient(num, scanner);
+        	break;
         }
         case "quitter": {
-        	System.out.println("Fermeture du programme #GYM");
-            return;
+        	menuComptoir(scanner);
+            break;
         }
         default:
         	System.out.println("Erreur, veuiller réessayer.");
@@ -243,7 +258,7 @@ public class Menu {
                 "a - ajouter un service\n" +
                 "b - mettre à jour un service\n" +
                 "c - supprimer un service\n" +
-                "quitter - pour quitter\n"
+                "quitter - retour au menu Centre de Données\n"
         );
         System.out.print("Action voulue: \n");
         switch (scanner.nextLine()) {
@@ -260,8 +275,8 @@ public class Menu {
 	        	break;
 	        }
 	        case "quitter": {
-                System.out.println("Fermeture du programme #GYM");
-                return;
+	        	menuComptoir(scanner);
+	            break;
             }
             default:
                 System.out.println("Erreur, veuiller réessayer.");
@@ -274,7 +289,7 @@ public class Menu {
 	 * @param scanner
 	 */
 	public void ajoutService(Scanner scanner) {
-		String[] serviceInfo = new String[8];
+		String[] serviceInfo = new String[9];
         System.out.println("Veuillez entrer le titre du service :");
         serviceInfo[0] = scanner.nextLine();
         System.out.println("Veuillez entrer le numéro du professionnel :");
@@ -290,7 +305,7 @@ public class Menu {
         serviceInfo[2] = scanner.nextLine();
         System.out.println("Veuillez entrer la fin du service (JJ-MM-AAAA):");
         serviceInfo[3] = scanner.nextLine();
-        System.out.println("Veuillez entrer l'heure du service (HH:MM) :");
+        System.out.println("Veuillez entrer l'heure du service (HH:MM):");
         serviceInfo[4] = scanner.nextLine();
         System.out.println("Veuillez entrer la récurrence hebdomadaire en numéro(1:lundi, 2:mardi,...) :");
         serviceInfo[5] = scanner.nextLine();
@@ -574,7 +589,7 @@ public class Menu {
 	 * 		   "error" sinon. 		
 	 */
 	public String verifieNum(Scanner scanner) {
-		System.out.println("Veuillez entrez votre numéro de membre/pro");
+		System.out.println("Veuillez entrez le numéro de membre");
 		String numero = scanner.nextLine();
         while (numero.length() != 9) {
             System.out.println(
@@ -582,7 +597,23 @@ public class Menu {
                             "Veuillez réessayer :");
             numero = scanner.nextLine();
         }
-        if(clientControl.validationNumM(numero)|| clientControl.validationNumP(numero)) {
+        if(clientControl.validationNumM(numero)) {
+        	System.out.println("Validé.");
+        	return numero;
+        }else { 
+        	return "error";
+        }
+	}
+	public String verifiePro(Scanner scanner) {
+		System.out.println("Veuillez entrez le numéro de professionnel");
+		String numero = scanner.nextLine();
+        while (numero.length() != 9) {
+            System.out.println(
+                    "Erreur, le numéro doit comporter 9 chiffres.\n" +
+                            "Veuillez réessayer :");
+            numero = scanner.nextLine();
+        }
+        if(clientControl.validationNumP(numero)) {
         	System.out.println("Validé.");
         	return numero;
         }else { 
@@ -659,7 +690,30 @@ public class Menu {
 	 */
 	private void procedureComptable(Scanner scanner) {
 		System.out.println("Vous avez choisi : procédure comptable");
+		System.out.println("Sélectionnez une option");
+		System.out.println("1 -  Produire un rapport de synthèse \n");
+		System.out.println("2 -  Générer les enregistrements TEF \n");
+		System.out.println("3 -  Générer les factures de clients \n");
+		System.out.println("4 -  Générer les factures de professionnels\n");
 		
+			switch (scanner.nextLine()) {
+	        case "1": {
+	        	rapportSeamine(scanner);
+	        	break;	
+	        }
+	        case "2":{
+	        	rapportTEF(scanner);
+	        	break;
+	        }
+	        case "3":{
+	        	recuClient(scanner);
+	        	break;
+	        }
+	        case "4":{
+	        	recuPro(scanner);
+	        	break;
+	        }
+        }
 	}
 	
 	/**
