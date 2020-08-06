@@ -235,7 +235,7 @@ public class ServiceControl {
             System.out.println("Présence confirmée,");
             System.out.println(sc.printInscription(codeSeance, numM));
         } else {
-            System.out.println("Numéro de membre invalide.");
+            System.out.println("Le membre n'est pas inscrit à cette séance.");
         }
     }
 

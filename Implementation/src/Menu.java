@@ -735,7 +735,11 @@ public class Menu {
         System.out.println("Veuillez entrer le code de séance que vous voulez consulter:");
         consultation[1] = scanner.nextLine();
         consultation[0] = verifiePro(scanner);
-        if (serviceControl.seanceExist(consultation[1]) && !consultation[0].equals("error")) {
+        if(consultation[0].equals("error")) {
+        	System.out.println("Invalide");
+        	return;
+        }
+        if (serviceControl.seanceExist(consultation[1])) {
             serviceControl.consultInscrit(consultation[0], consultation[1]);
         } else {
             System.out.println("Le code de séance ne correspond pas au numéro de professionnel.");
@@ -751,10 +755,14 @@ public class Menu {
         String[] confirmation = new String[2];
         System.out.println("Vous avez choisi : confirmer la présence à une séance\n");
         confirmation[0] = verifieNum(scanner);
+        if(confirmation[0].equals("error")) {
+        	System.out.println("Invalide");
+        	return;
+        }
         System.out.println("Numéro de la séance :");
         confirmation[1] = scanner.nextLine();
 
-        if (serviceControl.seanceExist(confirmation[1]) && !confirmation[0].equals("error")) {
+        if (serviceControl.seanceExist(confirmation[1])) {
             serviceControl.confirmPresence(confirmation[0], confirmation[1]);
         } else {
             System.out.println("Le code de séance ne correspond pas au numéro de membre");
