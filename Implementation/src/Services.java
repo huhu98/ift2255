@@ -1,13 +1,12 @@
 import java.text.DecimalFormat;
 import java.time.*;
 import java.time.format.*;
-import java.time.temporal.TemporalAdjusters;
 import java.util.*;
 
 public class Services {
 
     private String titre;
-    private int code;
+    private String code;
     private String numPro;
     private String debut;
     private String fin;
@@ -17,7 +16,8 @@ public class Services {
     private double prix;
     private String comment;
 
-    public Services(int code, String titre, String numPro, String debut, String fin, String heure, int jour,
+	private HashMap<String, Seance> seances = new HashMap<String, Seance>();
+    public Services(String code, String titre, String numPro, String debut, String fin, String heure, int jour,
                     int capacite, double prix, String comment) {
     	this.code = code; // 3 chiffres
     	this.titre = titre;
@@ -32,14 +32,13 @@ public class Services {
     }
     
     public HashMap<String, Seance> addSeance() {
-    	HashMap<String, Seance> seances = new HashMap<String, Seance>();
     	
-    	List<LocalDate> dates = dateSeance(this.debut,this.fin,this.jour);
+    	List<LocalDate> dates = Temps.dateSeance(this.debut,this.fin,this.jour);
     	
         for(int i = 0; i < dates.size(); i++) {
-        	Seance s = new Seance(dates.get(i),this.numPro);
         	String codeSeance = genCodeSeance(i);
-        	seances.put(codeSeance, s);
+        	Seance s = new Seance(dates.get(i),this.numPro,codeSeance);
+        	this.seances.put(codeSeance, s);
         }
         return seances;
     }
@@ -55,8 +54,7 @@ public class Services {
                 result = this.titre;
                 break;
             case "code":
-                int codeService = this.code;
-                result = Integer.toString(codeService);
+                result = this.code;
             case "numPro":
                 result = this.numPro;
                 break;
@@ -110,33 +108,7 @@ public class Services {
         }
     }
     
-    public List<LocalDate> dateSeance(String debut, String fin, int jour) {
-    	//Initialize une arraylist des dates de seances
-    	List<LocalDate> dates = new ArrayList<LocalDate>(); 
-    	
-    	//Convertir debut et fin de String "dd-mm-yyyy" en LocalDate
-    	DateTimeFormatter format = DateTimeFormatter.ofPattern("d-MM-yyyy");
-    	LocalDate start = LocalDate.parse(debut, format);
-    	LocalDate end = LocalDate.parse(fin, format);
-    	
-    	//Trouver le premier date de Seance apres le debut
-    	LocalDate startday = start.with(TemporalAdjusters.next(DayOfWeek.of(jour)));
-    	
-    	//Trouver le dernier date de Seance avant la fin
-    	LocalDate endday =end.with(TemporalAdjusters.previous(DayOfWeek.of(jour)));
-    	
-    	//Ajouter la date du premier seance dans arraylisy
-    	dates.add(startday);
-    	
-    	//Ajouter les dates de seances entre le premier et le dernier seances
-    	while (endday.isAfter(startday)) {
-    		LocalDate tmpday = startday;
-    		tmpday = tmpday.plusWeeks(1);
-    		startday = tmpday;
-    		dates.add(startday);
-    	}
-    	return dates;
-    }
+    
 
     
 
@@ -146,6 +118,31 @@ public class Services {
         String numP2 = this.getContenu(numPro);
         String codeSeance = codeService + numSeance + numP2.substring(numP2.length()- 2);
         return codeSeance;
+    }
+    public String printService() {
+    	String s ="Titre du service"+getContenu("titre")+
+        "\n Date de début du service "+getContenu("debut")+
+        "\n Date de fin du service: "+getContenu("fin")+
+        "\n Heure du service"+getContenu("heure")+
+        "\n Récurrence hebdomadaire des séances"+getContenu("jour")+
+        "\n Capacité maximale"+getContenu("capacite")+
+        "\n Numéro du professionnel"+getContenu("numPro")+
+        "\n Code des seances"+printKeys()+
+        "\n Frais du service"+getContenu("prix")+
+        "\n Commentaires"+getContenu("comment");
+    	return s;
+    }
+   
+    
+    public String printKeys() {
+    	HashMap<String, Seance> sub = this.seances;
+    	String result="";
+    	
+    	for ( String key : sub.keySet() ) {
+    	    result += "\n"+key;
+    	}
+		return result;
+    	
     }
 }
    

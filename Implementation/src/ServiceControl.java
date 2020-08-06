@@ -25,17 +25,25 @@ public class ServiceControl {
     public boolean serviceExist(String code) {
     	return this.repServices.containsKey(code);
     }
-    
-    public void ajoutService(String code, String titre, String numPro, String debut, String fin, String heure, String jour,
+    public boolean seanceExist(String code) {
+    	return this.repSeances.containsKey(code);
+    }
+    public String serviceCode() {
+    	String code = Numero.genererNum(3);
+		return code;
+    	
+    }
+    public void ajoutService(String titre, String numPro, String debut, String fin, String heure, String jour,
             String capacite, String prix, String comment) {
     	
+    	String code = serviceCode();
     	if(getService(code) != null){
     		System.out.print("Code de service existe déja");
     		
     	}else {
     		
     	//Creer le service
-    	Services s = new Services(Integer.parseInt(code),titre,numPro,debut,fin,heure,Integer.parseInt(jour),Integer.parseInt(capacite),Double.parseDouble(prix),comment);
+    	Services s = new Services(code,titre,numPro,debut,fin,heure,Integer.parseInt(jour),Integer.parseInt(capacite),Double.parseDouble(prix),comment);
     	
     	//Mettre le service dans le repertoire de service
     	this.repServices.put(String.valueOf(code), s);
@@ -45,7 +53,8 @@ public class ServiceControl {
     	this.repSeances.putAll(sub);
     	
     	//Afficher les codes de seances
-    	String reply = "Numéros des séances: "+printKeys(sub);
+    	System.out.println("Code de service:"+code+"\n");
+    	String reply = s.printService();
     	System.out.print(reply);
     	}
     	
@@ -62,6 +71,13 @@ public class ServiceControl {
     	
     }
     
+    /**
+     * Méthode pour supprimer un service.
+     * Prend le code de service et supprimer le service de répertoire de services.
+     * Trouve les codes de séance commencé par le code de service et les supprimer de répertoire de séances.
+     * 
+     * @param code code de service de 3 chiffres
+     */
     public void supService(String code){
 	    this.repServices.remove(code);
 	    this.repSeances.entrySet().removeIf(e -> e.getKey().substring(0, 3).equals(code));
@@ -69,19 +85,11 @@ public class ServiceControl {
     
     
     
-    public String printKeys(HashMap<String, Seance> sub) {
-    	String result="";
-    	
-    	for ( String key : sub.keySet() ) {
-    	    result += "\n"+key;
-    	}
-		return result;
-    	
-    }
     public void inscritSeance(String numM, String codeSeance) {
     	Seance s = getSeance(codeSeance);
     	s.ajoutInscrit(numM);
     	replaceSeance(codeSeance, s);
+    	s.printInscription(codeSeance, numM);
     	
     	if(!seanceInscrit.containsKey(numM)) {
         	List<Seance> inscritListe = new ArrayList<Seance>();
@@ -96,15 +104,15 @@ public class ServiceControl {
     	
     }
     
-    public String consultInscrit(String numP,String codeSeance) {
+    public void consultInscrit(String numP,String codeSeance) {
     	Seance s = getSeance(codeSeance);
     	if(s.getContenu("numP").equals(numP)) {
-    		return s.getContenu("inscriptions");
+    		System.out.println( s.getContenu("inscriptions"));
     	}else {
-    		return "Le numéro de professionnel ne correspond pas à la code de séance.";
+    		System.out.println("Le numéro de professionnel ne correspond pas à la code de séance.");
     	}
     }
-    public boolean confirmPresence(String numM, String codeSeance) {
+    public void confirmPresence(String numM, String codeSeance) {
     	Seance sc = getSeance(codeSeance);
     	List<String> membreInscrits = sc.getInscrit();
     	if (membreInscrits.contains(numM)) {
@@ -119,9 +127,17 @@ public class ServiceControl {
     			fournit.add(sc);
     			seanceFournie.replace(numP, fournit);
     		}
-    		return true;
+    		System.out.println("Présence confirmée,");
     	}else{
-    		return false;
+    		System.out.println("Numéro de membre invalide.");
     	}
+    }
+    public void printRepService() {
+    	String result = "";
+    	for(Services s : getRepService().values()) {
+    		String service = s.printService();
+    		result += service+"\n";
+    	}
+    	System.out.print(result);
     }
 }
