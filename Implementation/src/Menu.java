@@ -338,27 +338,47 @@ public class Menu {
         String[] serviceInfo = new String[9];
         System.out.println("Veuillez entrer le titre du service :");
         serviceInfo[0] = scanner.nextLine();
-        System.out.println("Veuillez entrer le numéro du professionnel :");
-        String numPro = scanner.nextLine();
-        while (numPro.length() != 9) {
-            System.out.println(
-                    "Erreur, le numéro du professionnel est composé de 9 chiffres\n" +
-                            "Veuillez réessayer :");
-            numPro = scanner.nextLine();
+        
+        serviceInfo[1]=verifiePro(scanner);
+        if(serviceInfo[1].equals("error")) {
+        	System.out.println("Numéro de professionnel invalide");
+        	return;
         }
-        serviceInfo[1] = numPro;
+        
         System.out.println("Veuillez entrer le début du service (JJ-MM-AAAA):");
         serviceInfo[2] = scanner.nextLine();
+        
         System.out.println("Veuillez entrer la fin du service (JJ-MM-AAAA):");
         serviceInfo[3] = scanner.nextLine();
+        
         System.out.println("Veuillez entrer l'heure du service (HH:MM):");
         serviceInfo[4] = scanner.nextLine();
+        
         System.out.println("Veuillez entrer la récurrence hebdomadaire en numéro(1:lundi, 2:mardi,...) :");
         serviceInfo[5] = scanner.nextLine();
+        while(Integer.parseInt(serviceInfo[5])<0 && Integer.parseInt(serviceInfo[5])>8 ) {
+        	System.out.println(
+                    "Erreur, la récurrence hebdomadaire doit être un chiffre entre 1 et 7\n" +
+                            "Veuillez réessayer :");
+        	serviceInfo[5] = scanner.nextLine();
+        }
+        
         System.out.println("Veuillez entrer la capacité maximale (max 30) :");
         serviceInfo[6] = scanner.nextLine();
-        System.out.println("Veuillez entrer le prix (max 100.0$) :");
+        while(Integer.parseInt(serviceInfo[6]) > 30) {
+        	System.out.println(
+                    "Erreur, la capacité maximale est 30 personnes\n" +
+                            "Veuillez réessayer :");
+        	serviceInfo[6] = scanner.nextLine();
+        }
+        System.out.println("Veuillez entrer le prix (max 100.0)$ :");
         serviceInfo[7] = scanner.nextLine();
+        while(Integer.parseInt(serviceInfo[7]) > 100) {
+        	System.out.println(
+                    "Erreur, le prix maximale d'un séance est 100.0$ \n" +
+                            "Veuillez réessayer :");
+        	serviceInfo[7] = scanner.nextLine();
+        }
         System.out.println("Veuillez entrer les commentaires pour ce service :");
         serviceInfo[8] = scanner.nextLine();
         System.out.println("Ajout confirmé, voici le code de service et les code de séances associées:");

@@ -8,7 +8,6 @@ public class ServiceControl {
     private HashMap<String, Services> repServices = new HashMap<String, Services>();
     private HashMap<String, List<Seance>> seanceInscrit = new HashMap<String, List<Seance>>();
     private HashMap<String, List<Seance>> seanceFournie = new HashMap<String, List<Seance>>();
-    private Numero numero;
 
     /**
      * @return le répertoire des séances
