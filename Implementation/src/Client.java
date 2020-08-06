@@ -1,3 +1,7 @@
+/**
+ * @author Maxime Lechasseur
+ * Classe abstraite qui sert à créer un Client.
+ */
 public abstract class Client {
     private String nom;
     private String adresse;
@@ -6,7 +10,15 @@ public abstract class Client {
     private String province;
     private String ville;
 
-
+    /**
+     * Constructeur d'un nouveau client.
+     * @param nom
+     * @param adresse
+     * @param ville
+     * @param province
+     * @param codePostal
+     * @param email
+     */
     public Client(String nom, String adresse,String ville, String province, String codePostal, String email) {
         this.adresse = adresse;
         this.codePostal = codePostal;
