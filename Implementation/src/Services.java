@@ -7,18 +7,18 @@ import java.util.*;
  */
 public class Services {
 
-    private String titre;
-    private String code;
-    private String numPro;
-    private String debut;
-    private String fin;
+    private final String titre;
+    private final String code;
+    private final String numPro;
+    private final String debut;
+    private final String fin;
     private String heure;
-    private int jour;
+    private final int jour;
     private int capacite;
     private double prix;
     private String comment;
 
-    private HashMap<String, Seance> seances = new HashMap<String, Seance>();
+    private final HashMap<String, Seance> seances = new HashMap<String, Seance>();
 
     public Services(String code, String titre, String numPro, String debut, String fin, String heure, int jour, int capacite, double prix, String comment) {
         this.code = code; // 3 chiffres
@@ -49,7 +49,6 @@ public class Services {
         }
         return seances;
     }
-
 
     public String getContenu(String champ) {
         String result = null;

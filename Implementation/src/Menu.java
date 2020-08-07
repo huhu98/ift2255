@@ -9,14 +9,14 @@ import java.util.regex.Pattern;
  * @author Maxime Lechasseur
  */
 public class Menu {
-    private ClientControl clientControl;
-    private ServiceControl serviceControl;
-    private Comptable pc;
+    private final ClientControl clientControl;
+    private final ServiceControl serviceControl;
+    private final Comptable pc;
 
     public Menu(ClientControl cc, ServiceControl sc) {
         this.clientControl = cc;
         this.serviceControl = sc;
-	    this.pc = new Comptable(cc,sc);
+        this.pc = new Comptable(cc, sc);
     }
 
     /**
@@ -340,46 +340,46 @@ public class Menu {
         String[] serviceInfo = new String[9];
         System.out.println("Veuillez entrer le titre du service :");
         serviceInfo[0] = scanner.nextLine();
-        
-        serviceInfo[1]=verifiePro(scanner);
-        if(serviceInfo[1].equals("error")) {
-        	System.out.println("Numéro de professionnel invalide");
-        	return;
+
+        serviceInfo[1] = verifiePro(scanner);
+        if (serviceInfo[1].equals("error")) {
+            System.out.println("Numéro de professionnel invalide");
+            return;
         }
-        
+
         System.out.println("Veuillez entrer le début du service (JJ-MM-AAAA):");
         serviceInfo[2] = scanner.nextLine();
-        
+
         System.out.println("Veuillez entrer la fin du service (JJ-MM-AAAA):");
         serviceInfo[3] = scanner.nextLine();
-        
+
         System.out.println("Veuillez entrer l'heure du service (HH:MM):");
         serviceInfo[4] = scanner.nextLine();
-        
+
         System.out.println("Veuillez entrer la récurrence hebdomadaire en numéro(1:lundi, 2:mardi,...) :");
         serviceInfo[5] = scanner.nextLine();
-        while(Integer.parseInt(serviceInfo[5]) < 1 || Integer.parseInt(serviceInfo[5]) > 7 ) {
-        	System.out.println(
+        while (Integer.parseInt(serviceInfo[5]) < 1 || Integer.parseInt(serviceInfo[5]) > 7) {
+            System.out.println(
                     "Erreur, la récurrence hebdomadaire doit être un chiffre entre 1 et 7\n" +
                             "Veuillez réessayer :");
-        	serviceInfo[5] = scanner.nextLine();
+            serviceInfo[5] = scanner.nextLine();
         }
-        
+
         System.out.println("Veuillez entrer la capacité maximale (max 30) :");
         serviceInfo[6] = scanner.nextLine();
-        while(Integer.parseInt(serviceInfo[6]) > 30 ) {
-        	System.out.println(
+        while (Integer.parseInt(serviceInfo[6]) > 30) {
+            System.out.println(
                     "Erreur, la capacité maximale est 30 personnes\n" +
                             "Veuillez réessayer :");
-        	serviceInfo[6] = scanner.nextLine();
+            serviceInfo[6] = scanner.nextLine();
         }
         System.out.println("Veuillez entrer le prix (max 100.0)$ :");
         serviceInfo[7] = scanner.nextLine();
-        while(Integer.parseInt(serviceInfo[7]) > 100) {
-        	System.out.println(
+        while (Integer.parseInt(serviceInfo[7]) > 100) {
+            System.out.println(
                     "Erreur, le prix maximale d'un séance est 100.0$ \n" +
                             "Veuillez réessayer :");
-        	serviceInfo[7] = scanner.nextLine();
+            serviceInfo[7] = scanner.nextLine();
         }
         System.out.println("Veuillez entrer les commentaires pour ce service :");
         serviceInfo[8] = scanner.nextLine();
@@ -490,7 +490,7 @@ public class Menu {
             String regex = "^[a-zA-Z0-9_!#$%&’*+/=?`{|}~^.-]+@[a-zA-Z0-9.-]+$";
             Pattern pattern = Pattern.compile(regex);
             Matcher matcher = pattern.matcher(email);
-            while (!((Matcher) matcher).matches()) {
+            while (!matcher.matches()) {
                 System.out.println("Erreur le courriel doit être sous la forme qui suit - exemple@hotmail.ca :");
                 email = scanner.nextLine();
                 matcher = pattern.matcher(email);
@@ -592,7 +592,7 @@ public class Menu {
                     String regex = "^[a-zA-Z0-9_!#$%&’*+/=?`{|}~^.-]+@[a-zA-Z0-9.-]+$";
                     Pattern pattern = Pattern.compile(regex);
                     Matcher matcher = pattern.matcher(res);
-                    while (!((Matcher) matcher).matches()) {
+                    while (!matcher.matches()) {
                         System.out.println("Erreur le courriel doit être sous la forme qui suit - Hanlanouille@hotmail.ca :");
                         res = scanner.nextLine();
                         matcher = pattern.matcher(res);
@@ -737,9 +737,9 @@ public class Menu {
         System.out.println("Veuillez entrer le code de séance que vous voulez consulter:");
         consultation[1] = scanner.nextLine();
         consultation[0] = verifiePro(scanner);
-        if(consultation[0].equals("error")) {
-        	System.out.println("Invalide");
-        	return;
+        if (consultation[0].equals("error")) {
+            System.out.println("Invalide");
+            return;
         }
         if (serviceControl.seanceExist(consultation[1])) {
             serviceControl.consultInscrit(consultation[0], consultation[1]);
@@ -757,9 +757,9 @@ public class Menu {
         String[] confirmation = new String[2];
         System.out.println("Vous avez choisi : confirmer la présence à une séance\n");
         confirmation[0] = verifieNum(scanner);
-        if(confirmation[0].equals("error")) {
-        	System.out.println("Invalide");
-        	return;
+        if (confirmation[0].equals("error")) {
+            System.out.println("Invalide");
+            return;
         }
         System.out.println("Numéro de la séance :");
         confirmation[1] = scanner.nextLine();
@@ -791,13 +791,13 @@ public class Menu {
             String regex = "^[a-zA-Z0-9_!#$%&’*+/=?`{|}~^.-]+@[a-zA-Z0-9.-]+$";
             Pattern pattern = Pattern.compile(regex);
             Matcher matcher = pattern.matcher(email);
-            while (!((Matcher) matcher).matches()) {
+            while (!matcher.matches()) {
                 System.out.println("Erreur le courriel doit être sous la forme qui suit - Hanlanouille@hotmail.ca :");
                 email = scanner.nextLine();
                 matcher = pattern.matcher(email);
             }
         }
-        clientControl.validationAcces(numM, email);
+        System.out.println(clientControl.validationAcces(numM, email));
     }
 
     /**
@@ -837,8 +837,8 @@ public class Menu {
      * l'option générer un rapport synthèse de la semaine
      */
     public void rapportSeamine(Scanner scanner) {
-    	pc.rapportSynthese();
-    	System.out.println("Le rapport sythèse est crée dans le disque.");
+        pc.rapportSynthese();
+        System.out.println("Le rapport sythèse est crée dans le disque.");
 
     }
 
@@ -846,24 +846,24 @@ public class Menu {
      * l'option générer des fichier TEF pour les professionnels
      */
     public void rapportTEF(Scanner scanner) {
-    	pc.fichierTEF();
-    	System.out.println("Le rapport sythèse est crée dans le disque.");
+        pc.fichierTEF();
+        System.out.println("Le rapport sythèse est crée dans le disque.");
     }
 
     /**
      * l'option générer la facture pour chaque membre
      */
     public void recuClient(Scanner scanner) {
-    	pc.factureClient();
-    	System.out.println("Les factures de clients sont créées dans le disque.");
+        pc.factureClient();
+        System.out.println("Les factures de clients sont créées dans le disque.");
     }
 
     /**
      * l'option générer la facture pour chaque professionnel
      */
     public void recuPro(Scanner scanner) {
-    	pc.facturePro();
-    	System.out.println("Les factures de professionnels sont créées dans le disque.");
+        pc.facturePro();
+        System.out.println("Les factures de professionnels sont créées dans le disque.");
     }
 }
     

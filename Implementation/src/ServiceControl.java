@@ -4,51 +4,38 @@ import java.util.*;
  * @author Qiao Wang
  */
 public class ServiceControl {
-    private HashMap<String, Seance> repSeances = new HashMap<String, Seance>();
-    private HashMap<String, Services> repServices = new HashMap<String, Services>();
-    private HashMap<String, List<Seance>> seanceInscrit = new HashMap<String, List<Seance>>();
-    private HashMap<String, List<Seance>> seanceFournie = new HashMap<String, List<Seance>>();
-
-    /**
-     * @return le répertoire des séances
-     */
-    public HashMap<String, Seance> getRepSeance() {
-        HashMap<String, Seance> rs = this.repSeances;
-        return rs;
-    }
+    private final HashMap<String, Seance> repSeances = new HashMap<String, Seance>();
+    private final HashMap<String, Services> repServices = new HashMap<String, Services>();
+    private final HashMap<String, List<Seance>> seanceInscrit = new HashMap<String, List<Seance>>();
+    private final HashMap<String, List<Seance>> seanceFournie = new HashMap<String, List<Seance>>();
 
     /**
      * @return le répertoire des services
      */
     public HashMap<String, Services> getRepService() {
-        HashMap<String, Services> rss = this.repServices;
-        return rss;
+        return this.repServices;
     }
 
     /**
      * @return le répertoire des séances inscrites par les membres
      */
     public HashMap<String, List<Seance>> getRepInscrit() {
-        HashMap<String, List<Seance>> ri = this.seanceInscrit;
-        return ri;
+        return this.seanceInscrit;
     }
 
     /**
      * @return le répertoire des séances fournies par les professionnels
      */
     public HashMap<String, List<Seance>> getRepFournie() {
-        HashMap<String, List<Seance>> rf = this.seanceFournie;
-        return rf;
+        return this.seanceFournie;
     }
 
     public Services getService(String code) {
-        Services s = this.repServices.get(code);
-        return s;
+        return this.repServices.get(code);
     }
 
     public Seance getSeance(String codeSeance) {
-        Seance s = this.repSeances.get(codeSeance);
-        return s;
+        return this.repSeances.get(codeSeance);
     }
 
     /**
@@ -149,7 +136,6 @@ public class ServiceControl {
         } else {
             System.out.println("Le champ" + champ + "n'est pas modifiable individullement.\n Supprimer le service " + code + "et en créer un nouveau SVP.");
         }
-
     }
 
     /**
@@ -163,7 +149,6 @@ public class ServiceControl {
         this.repServices.remove(code);
         this.repSeances.entrySet().removeIf(e -> e.getKey().substring(0, 3).equals(code));
     }
-
 
     /**
      * Méthode pour inscrire un membre à une séance

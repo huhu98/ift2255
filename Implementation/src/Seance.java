@@ -6,11 +6,11 @@ import java.util.*;
  */
 public class Seance {
 
-    private LocalDate date;
-    private List<String> inscriptions = new ArrayList<String>();
-    private List<String> presences = new ArrayList<String>();
-    private String numP;
-    private String code;
+    private final LocalDate date;
+    private final List<String> inscriptions = new ArrayList<String>();
+    private final List<String> presences = new ArrayList<String>();
+    private final String numP;
+    private final String code;
 
     public Seance(LocalDate date, String numP, String code) {
         this.numP = numP;
@@ -74,7 +74,7 @@ public class Seance {
      * pour former un confirmation d'inscription
      *
      * @param codeSeance code séance
-     * @param numM numéro de membre
+     * @param numM       numéro de membre
      * @return affichage de confirmation d'inscription
      */
     public String printInscription(String codeSeance, String numM) {

@@ -36,5 +36,4 @@ public class Membre extends Client {
         return suspendu;
     }
 
-
 }
