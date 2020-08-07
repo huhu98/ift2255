@@ -97,7 +97,7 @@ public class ServiceControl {
      * @param prix     le frais d'une séance
      * @param comment  commentaire facultatif
      */
-    public void ajoutService(String titre, String numPro, String debut, String fin, String heure, String jour, String capacite, String prix, String comment) {
+    public String ajoutService(String titre, String numPro, String debut, String fin, String heure, String jour, String capacite, String prix, String comment) {
 
         String code = serviceCode();
         while (serviceExist(code)) {
@@ -115,9 +115,9 @@ public class ServiceControl {
         this.repSeances.putAll(sub);
 
         //Afficher les codes de seances
-        System.out.println("Code de service:" + code);
         String reply = s.printService();
         System.out.print(reply);
+        return code;
     }
 
     /**
@@ -134,7 +134,7 @@ public class ServiceControl {
             s.setContenu(champ, value);
             repServices.replace(code, s);
         } else {
-            System.out.println("Le champ" + champ + "n'est pas modifiable individullement.\n Supprimer le service " + code + "et en créer un nouveau SVP.");
+            System.out.println("Le champ" + champ + "n'est pas modifiable individuellement.\n Supprimer le service " + code + "et en créer un nouveau SVP.");
         }
     }
 
