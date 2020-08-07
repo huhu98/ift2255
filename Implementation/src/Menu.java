@@ -384,7 +384,7 @@ public class Menu {
         System.out.println("Veuillez entrer les commentaires pour ce service :");
         serviceInfo[8] = scanner.nextLine();
         System.out.println("Ajout confirmé, voici le code de service et les code de séances associées:");
-        serviceControl.ajoutService(serviceInfo[0], serviceInfo[1], serviceInfo[2], serviceInfo[3], serviceInfo[4], serviceInfo[5], serviceInfo[6], serviceInfo[7], serviceInfo[8]);
+        System.out.println(serviceControl.ajoutService(serviceInfo[0], serviceInfo[1], serviceInfo[2], serviceInfo[3], serviceInfo[4], serviceInfo[5], serviceInfo[6], serviceInfo[7], serviceInfo[8]));
     }
 
     /**
