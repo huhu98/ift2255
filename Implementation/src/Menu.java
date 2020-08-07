@@ -11,10 +11,12 @@ import java.util.regex.Pattern;
 public class Menu {
     private ClientControl clientControl;
     private ServiceControl serviceControl;
+    private Comptable pc;
 
     public Menu(ClientControl cc, ServiceControl sc) {
         this.clientControl = cc;
         this.serviceControl = sc;
+	    this.pc = new Comptable(cc,sc);
     }
 
     /**
@@ -356,7 +358,7 @@ public class Menu {
         
         System.out.println("Veuillez entrer la récurrence hebdomadaire en numéro(1:lundi, 2:mardi,...) :");
         serviceInfo[5] = scanner.nextLine();
-        while(Integer.parseInt(serviceInfo[5])<0 && Integer.parseInt(serviceInfo[5])>8 ) {
+        while(Integer.parseInt(serviceInfo[5]) < 1 || Integer.parseInt(serviceInfo[5]) > 7 ) {
         	System.out.println(
                     "Erreur, la récurrence hebdomadaire doit être un chiffre entre 1 et 7\n" +
                             "Veuillez réessayer :");
@@ -365,7 +367,7 @@ public class Menu {
         
         System.out.println("Veuillez entrer la capacité maximale (max 30) :");
         serviceInfo[6] = scanner.nextLine();
-        while(Integer.parseInt(serviceInfo[6]) > 30) {
+        while(Integer.parseInt(serviceInfo[6]) > 30 ) {
         	System.out.println(
                     "Erreur, la capacité maximale est 30 personnes\n" +
                             "Veuillez réessayer :");
@@ -835,6 +837,8 @@ public class Menu {
      * l'option générer un rapport synthèse de la semaine
      */
     public void rapportSeamine(Scanner scanner) {
+    	pc.rapportSynthese();
+    	System.out.println("Le rapport sythèse est crée dans le disque.");
 
     }
 
@@ -842,21 +846,24 @@ public class Menu {
      * l'option générer des fichier TEF pour les professionnels
      */
     public void rapportTEF(Scanner scanner) {
-
+    	pc.fichierTEF();
+    	System.out.println("Le rapport sythèse est crée dans le disque.");
     }
 
     /**
      * l'option générer la facture pour chaque membre
      */
     public void recuClient(Scanner scanner) {
-
+    	pc.factureClient();
+    	System.out.println("Les factures de clients sont créées dans le disque.");
     }
 
     /**
      * l'option générer la facture pour chaque professionnel
      */
     public void recuPro(Scanner scanner) {
-
+    	pc.facturePro();
+    	System.out.println("Les factures de professionnels sont créées dans le disque.");
     }
 }
     

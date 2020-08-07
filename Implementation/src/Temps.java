@@ -2,6 +2,7 @@ import java.text.SimpleDateFormat;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
 import java.time.temporal.TemporalAdjusters;
 import java.util.ArrayList;
 import java.util.Date;
@@ -17,7 +18,12 @@ public class Temps {
     public static String mtn() {
         return new SimpleDateFormat("dd-MM-yyyy HH:mm:ss").format(new Date());
     }
-
+    public static String semProchaine() {
+    	 LocalDate today = LocalDate.now();
+    	 LocalDate nextWeek = today.plus(1, ChronoUnit.WEEKS);
+    	 return new SimpleDateFormat("dd-MM-yyyy").format(nextWeek);
+    	
+    }
     /**
      * Methode pour calculer les dates de récurrence hebdomadaire dans un durée
      *
@@ -52,5 +58,14 @@ public class Temps {
             dates.add(startday);
         }
         return dates;
+    }
+    
+    public static boolean dateInrange(String debut,String fin, String date) {
+    	 DateTimeFormatter format = DateTimeFormatter.ofPattern("d-MM-yyyy");
+    	 LocalDate start = LocalDate.parse(debut, format);
+         LocalDate end = LocalDate.parse(fin, format);
+         LocalDate testDate = LocalDate.parse(date, format);
+         
+    	return	!(testDate.isBefore(start) || testDate.isAfter(end));
     }
 }
