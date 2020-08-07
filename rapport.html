@@ -62,7 +62,10 @@
 			background-color : #d8f9aa;
 			display:inline;
 		}
-		.corrige
+		.Dev3{
+			background-color : #00C5FF;
+			display:inline;
+		}
 	</style>
 </head>
 
@@ -70,7 +73,7 @@
 	
 	<h1 style="text-align: center;">
 		IFT 2255 - Devoir 1 corrigé et mise à jour- Equipe 16</h1>
-	<p class="Dev2"><b>Le rapport de devoir 2 est <a href="#rapport2">ici</a>.</b><br>
+	<p class="Dev3"><b>Le rapport de devoir 3 est <a href="#dev3">ici</a>.</b><br>
 	Les informations au fond vert ont été ajoutées pour répondre aux nouvelles exigences du Devoir 2.
 	</p>
 	<h2>
@@ -602,19 +605,7 @@
 			<li>Comment le système #GYM que vous développez interagira avec les autres systèmes ?</li>
 			<li>Comment les utilisateurs interagiront avec le système ?</li>
 		</ul>
-		Le Centre de données sera informatisées grace au langage informatique Java.
-
-		Les données seront stockées soit sur un disque dur dans une serveur présent aux gym, ou seront stockées
-		sur une plateforme en ligne.
-
-		Le matériel nécessaire sera un ordinateur pour intéragir avec le logiciel, ainsi que du matériel de
-		stockage comme un disque dur ou un service en ligne.
-
-		Le logiciel du Centre de Données de #GYM interagira avec une interface faite séparement en traitant les
-		requetes de recherche et en retournant l'information demandée.
-
-		Les utilisateurs seront les agents qui utilise le logiciel pour valider les clients ainsi que pour
-		accéder à la base de données.
+		Le Centre de données sera informatisé grâce au langage informatique Java. Les données seront stockées soit sur un disque dur dans une serveur présent aux gym, ou seront stockées sur une plateforme en ligne. Le matériel nécessaire sera un ordinateur pour interagir avec le logiciel, du matériel de stockage comme un disque dur ou un service en ligne, un appareil mobile pour l’utilisation de l’application mobile et un guichet pour le traitement des paiements. Le logiciel du Centre de Données #GYM interagira avec une interface faite séparément en traitant les requêtes de recherche et en retournant l'information demandée. L’application mobile interagira avec le Centre de Données pour les requêtes clients comme la modification du compte ou le visionnement des services. Les utilisateurs seront les agents qui utilise le logiciel pour valider les clients ainsi que pour accéder à la base de données. Les clients seront aussi des utilisateurs puisqu’ils peuvent modifier leurs comptes à l’aide d'un appareil mobile. Le gérant est aussi un utilisateur, il a besoin du centre de donnée pour obtenir un rapport de synthèse.
 	</p>
 	<h2>
 		Tâche 7: Diagramme d'activité UML</h2>
@@ -677,7 +668,7 @@
 			
 		</tbody>
 	</table>
-	<h2>
+	<h2 class="Dev3">
 		Tâche 2: Diagramme de classe UML</h2>
 		<a href="images/DC.jpg"><img src="images/DC.jpg" alt="diagramme de classe DC"></a>
 	
@@ -690,6 +681,7 @@
 			<li>confirmer présence à une séance</li>
 			<li>procédure comptable</li>
 		</ul>
+		<p class="Dev3">On a pas eu temps de les corriger.</p>
 		<h4>Ajouter/mettre à jour/supprimer un membre</h4>
 		<a href="images/DS1.jpg"><img src="images/DS1.jpg" alt="DS1 gestion membre"></a>
 		<h4>Ajouter/mettre à jour/supprimer un service</h4>
@@ -701,12 +693,7 @@
 		<h4>Procédure comptable</h4>
 		<a href="images/DS5.jpg"><img src="images/DS5.jpg" alt="DS5 procedure comptable"></a>
 		
-	<h2>
-		Tâche 4:Production du prototype</h2>
-		<a href="Implementation.jar">Implementation.jar</a>
-		<a href="images/prototype.jpg"><img src="images/prototype.jpg" alt="menu prototype"></a>
 	
-	<h2>
 		Collaboration Devoir 2</h2>
 	<p>
 		<a href="images/stats3.png"><img src="images/stats3.png" alt="stats de commits3"></a>
@@ -718,6 +705,65 @@
 		<a href="images/stats6.png"><img src="images/stats6.png" alt="stats de commits6"></a>
 	</p>	
 	</div>
+	<h1 id="dev3" style="text-align: center;">
+		IFT 2255 - Devoir 3- Equipe 16</h1>
+		<h2>Distribution des tâches</h2>
+	<p><span class="bold">Soumissionaire :</span> Qiao Wang</p>
+    <table cellpadding="7px">
+		<thead>
+			<tr>
+				<th class="first_col">Tâche</th>
+				<th>Maxime</th>
+				<th>Qiao</th>
+				<th>Han</th>
+			</tr>
+		</thead>
+
+		<tbody>
+			<tr>
+				<td class="first_col">Mise à jour de devoir 2</td>
+				<td>60</td>
+				<td></td>
+				<td>40</td>
+			</tr>
+			<tr>
+				<td class="first_col">Implémentation en Java</td>
+				<td>30</td>
+				<td>40</td>
+				<td>20</td>
+			</tr>
+			<tr>
+				<td class="first_col">Tests unitaires</td>
+				<td>0</td>
+				<td>0</td>
+				<td>100</td>
+			</tr>
+			<tr>
+				<td class="first_col">Livraison et documentation</td>
+				<td>33</td>
+				<td>33</td>
+				<td>33</td>
+			</tr>
+			
+		</tbody>
+		
+	</table>
+		<h2>Tâche 2:Implémentation en Java</h2>
+		<a href="Implementation.jar">Implementation.jar</a>
+		<h2>Tâche 3: Tests unitaires</h2>
+		<a href="images/test_ClientControl.png"><img src="images/test_ClientControl.png" alt="test ClientControl"></a>
+		<a href="images/test_ServiceControl.png"><img src="images/test_ServiceControl.png" alt="test ServiceControl"></a>
+		<h2>Tâche 4: Livraison et documentation</h2>
+			<p>Le manuel d'utilisation est: manuel_dutilisation_Max_Han_Qiao.docx</p>
+			<p>Les javadocs sont dans le dossier Documentation</p>
+			
+		<h2>
+		Collaboration Devoir 3</h2>
+	<p>
+		<a href="images/stats7.png"><img src="images/stats3.png" alt="stats de commits3"></a>
+		<a href="images/stats8.png"><img src="images/stats4.png" alt="stats de commits4"></a>
+	</p>	
+		
 </body>
 
 </html>
