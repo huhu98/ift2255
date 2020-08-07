@@ -8,9 +8,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-/**
- * @author Qiao Wang
- */
 public class Temps {
 
     /**
@@ -21,13 +18,18 @@ public class Temps {
     public static String mtn() {
         return new SimpleDateFormat("dd-MM-yyyy HH:mm:ss").format(new Date());
     }
-
-    public static String semProchaine() {
-        LocalDate today = LocalDate.now();
-        LocalDate nextWeek = today.plus(1, ChronoUnit.WEEKS);
-        return new SimpleDateFormat("dd-MM-yyyy").format(nextWeek);
+    public static String today() {
+    	LocalDate today = LocalDate.now();
+    	return today.toString();
     }
-
+    public static String semProchaine() {
+    	 LocalDate today = LocalDate.now();
+    	 LocalDate nextWeek = today.plus(1, ChronoUnit.WEEKS);
+    	 DateTimeFormatter format = DateTimeFormatter.ofPattern("d-MM-yyyy");
+         String formatted = nextWeek.format(format);
+    	 return formatted;
+    	
+    }
     /**
      * Methode pour calculer les dates de récurrence hebdomadaire dans un durée
      *
@@ -63,13 +65,13 @@ public class Temps {
         }
         return dates;
     }
-
-    public static boolean dateInrange(String debut, String fin, String date) {
-        DateTimeFormatter format = DateTimeFormatter.ofPattern("d-MM-yyyy");
-        LocalDate start = LocalDate.parse(debut, format);
-        LocalDate end = LocalDate.parse(fin, format);
-        LocalDate testDate = LocalDate.parse(date, format);
-
-        return !(testDate.isBefore(start) || testDate.isAfter(end));
+    
+    public static boolean dateInrange(String debut,String fin, String date) {
+    	 DateTimeFormatter format = DateTimeFormatter.ofPattern("d-MM-yyyy");
+    	 LocalDate start = LocalDate.parse(debut, format);
+         LocalDate end = LocalDate.parse(fin, format);
+         LocalDate testDate = LocalDate.parse(date, format);
+         
+    	return	!(testDate.isBefore(start) || testDate.isAfter(end));
     }
 }
